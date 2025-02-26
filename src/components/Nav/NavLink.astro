@@ -1,0 +1,32 @@
+---
+import type { NavBarLink } from "@/types/config"
+
+// data
+
+interface Props {
+	navItem: NavBarLink
+	class?: string
+}
+
+const { navItem, class: className } = Astro.props as Props
+const { name, url, newTab = false } = navItem
+
+// if the current page is the same as the link, we can change the styling
+---
+
+<li>
+	<a
+		class:list={[
+			`nav__link--base flex w-full items-center ${className}`,
+			{
+				// styling for current active page link
+				"": Astro.url.pathname === url,
+			},
+		]}
+		href={url}
+		target={newTab ? "_blank" : ""}
+		rel={newTab ? "noopener noreferrer" : ""}
+	>
+		{name}
+	</a>
+</li>
