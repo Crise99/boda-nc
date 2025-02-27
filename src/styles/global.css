@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+	--breackpoint-xs: 400px;
+	--breackpoint-sm: 640px;
+	--breackpoint-md: 768px;
+	--breackpoint-lg: 1024px;
+	--breackpoint-xl: 1280px;
+	--breackpoint-2xl: 1536px;
+
+	--font-sans: "Inter", sans-serif;
+	--font-mono: "Menlo", monospace;
+
+	--color-primary-50: #f9f6f3;
+	--color-primary-100: #f0ece4;
+	--color-primary-200: #e0d6c8;
+	--color-primary-300: #cdbba4;
+	--color-primary-400: #bba085;
+	--color-primary-500: #a98466;
+	--color-primary-600: #9c745a;
+	--color-primary-700: #825f4c;
+	--color-primary-800: #6a4e42;
+	--color-primary-900: #574137;
+	--color-primary-950: #2e211c;
+
+	--color-base-50: #f6f6f6;
+	--color-base-100: #e7e7e7;
+	--color-base-200: #d1d1d1;
+	--color-base-300: #b0b0b0;
+	--color-base-400: #888888;
+	--color-base-500: #6d6d6d;
+	--color-base-600: #5d5d5d;
+	--color-base-700: #4f4f4f;
+	--color-base-800: #454545;
+	--color-base-900: #363636;
+	--color-base-950: #262626;
+
+	--color-info: #7dd3fc;
+	--color-info-content: #082f49;
+	--color-success: #6ee7b7;
+	--color-success-content: #022c22;
+	--color-warning: #fcd34d;
+	--color-warning-content: #111827;
+	--color-error: #fca5a5;
+	--color-error-content: #450a0a;
+
+	--font-heading-1: "Playfair Display Variable", serif;
+	--font-heading-2: "Raleway Variable", sans-serif;
+	--font-sans: "Work Sans Variable", sans-serif;
+	--font-decorative: "Cinzel Decorative", "Playfair Display Variable", serif;
+}

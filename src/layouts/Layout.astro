@@ -1,8 +1,7 @@
 ---
 import Footer from "@/components/Footer.astro"
-import Nav from "@/components/Nav/Nav.astro"
 
-import "@/styles/global.scss"
+import "@/styles/global.css"
 
 interface Props {
 	type?: "general"
@@ -36,7 +35,7 @@ const {
 	</head>
 	<body id="body" class="bg-base-50 text-base-900">
 		<div class="min-h-[100lvh]">
-			<Nav startStyle={navStartStyle} />
+			<!-- <Nav startStyle={navStartStyle} /> -->
 			<main>
 				<slot />
 			</main>
