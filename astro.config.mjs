@@ -10,7 +10,24 @@ import tailwindcss from "@tailwindcss/vite"
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [mdx(), react(), icon()],
+	site: "https://www.bodanuriaycristian.com/",
+	integrations: [mdx(), react(), icon({
+		include: {
+			tabler: [
+				"bulb",
+				"alert-triangle",
+				"flame",
+				"info-circle",
+				"arrow-narrow-left",
+				"arrow-narrow-right",
+				"menu-2",
+				"x",
+				"chevron-down",
+				"category",
+				"calendar-event",
+			],
+		},
+	})],
 	output: "static",
 	adapter: cloudflare(),
 

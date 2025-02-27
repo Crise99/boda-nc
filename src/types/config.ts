@@ -20,3 +20,19 @@ export type NavBarLink = {
 export type NavBarConfig = {
 	links: (NavBarLink | LinkPreset)[]
 }
+
+export interface SiteDataProps {
+	name: String
+	title: string
+	description: string
+	useViewTransitions?: boolean
+	author: {
+		name: string
+		email: string
+		twitter: string
+	}
+	defaultImage: {
+		src: string
+		alt: string
+	}
+}
