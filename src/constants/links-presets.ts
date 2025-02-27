@@ -1,17 +1,17 @@
 import { LinkPreset, type NavBarLink } from "@/types/config"
-import { SiteText } from "./site-texts"
+import { siteText } from "./site-texts"
 
 export const LinkPresets: { [key in LinkPreset]: NavBarLink } = {
 	[LinkPreset.Home]: {
-		name: SiteText.home,
+		name: siteText.home,
 		url: "/",
 	},
 	[LinkPreset.Gallery]: {
-		name: SiteText.gallery,
+		name: siteText.gallery,
 		url: "/gallery",
 	},
 	[LinkPreset.Invitation]: {
-		name: SiteText.invitation,
+		name: siteText.invitation,
 		url: "/invitation",
 	},
 }

@@ -1,5 +1,6 @@
 ---
 import AboutTheCouple from "@/components/AboutTheCouple.astro"
+import Hero from "@/components/Hero.astro"
 
 import { siteConfig } from "@/config"
 import BaseLayout from "@/layouts/BaseLayout.astro"
@@ -13,5 +14,6 @@ import BaseLayout from "@/layouts/BaseLayout.astro"
 	title={siteConfig.title}
 	description={siteConfig.subtitle}
 >
+	<Hero />
 	<AboutTheCouple />
 </BaseLayout>

@@ -4,6 +4,7 @@ import { Icon } from "astro-icon/components"
 // components
 // import SiteLogo from "@/components/SiteLogo/SiteLogo.astro"
 import FooterLink from "@/components/FooterLink.astro"
+import { SiteText } from "@/constants/site-texts"
 
 // data
 
@@ -22,14 +23,14 @@ const today = new Date()
 				<!-- <SiteLogo /> -->
 			</div>
 			<div class="col-span-2 flex justify-end gap-4">
-				<FooterLink href="/">Home</FooterLink>
-				<FooterLink href="/#portfolio">Galería</FooterLink>
+				<FooterLink href="/">{SiteText.home}</FooterLink>
+				<FooterLink href="/#portfolio">{SiteText.gallery}</FooterLink>
 			</div>
 			<div class="hidden justify-center text-center md:flex">
 				<!-- <SiteLogo /> -->
 			</div>
 			<div class="flex gap-4 md:col-span-2">
-				<FooterLink href="/#contact">Contacto</FooterLink>
+				<FooterLink href="/#contact">{SiteText.invitation}</FooterLink>
 			</div>
 		</div>
 
