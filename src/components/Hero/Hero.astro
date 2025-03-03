@@ -9,8 +9,26 @@ import { Image } from "astro:assets";
 // components
 import Button from "@components/Button/Button.astro";
 
+// types
+interface Props {
+	heroImage?: ImageMetadata;
+	title?: string;
+	subtitle?: string;
+	buttonText?: string;
+	buttonLink?: string;
+}
+
 // images
-import { default as heroImage, default as heroImageMobile } from "@images/gdanks-hero.webp";
+import defHeroImage from "@images/gdanks-hero.webp";
+
+// props
+const {
+	heroImage = defHeroImage,
+	title = "Bienvenidos a la boda de Nuria y Cristian",
+	subtitle = "Estamos encantados de compartir contigo este bonito dia y el sin fin de recuerdos inolvidables que juntos vamos a crear.",
+	buttonText = "¡Arrancamos!",
+	buttonLink = "/#contact",
+} = Astro.props as Props;
 ---
 
 <section id="hero" class="relative z-10 flex min-h-[100lvh] w-full">
@@ -27,7 +45,7 @@ import { default as heroImage, default as heroImageMobile } from "@images/gdanks
 			height={1400}
 		/>
 		<Image
-			src={heroImageMobile}
+			src={heroImage}
 			class="h-auto min-h-full w-full object-cover sm:hidden"
 			alt="wedding"
 			aria-hidden="true"
@@ -43,22 +61,21 @@ import { default as heroImage, default as heroImageMobile } from "@images/gdanks
 			<h1
 				class="font-heading-1 text-4xl font-semibold text-pretty drop-shadow-[0_2px_2px_rgba(0,0,0,0.4)] md:text-7xl md:leading-tight"
 			>
-				Bienvenidos a la boda de Nuria y Cristian
+				{title}
 			</h1>
 			<p
 				class="mt-8 text-lg tracking-widest text-pretty drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)] md:max-w-[550px] md:text-2xl"
 			>
-				Estamos encantados de compartir contigo este bonito dia y el sin fin de recuerdos
-				inolvidables que juntos vamos a crear.
+				{subtitle}
 			</p>
 			<div class="mt-10 flex flex-wrap justify-center gap-4 md:justify-start">
 				<Button
 					variant="ghost"
 					arrow="right"
-					href="/#contact"
+					href={buttonLink}
 					class="pl-0 text-xl text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)] md:text-3xl"
 				>
-					¡Arrancamos!
+					{buttonText}
 				</Button>
 			</div>
 		</div>
