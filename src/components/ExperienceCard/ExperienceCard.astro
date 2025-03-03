@@ -26,7 +26,7 @@ const { title, description, heroImage } = experience.data;
 		},
 	]}
 >
-	<a href={`/experience/${experience.id}`} class="aspect-square overflow-hidden">
+	<a href={`/experiences/${experience.id}`} class="aspect-square overflow-hidden">
 		{
 			noTransitions && (
 				<Image
@@ -57,7 +57,7 @@ const { title, description, heroImage } = experience.data;
 			<p class="mt-4 lg:text-lg">{description}</p>
 		</div>
 		<div class="flex">
-			<Button variant="ghost" arrow="right" href={`/experience/${experience.id}`} class="pl-0">
+			<Button variant="ghost" arrow="right" href={`/experiences/${experience.id}`} class="pl-0">
 				Ver Más
 			</Button>
 		</div>
