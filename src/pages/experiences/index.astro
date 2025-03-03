@@ -7,7 +7,6 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 // components
 import Contact from "@components/Contact/Contact.astro";
 import ExperienceGrid from "@components/Experience/ExperienceGrid.astro";
-import TestimonialQuote from "@components/Testimonials/TestimonialQuote.astro";
 
 const experiences = await getCollection("experiences", ({ data }) => {
 	// filter out draft pages
@@ -18,14 +17,12 @@ const experiences = await getCollection("experiences", ({ data }) => {
 <BaseLayout title="Experiences" description="Experience page for my projects and work.">
 	<div class="site-container pt-24 md:pt-36">
 		<div class="mx-auto max-w-6xl text-center">
-			<h1 class="h2 text-pretty uppercase">
-				The moments you'll want to relive in a timeless, romantic, and artistic style.
-			</h1>
+			<h1 class="h2 text-pretty uppercase">Nuestros mejores momentos a lo largo del tiempo.</h1>
 		</div>
 		<ExperienceGrid experiences={experiences} />
 	</div>
 
-	<TestimonialQuote />
+	<!-- <TestimonialQuote /> -->
 
 	<Contact class="mt-12" />
 </BaseLayout>
