@@ -1,0 +1,75 @@
+---
+import { Icon } from "astro-icon/components";
+
+// components
+import FooterLink from "./FooterLink.astro";
+import SiteLogo from "@components/SiteLogo/SiteLogo.astro";
+
+// data
+import siteData from "@config/siteData.json";
+
+const today = new Date();
+---
+
+<footer class="bg-base-100/40 mt-12 flex flex-col items-center justify-center py-8">
+	<div class="site-container">
+		<!-- footer links -->
+		<div
+			class="flex w-full flex-col items-center justify-between gap-2 text-lg md:grid md:grid-cols-5"
+		>
+			<div class="flex justify-center py-2 text-center md:hidden">
+				<SiteLogo />
+			</div>
+			<div class="col-span-2 flex justify-end gap-4">
+				<FooterLink href="/">Home</FooterLink>
+				<FooterLink href="/#portfolio">Portfolio</FooterLink>
+			</div>
+			<div class="hidden justify-center text-center md:flex">
+				<SiteLogo />
+			</div>
+			<div class="flex gap-4 md:col-span-2">
+				<FooterLink href="/#pricing">Pricing</FooterLink>
+				<FooterLink href="/#contact">Contact</FooterLink>
+			</div>
+		</div>
+
+		<!-- lets connect -->
+		<div class="description mx-auto mt-6 max-w-[21rem] px-4 text-center">
+			<p>
+				<span class="italic">Lets connect!</span> Follow my accounts to view more wedding photography
+				and get inspired for your wedding.
+			</p>
+		</div>
+
+		<!-- socials -->
+		<div class="text-primary-500 mt-8 flex justify-center gap-4">
+			<a href="https://x.com/BowTiedWebReapr" target="_blank" rel="noopener noreferrer">
+				<Icon name="socials/mdi-facebook" class="size-6 transition hover:opacity-80" />
+				<span class="sr-only">Facebook</span>
+			</a>
+			<a href="https://x.com/BowTiedWebReapr" target="_blank" rel="noopener noreferrer">
+				<Icon name="socials/mdi-twitter" class="size-6 transition hover:opacity-80" />
+				<span class="sr-only">Twitter</span>
+			</a>
+			<a href="https://x.com/BowTiedWebReapr" target="_blank" rel="noopener noreferrer">
+				<Icon name="socials/mdi-youtube" class="size-6 transition hover:opacity-80" />
+				<span class="sr-only">Youtube</span>
+			</a>
+			<a href="https://x.com/BowTiedWebReapr" target="_blank" rel="noopener noreferrer">
+				<Icon name="socials/basil-instagram-solid" class="size-6 transition hover:opacity-80" />
+				<span class="sr-only">Instagram</span>
+			</a>
+		</div>
+
+		<!-- copyright -->
+		<div class="mt-4 mb-2 text-center text-sm opacity-80">
+			&copy; {today.getFullYear()} a theme by <a
+				href="https://cosmicthemes.com"
+				class="hover:text-primary-600 transition"
+				target="_blank"
+				rel="noopener">Cosmic Themes</a
+			>
+			<!-- {siteData.name}. All rights reserved. -->
+		</div>
+	</div>
+</footer>

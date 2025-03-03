@@ -1,36 +1,38 @@
 {
- "name": "boda-nc",
- "type": "module",
- "version": "0.0.1",
- "scripts": {
-  "dev": "astro dev",
-  "build": "astro build",
-  "preview": "astro preview",
-  "astro": "astro"
- },
- "dependencies": {
-  "@astrojs/cloudflare": "12.2.2",
-  "@astrojs/mdx": "^4.0.8",
-  "@astrojs/react": "^4.2.0",
-  "@tailwindcss/vite": "^4.0.9",
-  "@types/react": "^19.0.10",
-  "@types/react-dom": "^19.0.4",
-  "astro": "5.3.1",
-  "react": "^19.0.0",
-  "react-dom": "^19.0.0",
-  "tailwindcss": "^4.0.9"
- },
- "devDependencies": {
-  "@types/react": "19.0.10",
-  "@typescript-eslint/parser": "8.25.0",
-  "eslint": "9.21.0",
-  "eslint-config-prettier": "10.0.2",
-  "eslint-plugin-astro": "1.3.1",
-  "eslint-plugin-jsx-a11y": "6.10.2",
-  "eslint-plugin-react": "7.34.4",
-  "eslint-plugin-unused-imports": "4.1.4",
-  "prettier": "3.5.2",
-  "prettier-plugin-astro": "0.14.1",
-  "prettier-plugin-tailwindcss": "0.6.11"
- }
+	"name": "horizon",
+	"type": "module",
+	"version": "2.0.0",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"format": "prettier -w \"**/*\" --ignore-unknown --cache"
+	},
+	"dependencies": {
+		"@astrojs/mdx": "^4.0.8",
+		"@astrojs/rss": "^4.0.11",
+		"@astrojs/sitemap": "^3.2.1",
+		"@fontsource-variable/playfair-display": "^5.1.0",
+		"@fontsource-variable/raleway": "^5.1.0",
+		"@fontsource-variable/work-sans": "^5.1.0",
+		"@fontsource/cinzel-decorative": "^5.1.0",
+		"@iconify-json/tabler": "^1.2.16",
+		"@tailwindcss/forms": "^0.5.9",
+		"@tailwindcss/vite": "^4.0.6",
+		"astro": "^5.3.0",
+		"astro-auto-import": "^0.4.4",
+		"astro-icon": "^1.1.4",
+		"astro-seo": "^0.8.4",
+		"tailwindcss": "^4.0.6"
+	},
+	"devDependencies": {
+		"@playform/compress": "^0.1.7",
+		"prettier-plugin-astro": "^0.14.1",
+		"prettier-plugin-tailwindcss": "^0.6.11"
+	},
+	"overrides": {
+		"sharp": "^0.33.0"
+	}
 }

@@ -1,0 +1,127 @@
+---
+import { type CollectionEntry, getCollection, render } from "astro:content";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+// main layout
+import BaseLayout from "./BaseLayout.astro";
+
+// components
+import Button from "@components/Button/Button.astro";
+import Contact from "@components/Contact/Contact.astro";
+import PortfolioGrid from "@components/Portfolio/PortfolioGrid.astro";
+import TestimonialQuote from "@components/Testimonials/TestimonialQuote.astro";
+import PortfolioImage from "@components/PorfolioImage/PortfolioImage.astro";
+
+// utils
+import { formatDate } from "@js/textUtils";
+
+interface Props {
+	portfolio: CollectionEntry<"portfolios">;
+}
+
+import headerImage from "@images/portfolio-header-crop-min.jpg";
+
+const { portfolio } = Astro.props as Props;
+const { title, description, date, images, clients, location, heroImage } = portfolio.data;
+
+// find other portfolios to show later down the page
+const otherPortfolios = await getCollection("portfolios", (otherPortfolio) => {
+	// filter out draft pages
+	return otherPortfolio.data.draft !== true && otherPortfolio.id !== portfolio.id;
+});
+---
+
+<BaseLayout
+	type="general"
+	title={title}
+	description={description}
+	heroImage={heroImage}
+	navStartStyle="white"
+>
+	<div class="relative h-[40svh] w-full overflow-hidden md:h-[60svh]">
+		<div class="absolute inset-0 z-10 bg-black/30"></div>
+		<Image
+			src={headerImage}
+			alt="Portfolio header"
+			class="absolute inset-0 h-auto min-h-full w-full min-w-full object-cover md:hidden"
+			width={600}
+			densities={[1.5, 2]}
+			loading="eager"
+		/>
+		<Image
+			src={headerImage}
+			alt="Portfolio header"
+			class="absolute inset-0 hidden h-auto min-h-full w-full min-w-full object-cover md:block"
+			width={1920}
+			densities={[1.5, 2]}
+			loading="eager"
+		/>
+	</div>
+
+	<article class="mx-auto mt-12 px-4 md:mt-20 md:max-w-6xl">
+		<h1 class="h1 description mt-4 text-center uppercase">
+			{title}
+		</h1>
+
+		<!-- hero image -->
+		<div class="mt-6 h-auto max-h-[50vh] w-full overflow-hidden md:max-h-[80vh]">
+			<Image
+				src={heroImage}
+				alt={`cover for ${title}`}
+				width={1120}
+				quality="high"
+				densities={[1.5, 2]}
+				class="h-auto min-h-full w-full min-w-full object-cover"
+				transition:name={`portfolio-image-${portfolio.id}`}
+			/>
+		</div>
+
+		<!-- people and location -->
+		<h2
+			class="h3 text-primary-500 mt-10 flex flex-col items-center justify-center gap-x-3 gap-y-1 tracking-widest md:flex-row"
+		>
+			<div>
+				{clients.join(" & ")}
+			</div>
+			<span class="hidden md:inline">|</span>
+			<hr class="border-primary-400 w-1/3 md:hidden" />
+			<span>{location}</span>
+		</h2>
+
+		<!-- slot really only fuctions as a longer description -->
+		<div class="description mt-6 text-center text-pretty md:text-lg">
+			<slot />
+		</div>
+
+		<!-- portfolio images -->
+		<div class="mx-auto mt-12 max-w-5xl space-y-6 md:mt-20 md:space-y-16">
+			{
+				images.map((imageGroup) => (
+					<div
+						class:list={[
+							"mb-6 grid gap-6 md:gap-16",
+							{
+								"grid-cols-1": imageGroup.length === 1,
+								"grid-cols-2": imageGroup.length === 2,
+								"grid-cols-3": imageGroup.length === 3,
+							},
+						]}
+					>
+						{imageGroup.map((image) => (
+							<PortfolioImage image={image} numCols={imageGroup.length} />
+						))}
+					</div>
+				))
+			}
+		</div>
+	</article>
+
+	<TestimonialQuote />
+
+	<section class="mx-auto mt-12 px-4 md:mt-16 md:max-w-5xl">
+		<h3 class="h2 text-center">More Portfolios</h3>
+		<PortfolioGrid portfolios={otherPortfolios} noTransitions />
+	</section>
+	<Contact class="mt-12" />
+</BaseLayout>

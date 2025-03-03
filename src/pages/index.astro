@@ -1,12 +1,29 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import { Image } from "astro:assets";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// layout
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+// components
+import Hero from "@components/Hero/Hero.astro";
+import FeatureNumbers from "@components/Feature/FeatureNumbers.astro";
+import PortfolioThreeCards from "@components/Portfolio/PortfolioThreeCards.astro";
+import Testimonials from "@components/Testimonials/Testimonials.astro";
+import PricingThreeCards from "@components/Pricing/PricingThreeCards.astro";
+import About from "@components/About/About.astro";
+import Contact from "@components/Contact/Contact.astro";
+import Button from "@components/Button/Button.astro";
+
+// data
+import siteData from "@config/siteData.json";
 ---
 
-<!-- Hola, es un comentario -->
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout title={siteData.title} description={siteData.description} navStartStyle="white">
+	<Hero />
+	<FeatureNumbers />
+	<PortfolioThreeCards />
+	<Testimonials />
+	<PricingThreeCards />
+	<About />
+	<Contact />
+</BaseLayout>

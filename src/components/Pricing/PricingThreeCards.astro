@@ -1,0 +1,117 @@
+---
+/**
+ * * Pricing cards with three cards
+ */
+
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+// components
+import Button from "@components/Button/Button.astro";
+
+interface pricingItem {
+	name: string; // plan name
+	featured?: boolean; // if true, will be highlighted or otherwise featured
+	price: number;
+	features: string[]; // list of features
+	image: ImageMetadata; // imported image
+}
+
+import image1 from "@assets/images/couple-5-min.jpg";
+import image2 from "@assets/images/couple-6-crop.jpg";
+import image3 from "@assets/images/couple-1-square.jpg";
+
+// This is designed for 3 pricing items, but can be modified to support more
+const pricingData: pricingItem[] = [
+	{
+		name: "Elopement",
+		featured: false,
+		price: 1999,
+		features: [
+			"200+ Professionally Edited Photos",
+			"Private Online Gallery",
+			"*Additional Charge Based On Travel Distance",
+			"*Additional Charge For Videography",
+		],
+		image: image1,
+	},
+	{
+		name: "Wedding",
+		featured: true,
+		price: 2999,
+		features: [
+			"300+ Professionally Edited Photos",
+			"Private Online Gallery",
+			"All-Day Photography Coverage",
+			"*Additional Charge For Videography",
+		],
+		image: image2,
+	},
+	{
+		name: "Engagement",
+		featured: false,
+		price: 799,
+		features: [
+			"100+ Professionally Edited Photos",
+			"Private Online Gallery",
+			"*Additional Charge Based On Travel Distance",
+		],
+		image: image3,
+	},
+];
+---
+
+<section id="pricing" class="mx-auto max-w-6xl scroll-mt-10 px-4 py-8 md:py-12">
+	<div class="mx-auto max-w-6xl text-center">
+		<h2 class="h2 text-pretty uppercase">Photography Packages</h2>
+	</div>
+
+	<!-- works for 3 pricing plans, adjust grid cols here to support more or less -->
+	<div
+		class="mx-auto grid w-full max-w-md gap-12 pt-8 sm:max-w-none sm:grid-cols-2 md:pt-12 lg:grid-cols-3"
+	>
+		{
+			pricingData.map((plan) => (
+				<div
+					class="flex w-full flex-col"
+					class:list={[
+						{
+							"bg-primary-200": plan.featured === true,
+						},
+					]}
+				>
+					<div>
+						<div class="aspect-[3/4] h-auto w-full overflow-hidden">
+							<Image
+								src={plan.image}
+								alt={plan.name}
+								width={450}
+								densities={[1.5, 2]}
+								class="h-full w-full object-cover"
+							/>
+						</div>
+					</div>
+					<div class="border-primary-200 flex h-full flex-col justify-between border-2 border-t-0 pt-10 pb-10">
+						<div>
+							<h3 class="h2 text-center">{plan.name}</h3>
+
+							<ul class="mt-4 flex flex-col gap-3 px-8">
+								{plan.features.map((feature) => (
+									<li class="leading-snug lg:text-lg lg:leading-snug">{feature}</li>
+								))}
+							</ul>
+						</div>
+						<p class="font-decorative text-base-800 mt-6 flex justify-center text-center text-[5rem] leading-none">
+							${plan.price}
+							<span class="flex h-full text-[3.5rem]">+</span>
+						</p>
+					</div>
+				</div>
+			))
+		}
+	</div>
+
+	<div class="mt-12 flex justify-center">
+		<Button href="/#contact" variant="outline" class="px-8">Get a quote</Button>
+	</div>
+</section>

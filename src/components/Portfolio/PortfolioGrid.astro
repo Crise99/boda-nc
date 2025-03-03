@@ -1,0 +1,17 @@
+---
+import { type CollectionEntry, getCollection, render } from "astro:content";
+
+// components
+import PortfolioCard from "@components/PortfolioCard/PortfolioCard.astro";
+
+interface Props {
+	portfolios: CollectionEntry<"portfolios">[];
+	noTransitions?: boolean;
+}
+
+const { portfolios, noTransitions = false } = Astro.props as Props;
+---
+
+<div class="grid gap-x-4 gap-y-10 pt-8 md:grid-cols-3 md:pt-12">
+	{portfolios.map((portfolio) => <PortfolioCard portfolio={portfolio} direction="vertical" />)}
+</div>
