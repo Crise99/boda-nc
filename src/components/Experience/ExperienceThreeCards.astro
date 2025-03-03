@@ -1,18 +1,18 @@
 ---
 /**
- * * This is a component that displays three portfolio cards
+ * * This is a component that displays three experience cards
  * Larger on the left, smaller two on the right
  */
 
 import { getCollection } from "astro:content";
 
 // components
-import PortfolioCard from "@components/PortfolioCard/PortfolioCard.astro";
 import Button from "@components/Button/Button.astro";
+import ExperienceCard from "@components/ExperienceCard/ExperienceCard.astro";
 
-const portfolios = await getCollection("portfolios");
+const experiences = await getCollection("experiences");
 
-const sortedPortfolios = portfolios.sort((a, b) => {
+const sortedExperiences = experiences.sort((a, b) => {
 	if (a.data.order < b.data.order) {
 		return -1;
 	}
@@ -22,10 +22,10 @@ const sortedPortfolios = portfolios.sort((a, b) => {
 	return 0;
 });
 
-const firstThreePortfolios = sortedPortfolios.slice(0, 3);
+const firstThreeExperiences = sortedExperiences.slice(0, 3);
 ---
 
-<section id="portfolio" class="site-container mt-12 scroll-mt-10 py-8 md:py-12">
+<section id="experience" class="site-container mt-12 scroll-mt-10 py-8 md:py-12">
 	<div class="mx-auto max-w-6xl text-center">
 		<h2 class="h2 text-pretty uppercase">
 			The moments you'll want to relive in a timeless, romantic, and artistic style.
@@ -33,16 +33,16 @@ const firstThreePortfolios = sortedPortfolios.slice(0, 3);
 	</div>
 	<div class="grid gap-10 pt-8 md:grid-cols-2 md:pt-12">
 		<div class="md:bg-base-100 md:rounded-md md:p-10 md:pb-6">
-			<PortfolioCard portfolio={firstThreePortfolios[0]} direction="vertical" />
+			<ExperienceCard experience={firstThreeExperiences[0]} direction="vertical" />
 		</div>
 		<div class="flex h-full flex-col justify-between gap-y-6">
-			<PortfolioCard portfolio={firstThreePortfolios[1]} direction="horizontal" />
+			<ExperienceCard experience={firstThreeExperiences[1]} direction="horizontal" />
 			<hr class="border-base-100 hidden border md:block" />
-			<PortfolioCard portfolio={firstThreePortfolios[2]} direction="horizontal" />
+			<ExperienceCard experience={firstThreeExperiences[2]} direction="horizontal" />
 		</div>
 	</div>
 
 	<div class="mt-12 flex justify-center">
-		<Button href="/portfolio" variant="outline">View all portfolios</Button>
+		<Button href="/experience" variant="outline">View all experiences</Button>
 	</div>
 </section>

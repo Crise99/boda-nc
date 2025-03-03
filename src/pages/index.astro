@@ -1,18 +1,15 @@
 ---
-import { Image } from "astro:assets";
-
 // layout
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 // components
-import Hero from "@components/Hero/Hero.astro";
-import FeatureNumbers from "@components/Feature/FeatureNumbers.astro";
-import PortfolioThreeCards from "@components/Portfolio/PortfolioThreeCards.astro";
-import Testimonials from "@components/Testimonials/Testimonials.astro";
-import PricingThreeCards from "@components/Pricing/PricingThreeCards.astro";
 import About from "@components/About/About.astro";
 import Contact from "@components/Contact/Contact.astro";
-import Button from "@components/Button/Button.astro";
+import ExperienceThreeCards from "@components/Experience/ExperienceThreeCards.astro";
+import FeatureNumbers from "@components/Feature/FeatureNumbers.astro";
+import Hero from "@components/Hero/Hero.astro";
+import PricingThreeCards from "@components/Pricing/PricingThreeCards.astro";
+import Testimonials from "@components/Testimonials/Testimonials.astro";
 
 // data
 import siteData from "@config/siteData.json";
@@ -21,7 +18,7 @@ import siteData from "@config/siteData.json";
 <BaseLayout title={siteData.title} description={siteData.description} navStartStyle="white">
 	<Hero />
 	<FeatureNumbers />
-	<PortfolioThreeCards />
+	<ExperienceThreeCards />
 	<Testimonials />
 	<PricingThreeCards />
 	<About />

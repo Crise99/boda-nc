@@ -1,34 +1,31 @@
 ---
-import { type CollectionEntry, getCollection, render } from "astro:content";
 import { Image } from "astro:assets";
-import { Icon } from "astro-icon/components";
+import { type CollectionEntry, getCollection } from "astro:content";
 
 // main layout
 import BaseLayout from "./BaseLayout.astro";
 
 // components
-import Button from "@components/Button/Button.astro";
 import Contact from "@components/Contact/Contact.astro";
-import PortfolioGrid from "@components/Portfolio/PortfolioGrid.astro";
+import ExperienceGrid from "@components/Experience/ExperienceGrid.astro";
+import ExperienceImage from "@components/ExperienceImage/ExperienceImage.astro";
 import TestimonialQuote from "@components/Testimonials/TestimonialQuote.astro";
-import PortfolioImage from "@components/PorfolioImage/PortfolioImage.astro";
 
 // utils
-import { formatDate } from "@js/textUtils";
 
 interface Props {
-	portfolio: CollectionEntry<"portfolios">;
+	experience: CollectionEntry<"experiences">;
 }
 
 import headerImage from "@images/portfolio-header-crop-min.jpg";
 
-const { portfolio } = Astro.props as Props;
-const { title, description, date, images, clients, location, heroImage } = portfolio.data;
+const { experience } = Astro.props as Props;
+const { title, description, date, images, clients, location, heroImage } = experience.data;
 
-// find other portfolios to show later down the page
-const otherPortfolios = await getCollection("portfolios", (otherPortfolio) => {
+// find other experiences to show later down the page
+const otherExperiences = await getCollection("experiences", (otherExperience) => {
 	// filter out draft pages
-	return otherPortfolio.data.draft !== true && otherPortfolio.id !== portfolio.id;
+	return otherExperience.data.draft !== true && otherExperience.id !== experience.id;
 });
 ---
 
@@ -43,7 +40,7 @@ const otherPortfolios = await getCollection("portfolios", (otherPortfolio) => {
 		<div class="absolute inset-0 z-10 bg-black/30"></div>
 		<Image
 			src={headerImage}
-			alt="Portfolio header"
+			alt="Experience header"
 			class="absolute inset-0 h-auto min-h-full w-full min-w-full object-cover md:hidden"
 			width={600}
 			densities={[1.5, 2]}
@@ -51,7 +48,7 @@ const otherPortfolios = await getCollection("portfolios", (otherPortfolio) => {
 		/>
 		<Image
 			src={headerImage}
-			alt="Portfolio header"
+			alt="Experience header"
 			class="absolute inset-0 hidden h-auto min-h-full w-full min-w-full object-cover md:block"
 			width={1920}
 			densities={[1.5, 2]}
@@ -73,7 +70,7 @@ const otherPortfolios = await getCollection("portfolios", (otherPortfolio) => {
 				quality="high"
 				densities={[1.5, 2]}
 				class="h-auto min-h-full w-full min-w-full object-cover"
-				transition:name={`portfolio-image-${portfolio.id}`}
+				transition:name={`experience-image-${experience.id}`}
 			/>
 		</div>
 
@@ -94,7 +91,7 @@ const otherPortfolios = await getCollection("portfolios", (otherPortfolio) => {
 			<slot />
 		</div>
 
-		<!-- portfolio images -->
+		<!-- experience images -->
 		<div class="mx-auto mt-12 max-w-5xl space-y-6 md:mt-20 md:space-y-16">
 			{
 				images.map((imageGroup) => (
@@ -109,7 +106,7 @@ const otherPortfolios = await getCollection("portfolios", (otherPortfolio) => {
 						]}
 					>
 						{imageGroup.map((image) => (
-							<PortfolioImage image={image} numCols={imageGroup.length} />
+							<ExperienceImage image={image} numCols={imageGroup.length} />
 						))}
 					</div>
 				))
@@ -120,8 +117,8 @@ const otherPortfolios = await getCollection("portfolios", (otherPortfolio) => {
 	<TestimonialQuote />
 
 	<section class="mx-auto mt-12 px-4 md:mt-16 md:max-w-5xl">
-		<h3 class="h2 text-center">More Portfolios</h3>
-		<PortfolioGrid portfolios={otherPortfolios} noTransitions />
+		<h3 class="h2 text-center">More experiences</h3>
+		<ExperienceGrid experiences={otherExperiences} noTransitions />
 	</section>
 	<Contact class="mt-12" />
 </BaseLayout>
