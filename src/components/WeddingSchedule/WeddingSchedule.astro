@@ -1,0 +1,72 @@
+---
+// components
+import Divider from "@components/Divider/Divider.astro";
+
+// images
+import iglesia from "@images/Icono-Boho-1.png";
+import copas from "@images/Icono-Boho-4.png";
+import comida from "@images/Icono-Boho-5.png";
+import fiesta from "@images/Icono-Boho-7.png";
+import maletas from "@images/Icono-viajes-boda-7.png";
+---
+
+<section
+	class="desktop:mx-auto desktop:gap-10 mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-20 text-center"
+>
+	<div class="desktop:w-[45%]">
+		<img src={maletas.src} class="mx-auto w-32" alt="icono ceremonia" />
+		<h1 class="font-parisienne text-color01 text-5xl">Itinerario</h1>
+		<ul>
+			<li>
+				<img src={iglesia.src} class="mx-auto w-32" alt="icono ceremonia" />
+				<span class="text-[20px] font-normal text-[#C6C6C5]"> 17:00hs - Ceremonia </span>
+			</li>
+			<li>
+				<img src={copas.src} class="mx-auto w-32" alt="icono ceremonia" />
+				<span class="text-[20px] font-normal text-[#C6C6C5]"> 19:30hs - Cóctel de Bienvenida </span>
+			</li>
+			<li>
+				<img src={comida.src} class="mx-auto w-32" alt="icono ceremonia" />
+				<span class="text-[20px] font-normal text-[#C6C6C5]"> 21:00hs - Cena </span>
+			</li>
+			<li>
+				<img src={fiesta.src} class="mx-auto w-32" alt="icono ceremonia" />
+				<span class="text-[20px] font-normal text-[#C6C6C5]"> 23:00hs - Fiesta </span>
+			</li>
+		</ul>
+	</div>
+</section>
+<Divider />
+<style>
+	.title-pd {
+		border-top: 1px solid #c6c6c5;
+		border-bottom: 1px solid #c6c6c5;
+	}
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+	li {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+	button {
+		background-color: rgb(195 128 11 / 73%);
+		@apply w-[280px];
+		@apply mx-auto;
+	}
+	a {
+		background-color: rgba(195, 128, 11, 0.459);
+		@apply w-[280px];
+		@apply mx-auto;
+	}
+	a:hover {
+		background-color: rgb(195 128 11 / 73%);
+	}
+	button:hover {
+		background-color: rgb(195 128 11 / 73%);
+	}
+</style>
