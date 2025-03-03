@@ -1,32 +1,33 @@
 ---
+import { type CollectionEntry } from "astro:content";
+
 // component imports
-import Footer from "@/components/Footer.astro"
-import BaseHead from "@/layouts/BaseHead.astro"
+import BaseHead from "@layouts/BaseHead.astro";
+import Nav from "@components/Nav/Nav.astro";
+import Footer from "@components/Footer/Footer.astro";
 
 // style import
-import "@/styles/global.css"
+import "@/styles/global.css";
 
 // heroImage and authorData are defined on blog posts
 // authorData could also be defined on the about author page
 interface Props {
-	type?: "general"
-	navStartStyle?: "default" | "white"
-	lang: string
-	title: string
-	description: string
-	heroImage?: ImageMetadata
-	noindex?: boolean // you need to opt-in to no indexing, as it hides the page from search engines
+	type?: "general";
+	navStartStyle?: "default" | "white";
+	title: string;
+	description: string;
+	heroImage?: ImageMetadata;
+	noindex?: boolean; // you need to opt-in to no indexing, as it hides the page from search engines
 }
 
 const {
 	type = "general",
 	navStartStyle = "default",
-	lang,
 	title,
 	description,
 	heroImage,
 	noindex = false,
-} = Astro.props as Props
+} = Astro.props as Props;
 ---
 
 <!doctype html>
@@ -42,7 +43,7 @@ const {
 	</head>
 	<body id="body" class="bg-base-50 text-base-900">
 		<div class="min-h-[100lvh]">
-			<!-- <Nav startStyle={navStartStyle} /> -->
+			<Nav startStyle={navStartStyle} />
 			<main>
 				<slot />
 			</main>
@@ -50,30 +51,3 @@ const {
 		<Footer />
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-
-		/* Estilos ScrollBar */
-		::-webkit-scrollbar {
-			width: 6px;
-		}
-		::-webkit-scrollbar-track {
-			background: transparent;
-			backdrop-filter: blur(10px);
-			border-radius: 5px;
-		}
-		::-webkit-scrollbar-thumb {
-			background: rgba(0, 0, 0, 0.445);
-			backdrop-filter: blur(10px);
-			border-radius: 5px;
-		}
-		::-webkit-scrollbar-thumb:hover {
-			background: rgba(0, 0, 0, 0.836);
-		}
-	}
-</style>

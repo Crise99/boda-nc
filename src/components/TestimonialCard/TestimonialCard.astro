@@ -1,0 +1,59 @@
+---
+/**
+ * * Testimonial cards where the image can be either on top or bottom
+ */
+
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import { Icon } from "astro-icon/components";
+
+// components
+import Button from "@components/Button/Button.astro";
+
+interface Props {
+	testimonial: CollectionEntry<"testimonials">;
+	imagePosition?: "top" | "bottom";
+}
+
+const { testimonial, imagePosition = "top" } = Astro.props as Props;
+const { title, testimonial: testimonialText, image } = testimonial.data;
+---
+
+<div class="grid gap-1 lg:auto-rows-fr">
+	<div
+		class:list={[
+			"aspect-[3/4] overflow-hidden",
+			{
+				"lg:order-2": imagePosition === "bottom",
+			},
+		]}
+	>
+		<Image
+			src={image}
+			alt={title}
+			width={450}
+			densities={[1.5, 2]}
+			class="h-auto min-h-full w-full min-w-full object-cover"
+		/>
+	</div>
+	<div
+		class=""
+		class:list={[
+			"mt-4 text-center",
+			{
+				"lg:mt-0": imagePosition === "bottom",
+			},
+			{
+				"lg:mt-10": imagePosition === "top",
+			},
+		]}
+	>
+		<div class="flex flex-col items-center">
+			<Icon name="gridicons/quote" class="text-primary-200 size-14" aria-hidden="true" />
+			<hr class="border-primary-400 mt-4 mb-6 w-1/2 border-1" />
+		</div>
+
+		<h3 class="h3 tracking-widest">{title}</h3>
+		<p class="mt-6 text-pretty lg:text-lg">{testimonialText}</p>
+	</div>
+</div>

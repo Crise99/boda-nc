@@ -1,0 +1,65 @@
+---
+/**
+ * * These are small cards that are used in the portfolio section
+ */
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+// components
+import Button from "@components/Button/Button.astro";
+
+interface Props {
+	portfolio: CollectionEntry<"portfolios">;
+	direction: "horizontal" | "vertical";
+	noTransitions?: boolean;
+}
+
+const { portfolio, direction, noTransitions = false } = Astro.props as Props;
+const { title, description, heroImage } = portfolio.data;
+---
+
+<div
+	class:list={[
+		"grid gap-4",
+		{
+			"md:grid-cols-2": direction === "horizontal",
+		},
+	]}
+>
+	<a href={`/portfolio/${portfolio.id}`} class="aspect-square overflow-hidden">
+		{
+			noTransitions && (
+				<Image
+					src={heroImage}
+					alt={title}
+					width={450}
+					densities={[1.5, 2, 3]}
+					class="h-auto min-h-full w-full min-w-full object-cover"
+				/>
+			)
+		}
+		{
+			!noTransitions && (
+				<Image
+					src={heroImage}
+					alt={title}
+					width={450}
+					densities={[1.5, 2, 3]}
+					class="h-auto min-h-full w-full min-w-full object-cover"
+					transition:name={`portfolio-image-${portfolio.id}`}
+				/>
+			)
+		}
+	</a>
+	<div class="flex flex-col justify-between gap-2">
+		<div>
+			<h3 class="h3 text-primary-500 tracking-widest">{title}</h3>
+			<p class="mt-4 lg:text-lg">{description}</p>
+		</div>
+		<div class="flex">
+			<Button variant="ghost" arrow="right" href={`/portfolio/${portfolio.id}`} class="pl-0">
+				View More
+			</Button>
+		</div>
+	</div>
+</div>

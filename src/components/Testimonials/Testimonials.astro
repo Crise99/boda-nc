@@ -1,0 +1,37 @@
+---
+/**
+ * * This is a testimonials section that displays three testimonials
+ *
+ */
+
+import { getCollection } from "astro:content";
+
+// components
+import TestimonialCard from "@components/TestimonialCard/TestimonialCard.astro";
+import Button from "@components/Button/Button.astro";
+
+const testimonials = await getCollection("testimonials");
+
+const sortedTestimonials = testimonials.sort((a, b) => {
+	if (a.data.order < b.data.order) {
+		return -1;
+	}
+	if (a.data.order > b.data.order) {
+		return 1;
+	}
+	return 0;
+});
+
+const firstThreeTestimonials = sortedTestimonials.slice(0, 3);
+---
+
+<section id="testimonial" class="site-container scroll-mt-10 py-8 md:py-12">
+	<div class="mx-auto max-w-6xl text-center">
+		<h2 class="h2 text-pretty uppercase">Testimonials from my clients</h2>
+	</div>
+	<div class="mx-auto grid max-w-md gap-20 pt-8 md:pt-12 lg:max-w-none lg:grid-cols-3">
+		<TestimonialCard testimonial={firstThreeTestimonials[0]} imagePosition="top" />
+		<TestimonialCard testimonial={firstThreeTestimonials[1]} imagePosition="bottom" />
+		<TestimonialCard testimonial={firstThreeTestimonials[2]} imagePosition="top" />
+	</div>
+</section>

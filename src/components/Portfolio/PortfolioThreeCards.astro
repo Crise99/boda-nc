@@ -1,0 +1,48 @@
+---
+/**
+ * * This is a component that displays three portfolio cards
+ * Larger on the left, smaller two on the right
+ */
+
+import { getCollection } from "astro:content";
+
+// components
+import PortfolioCard from "@components/PortfolioCard/PortfolioCard.astro";
+import Button from "@components/Button/Button.astro";
+
+const portfolios = await getCollection("portfolios");
+
+const sortedPortfolios = portfolios.sort((a, b) => {
+	if (a.data.order < b.data.order) {
+		return -1;
+	}
+	if (a.data.order > b.data.order) {
+		return 1;
+	}
+	return 0;
+});
+
+const firstThreePortfolios = sortedPortfolios.slice(0, 3);
+---
+
+<section id="portfolio" class="site-container mt-12 scroll-mt-10 py-8 md:py-12">
+	<div class="mx-auto max-w-6xl text-center">
+		<h2 class="h2 text-pretty uppercase">
+			The moments you'll want to relive in a timeless, romantic, and artistic style.
+		</h2>
+	</div>
+	<div class="grid gap-10 pt-8 md:grid-cols-2 md:pt-12">
+		<div class="md:bg-base-100 md:rounded-md md:p-10 md:pb-6">
+			<PortfolioCard portfolio={firstThreePortfolios[0]} direction="vertical" />
+		</div>
+		<div class="flex h-full flex-col justify-between gap-y-6">
+			<PortfolioCard portfolio={firstThreePortfolios[1]} direction="horizontal" />
+			<hr class="border-base-100 hidden border md:block" />
+			<PortfolioCard portfolio={firstThreePortfolios[2]} direction="horizontal" />
+		</div>
+	</div>
+
+	<div class="mt-12 flex justify-center">
+		<Button href="/portfolio" variant="outline">View all portfolios</Button>
+	</div>
+</section>
