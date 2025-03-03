@@ -1,6 +1,7 @@
 ---
 title: Pedida en Gdansk
 description: Nuestro último viaje, por el cual estamos hoy aquí.
+headerImage: ./Gdansk-Int.jpg
 heroImage: ./Gdansk2.jpg
 date: "Aug 5 2024"
 location: Gdansk, Polonia

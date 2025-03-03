@@ -9,7 +9,6 @@ import BaseLayout from "./BaseLayout.astro";
 import Contact from "@components/Contact/Contact.astro";
 import ExperienceGrid from "@components/Experience/ExperienceGrid.astro";
 import ExperienceImage from "@components/ExperienceImage/ExperienceImage.astro";
-import TestimonialQuote from "@components/Testimonials/TestimonialQuote.astro";
 
 // utils
 
@@ -17,10 +16,19 @@ interface Props {
 	experience: CollectionEntry<"experiences">;
 }
 
-import headerImage from "@images/portfolio-header-crop-min.jpg";
+import defHeaderImage from "@images/Mundo2.jpg";
 
 const { experience } = Astro.props as Props;
-const { title, description, date, images, clients, location, heroImage } = experience.data;
+const {
+	title,
+	description,
+	date,
+	images,
+	clients,
+	location,
+	heroImage,
+	headerImage = defHeaderImage,
+} = experience.data;
 
 // find other experiences to show later down the page
 const otherExperiences = await getCollection("experiences", (otherExperience) => {
@@ -114,10 +122,10 @@ const otherExperiences = await getCollection("experiences", (otherExperience) =>
 		</div>
 	</article>
 
-	<TestimonialQuote />
+	<!-- <TestimonialQuote /> -->
 
 	<section class="mx-auto mt-12 px-4 md:mt-16 md:max-w-5xl">
-		<h3 class="h2 text-center">More experiences</h3>
+		<h3 class="h2 text-center">Más Experiencias</h3>
 		<ExperienceGrid experiences={otherExperiences} noTransitions />
 	</section>
 	<Contact class="mt-12" />

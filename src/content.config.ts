@@ -13,6 +13,7 @@ const experiences = defineCollection({
 		z.object({
 			title: z.string(),
 			description: z.string(),
+			headerImage: image().optional(),
 			heroImage: image(),
 			clients: z.array(z.string()),
 			location: z.string(),
