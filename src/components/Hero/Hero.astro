@@ -10,8 +10,7 @@ import { Image } from "astro:assets";
 import Button from "@components/Button/Button.astro";
 
 // images
-import heroImage from "@images/hero-bg-min.jpg";
-import heroImageMobile from "@images/hero-bg-min.jpg";
+import { default as heroImage, default as heroImageMobile } from "@images/gdanks-hero.webp";
 ---
 
 <section id="hero" class="relative z-10 flex min-h-[100lvh] w-full">
@@ -44,13 +43,13 @@ import heroImageMobile from "@images/hero-bg-min.jpg";
 			<h1
 				class="font-heading-1 text-4xl font-semibold text-pretty drop-shadow-[0_2px_2px_rgba(0,0,0,0.4)] md:text-7xl md:leading-tight"
 			>
-				California Wedding Photography
+				Bienvenidos a la boda de Nuria y Cristian
 			</h1>
 			<p
 				class="mt-8 text-lg tracking-widest text-pretty drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)] md:max-w-[550px] md:text-2xl"
 			>
-				Transform your wedding moments into lasting memories amidst California's majestic
-				landscapes.
+				Estamos encantados de compartir contigo este bonito dia y el sin fin de recuerdos
+				inolvidables que juntos vamos a crear.
 			</p>
 			<div class="mt-10 flex flex-wrap justify-center gap-4 md:justify-start">
 				<Button
@@ -59,7 +58,7 @@ import heroImageMobile from "@images/hero-bg-min.jpg";
 					href="/#contact"
 					class="pl-0 text-xl text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)] md:text-3xl"
 				>
-					Get a Quote
+					¡Arrancamos!
 				</Button>
 			</div>
 		</div>
