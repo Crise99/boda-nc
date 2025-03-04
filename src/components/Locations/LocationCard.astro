@@ -1,0 +1,62 @@
+---
+import { Image } from "astro:assets";
+
+// types
+interface Props {
+	icon: ImageMetadata;
+	title: string;
+	location: string;
+	direction: string;
+	image: ImageMetadata;
+	buttonText: string;
+	buttonLink: string;
+}
+
+// props
+const { icon, title, location, direction, image, buttonText, buttonLink } = Astro.props as Props;
+---
+
+<div class="flex flex-col items-center p-4 md:p-8">
+	<!-- divider -->
+	<div class="bg-primary-500/50 my-4 h-1 w-12 rounded-full"></div>
+	<Image
+		src={icon}
+		class="mx-auto w-24 md:w-32"
+		alt="Icono localización"
+		aria-hidden="true"
+		loading="eager"
+		height={400}
+	/>
+	<div class="title-pd">
+		<h2 class="font-heading-1 text-2xl text-pretty md:text-3xl">{title}</h2>
+	</div>
+	<!-- divider -->
+	<div class="bg-primary-500/50 my-4 h-1 w-12 rounded-full"></div>
+	<ul class="flex flex-col items-center">
+		<li class="mb-4 text-center">
+			<Image
+				src={image}
+				class="mx-auto h-auto max-w-xs cursor-pointer rounded-md md:max-w-sm"
+				alt="Imagen localización"
+				aria-hidden="true"
+				loading="eager"
+				height={400}
+			/>
+			<span class="text-base-600 text-md font-normal md:text-xl">
+				{location}
+			</span>
+		</li>
+		<li class="text-center">
+			<span class="text-base-600 text-lg font-normal md:text-xl">
+				{direction}
+			</span>
+			<a
+				href={buttonLink}
+				target="_blank"
+				class="bg-primary-500/50 text-color02 mt-2 block rounded-3xl px-6 py-3"
+			>
+				{buttonText}
+			</a>
+		</li>
+	</ul>
+</div>
