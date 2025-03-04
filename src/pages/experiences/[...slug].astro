@@ -1,0 +1,27 @@
+---
+import { type InferGetStaticPropsType } from "astro";
+import { getCollection, render } from "astro:content";
+
+// layout
+import ExperiencesLayout from "@layouts/ExperiencesLayout.astro";
+
+export async function getStaticPaths() {
+	const experiences = await getCollection("experiences", ({ data }) => {
+		// filter out draft pages
+		return data.draft !== true;
+	});
+
+	return experiences.map((experience) => ({
+		params: { slug: experience.id },
+		props: experience,
+	}));
+}
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const experience = Astro.props as Props;
+const { Content } = await render(experience);
+---
+
+<ExperiencesLayout experience={experience}>
+	<Content />
+</ExperiencesLayout>

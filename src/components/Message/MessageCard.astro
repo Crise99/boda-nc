@@ -1,0 +1,32 @@
+---
+import { Image } from "astro:assets";
+const { person, image, message } = Astro.props;
+---
+
+<div class="desktop:max-w-lg desktop:flex w-full max-w-sm shadow-lg">
+	<div
+		class="desktop:h-auto desktop:w-48 desktop:rounded-t-none desktop:rounded-l h-48 flex-none overflow-hidden rounded-t bg-cover text-center"
+		title="Imagen de novia/o"
+	>
+		<Image
+			src={image}
+			class="h-auto min-h-full w-full object-cover object-bottom"
+			alt="wedding"
+			aria-hidden="true"
+			height={800}
+		/>
+	</div>
+	<div
+		class="desktop:border-l-0 desktop:border-t desktop:border-gray-400 desktop:rounded-b-none desktop:rounded-r flex flex-col justify-between rounded-b border-r border-b border-l border-gray-400 bg-white p-4 leading-normal"
+	>
+		<div class="mb-8">
+			<p class="flex items-center text-sm text-gray-600">♥ Solo para ti</p>
+			<div class="mb-2 text-xl font-bold text-gray-900">
+				Mensaje de {person}
+			</div>
+			<p class="text-base text-gray-700">
+				{message}
+			</p>
+		</div>
+	</div>
+</div>

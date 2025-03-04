@@ -1,0 +1,39 @@
+---
+import Divider from "@components/Divider/Divider.astro";
+import { Image } from "astro:assets";
+
+// images
+import iglesia from "@images/Icono-Boho-1.png";
+import copas from "@images/Icono-Boho-4.png";
+import comida from "@images/Icono-Boho-5.png";
+import fiesta from "@images/Icono-Boho-7.png";
+import maletas from "@images/Icono-viajes-boda-7.png";
+---
+
+<section
+	class="desktop:mx-auto desktop:gap-10 mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-20 text-center"
+>
+	<div class="desktop:w-[45%]">
+		<Image src={maletas} class="mx-auto w-32" alt="wedding" aria-hidden="true" height={400} />
+		<h1 class="font-parisienne text-color01 text-5xl">Itinerario</h1>
+		<ul>
+			<li>
+				<Image src={iglesia} class="mx-auto w-32" alt="wedding" aria-hidden="true" height={400} />
+				<span class="text-[20px] font-normal text-[#C6C6C5]"> 17:00hs - Ceremonia </span>
+			</li>
+			<li>
+				<Image src={copas} class="mx-auto w-32" alt="wedding" aria-hidden="true" height={400} />
+				<span class="text-[20px] font-normal text-[#C6C6C5]"> 19:30hs - Cóctel de Bienvenida </span>
+			</li>
+			<li>
+				<Image src={comida} class="mx-auto w-32" alt="wedding" aria-hidden="true" height={400} />
+				<span class="text-[20px] font-normal text-[#C6C6C5]"> 21:00hs - Cena </span>
+			</li>
+			<li>
+				<Image src={fiesta} class="mx-auto w-32" alt="wedding" aria-hidden="true" height={400} />
+				<span class="text-[20px] font-normal text-[#C6C6C5]"> 23:00hs - Fiesta </span>
+			</li>
+		</ul>
+	</div>
+</section>
+<Divider />

@@ -1,0 +1,65 @@
+---
+/**
+ * * These are small cards that are used in the experience section
+ */
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+// components
+import Button from "@components/Button/Button.astro";
+
+interface Props {
+	experience: CollectionEntry<"experiences">;
+	direction: "horizontal" | "vertical";
+	noTransitions?: boolean;
+}
+
+const { experience, direction, noTransitions = false } = Astro.props as Props;
+const { title, description, heroImage } = experience.data;
+---
+
+<div
+	class:list={[
+		"grid gap-4",
+		{
+			"md:grid-cols-2": direction === "horizontal",
+		},
+	]}
+>
+	<a href={`/experiences/${experience.id}`} class="aspect-square overflow-hidden">
+		{
+			noTransitions && (
+				<Image
+					src={heroImage}
+					alt={title}
+					width={450}
+					densities={[1.5, 2, 3]}
+					class="h-auto min-h-full w-full min-w-full object-cover"
+				/>
+			)
+		}
+		{
+			!noTransitions && (
+				<Image
+					src={heroImage}
+					alt={title}
+					width={450}
+					densities={[1.5, 2, 3]}
+					class="h-auto min-h-full w-full min-w-full object-cover"
+					transition:name={`experience-image-${experience.id}`}
+				/>
+			)
+		}
+	</a>
+	<div class="flex flex-col justify-between gap-2">
+		<div>
+			<h3 class="h3 text-primary-500 tracking-widest">{title}</h3>
+			<p class="mt-4 lg:text-lg">{description}</p>
+		</div>
+		<div class="flex">
+			<Button variant="ghost" arrow="right" href={`/experiences/${experience.id}`} class="pl-0">
+				Ver Más
+			</Button>
+		</div>
+	</div>
+</div>

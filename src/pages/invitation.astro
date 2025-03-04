@@ -1,0 +1,35 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+import Contact from "@components/Contact/Contact.astro";
+import Hero from "@components/Hero/Hero.astro";
+import Testimonials from "@components/Testimonials/Testimonials.astro";
+import siteData from "@config/siteData.json";
+
+import Countdown from "@components/Countdown/Countdown.astro";
+import Locations from "@components/Locations/Locations.astro";
+import Message from "@components/Message/Message.astro";
+import WeddingSchedule from "@components/WeddingSchedule/WeddingSchedule.astro";
+import heroImage from "@images/mapa.jpg";
+
+const title = "Pasaporte";
+const subtitle = "A nuestra boda";
+const buttonText = "¿Te vienes?";
+const buttonLink = "/#contact";
+---
+
+<BaseLayout title={siteData.title} description={siteData.description} navStartStyle="white">
+	<Hero
+		heroImage={heroImage}
+		title={title}
+		subtitle={subtitle}
+		buttonText={buttonText}
+		buttonLink={buttonLink}
+	/>
+	<Countdown />
+	<Testimonials />
+	<Locations />
+	<Message />
+	<WeddingSchedule />
+	<Contact />
+</BaseLayout>

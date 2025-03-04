@@ -4,7 +4,6 @@ import NavLink from "@components/Nav/NavLink.astro";
 import NavDropdown from "@components/Nav/NavDropdown/NavDropdown.astro";
 import MobileNav from "@components/Nav/MobileNav/MobileNav.astro";
 import SiteLogo from "@components/SiteLogo/SiteLogo.astro";
-import Button from "@components/Button/Button.astro";
 
 // data
 import navData from "@config/navData.json";
@@ -50,14 +49,6 @@ const { startStyle = "default", rest } = Astro.props as Props;
 							}
 						</ul>
 					</nav>
-					<Button
-						variant="secondary"
-						class=`nav__cta py-1 my-auto hidden md:block ${startStyle === "white" ? "data-[scrolled=true]:border-primary-200 data-[scrolled=true]:hover:border-primary-200/80" : "border-primary-200"}`
-						href="https://cosmicthemes.com/themes/horizon/"
-						data-scrolled="false"
-					>
-						Get Horizon
-					</Button>
 
 					<!-- mobile nav menu, only load on small screens where it is visible -->
 					<div class="md:hidden">

@@ -9,15 +9,32 @@ import { Image } from "astro:assets";
 // components
 import Button from "@components/Button/Button.astro";
 
+// types
+interface Props {
+	heroImage?: ImageMetadata;
+	title?: string;
+	subtitle?: string;
+	buttonText?: string;
+	buttonLink?: string;
+}
+
 // images
-import heroImage from "@images/hero-bg-min.jpg";
-import heroImageMobile from "@images/hero-bg-min.jpg";
+import defHeroImage from "@images/gdanks-hero.webp";
+
+// props
+const {
+	heroImage = defHeroImage,
+	title = "Bienvenidos a la boda de Nuria y Cristian",
+	subtitle = "Estamos encantados de compartir contigo este bonito dia y el sin fin de recuerdos inolvidables que juntos vamos a crear.",
+	buttonText = "¡Arrancamos!",
+	buttonLink = "/#contact",
+} = Astro.props as Props;
 ---
 
 <section id="hero" class="relative z-10 flex min-h-[100lvh] w-full">
 	<!-- background image -->
 	<div class="absolute -z-10 h-full min-h-full w-full overflow-hidden">
-		<div class="absolute inset-0 bg-black/10"></div>
+		<div class="absolute inset-0 bg-black/50"></div>
 
 		<Image
 			src={heroImage}
@@ -28,7 +45,7 @@ import heroImageMobile from "@images/hero-bg-min.jpg";
 			height={1400}
 		/>
 		<Image
-			src={heroImageMobile}
+			src={heroImage}
 			class="h-auto min-h-full w-full object-cover sm:hidden"
 			alt="wedding"
 			aria-hidden="true"
@@ -44,22 +61,21 @@ import heroImageMobile from "@images/hero-bg-min.jpg";
 			<h1
 				class="font-heading-1 text-4xl font-semibold text-pretty drop-shadow-[0_2px_2px_rgba(0,0,0,0.4)] md:text-7xl md:leading-tight"
 			>
-				California Wedding Photography
+				{title}
 			</h1>
 			<p
 				class="mt-8 text-lg tracking-widest text-pretty drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)] md:max-w-[550px] md:text-2xl"
 			>
-				Transform your wedding moments into lasting memories amidst California's majestic
-				landscapes.
+				{subtitle}
 			</p>
 			<div class="mt-10 flex flex-wrap justify-center gap-4 md:justify-start">
 				<Button
 					variant="ghost"
 					arrow="right"
-					href="/#contact"
+					href={buttonLink}
 					class="pl-0 text-xl text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)] md:text-3xl"
 				>
-					Get a Quote
+					{buttonText}
 				</Button>
 			</div>
 		</div>
