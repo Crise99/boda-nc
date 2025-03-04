@@ -3,14 +3,15 @@
 	"type": "module",
 	"version": "1.0.0",
 	"scripts": {
-		"dev": "astro dev",
-		"start": "astro dev",
-		"build": "astro build",
-		"preview": "astro preview",
+		"dev": "wrangler types && astro dev",
+		"start": "wrangler types && astro dev",
+		"build": "wrangler types && astro check && astro build",
+		"preview": "wrangler types && astro preview",
 		"astro": "astro",
 		"format": "prettier -w \"**/*\" --ignore-unknown --cache"
 	},
 	"dependencies": {
+		"@astrojs/cloudflare": "^12.2.3",
 		"@astrojs/mdx": "^4.0.8",
 		"@astrojs/rss": "^4.0.11",
 		"@astrojs/sitemap": "^3.2.1",
@@ -25,6 +26,7 @@
 		"astro-auto-import": "^0.4.4",
 		"astro-icon": "^1.1.4",
 		"astro-seo": "^0.8.4",
+		"resend": "^4.1.2",
 		"tailwindcss": "^4.0.6"
 	},
 	"devDependencies": {

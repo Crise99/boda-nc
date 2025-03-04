@@ -12,6 +12,11 @@ export interface SiteDataProps {
 		src: string;
 		alt: string;
 	};
+	contact: {
+		from: string;
+		to: string;
+		subject: string;
+	};
 }
 
 // Update this file with your site specific information
@@ -33,6 +38,11 @@ const siteData: SiteDataProps = {
 	defaultImage: {
 		src: "/images/cosmic-themes-logo.jpg",
 		alt: "Cosmic Themes logo",
+	},
+	contact: {
+		from: "Boda Nuria y Cristian <onboarding@resend.dev>",
+		to: "valenlj7@gmail.com",
+		subject: "Nueva Confirmación",
 	},
 };
 
