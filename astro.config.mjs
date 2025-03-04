@@ -7,7 +7,7 @@ import tailwindcss from "@tailwindcss/vite";
 import AutoImport from "astro-auto-import";
 import icon from "astro-icon"; // https://www.astroicon.dev/guides/upgrade/v1/
 
-import cloudflare from "@astrojs/cloudflare";
+import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
@@ -59,6 +59,6 @@ export default defineConfig({
 		},
 	},
 
-	adapter: cloudflare(),
-	output: "server"
+	output: "server",
+	adapter: vercel()
 });

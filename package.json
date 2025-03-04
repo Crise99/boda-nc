@@ -11,10 +11,10 @@
 		"format": "prettier -w \"**/*\" --ignore-unknown --cache"
 	},
 	"dependencies": {
-		"@astrojs/cloudflare": "^12.2.3",
 		"@astrojs/mdx": "^4.0.8",
 		"@astrojs/rss": "^4.0.11",
 		"@astrojs/sitemap": "^3.2.1",
+		"@astrojs/vercel": "^8.1.1",
 		"@fontsource-variable/playfair-display": "^5.1.0",
 		"@fontsource-variable/raleway": "^5.1.0",
 		"@fontsource-variable/work-sans": "^5.1.0",
