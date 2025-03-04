@@ -1,107 +1,70 @@
-# Welcome to Horizon!
+# Boda de Cristian y Nuria
 
-This is a free photography theme for Astro created by [Cosmic Themes](https://cosmicthemes.com/).
+¡Bienvenidos a la página oficial de la boda de Cristian y Nuria!
 
-[website demo](https://horizon.cosmicthemes.com/)
+## Información del Evento
 
-## Quickstart
+- **Fecha:** 25 de junio de 2025
+- **Hora:** 17:00
+- **Lugar de la Ceremonia:** Iglesia de la Asunción, Molina de Segura, Murcia
+- **Lugar de la Recepción:** Finca Los Sauces, Cartagena, Murcia
 
-1. Fork this project to your own repository, and clone it to your local machine
-2. Install all necessary packages with `npm install`
-3. Run `npm run dev` to start the dev server
-4. Now you can setup the site to your liking!
-   - [Style customization](https://cosmicthemes.com/docs/styles/)
-   - [Content editing](https://cosmicthemes.com/docs/content/)
-   - [Forms](https://cosmicthemes.com/docs/contact-form/)
-5. Update the site URL in `astro.config.mjs` and `/public/robots.txt` to match your domain
-6. After you're happy, update your changes to your repo and [deploy to Netlify, Vercel, Cloudflare](https://cosmicthemes.com/deployment/), or other provider of your choice
+## Programa
 
-## Code Intro
+1. **Ceremonia Religiosa**
 
-The source files have the following setup. Note that not all files are listed here.
+   - Hora: 17:00
+   - Lugar: Iglesia de la Asunción, Molina de Segura
 
+2. **Recepción y Banquete**
+
+   - Hora: 19:00
+   - Lugar: Finca Los Sauces, Cartagena
+
+3. **Fiesta y Baile**
+   - Hora: 22:00
+   - Lugar: Finca Los Sauces, Cartagena
+
+## Cómo Llegar
+
+### Iglesia de la Asunción
+
+- **Dirección:** Pl. Iglesia, s/n, 30500 Molina de Segura, Murcia
+- [Ver en Google Maps](https://g.co/kgs/oGj9p3V)
+
+### Finca Los Sauces
+
+- **Dirección:** Ctra. De la Palma, km 4, 5, 30395 Cartagena, Murcia
+- [Ver en Google Maps](https://g.co/kgs/H33srLC)
+-
+
+## ⚙️ Frontmatter de las Experiencias
+
+```yaml
+---
+# Campos obligatorios
+title: "Título de la experiencia"
+description: "Descripción detallada de la experiencia"
+heroImage: "@assets/experiences/ejemplo/hero.jpg"
+clients: ["Cliente 1", "Cliente 2"]
+location: "Ubicación de la experiencia"
+images:
+  [
+    ["@assets/experiences/ejemplo/img1.jpg"],
+    ["@assets/experiences/ejemplo/img2-1.jpg", "@assets/experiences/ejemplo/img2-2.jpg"],
+    [
+      "@assets/experiences/ejemplo/img3-1.jpg",
+      "@assets/experiences/ejemplo/img3-2.jpg",
+      "@assets/experiences/ejemplo/img3-3.jpg",
+    ],
+  ]
+date: 2025-06-25
+order: 1
+
+# Campos opcionales
+headerImage: "@assets/experiences/ejemplo/header.jpg"
+draft: false
+---
 ```
-.
-├── .tours/
-│   └── code-intro.tour
-├── public/
-│   ├── favicons/
-│   │   └── favicon.ico
-│   ├── images/
-│   └── robots.txt
-├── src/
-│   ├── assets/
-│   │   └── images/
-│   │       └── site-logo.png
-│   ├── components/
-│   │   └── Hero/
-│   │       └── Hero.astro
-│   ├── config/
-│   │   └── navData.json.ts
-│   ├── data/
-│   │   ├── portfolios/
-│   │   ├── testimonials/
-│   │   └──otherPages/
-│   │    config.ts
-│   ├── js/
-│   │   └── textUtils.ts
-│   ├── layouts/
-│   │   └── BaseLayout.astro
-│   ├── pages/
-│   │   ├── index.astro
-│   │   ├── portfolio/
-│   │   │   ├── [...slug].astro
-│   │   │   └── index.astro
-│   │   ├── [page].astro
-│   │   ├── 404.astro
-│   │   └── index.astro
-│   ├── styles/
-│   │   └── global.css
-│   └── content.config.ts
-├── .gitignore
-├── .prettierrc.mjs
-├── astro.config.mjs
-├── netlify.toml
-├── package.json
-├── package-lock.json
-├── README.md
-└── tsconfig.json
-```
 
-For robots like Google to see the correct sitemap, you will want to edit the `public/robots.txt` file to use your website domain.
-
-## Other Resources
-
-- See my blog post on [recommended Astro web development setup](https://cosmicthemes.com/blog/astro-web-development-setup/).
-- You can learn more information from the [theme docs](https://cosmicthemes.com/docs/) page on the [Cosmic Themes Website](https://cosmicthemes.com/).
-
-## License
-
-This project is open source and available under the [GPL-3.0 License](https://www.gnu.org/licenses/gpl-3.0.en.html).
-
-However, If you have purchased [All Access](https://cosmicthemes.com/all-access/) from Cosmic Themes, there is a no attribution required license you can view at [License details](https://cosmicthemes.com/license/).
-
-## General Astro Info
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory. I also frequently use `src/assets` for images when using Astro asssets for image optimization.
-
-### Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:3000`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-### Want to learn more?
-
-Feel free to check out the [Astro documentation](https://docs.astro.build).
+> Nota: Cada array dentro de `images` debe contener 1, 2 o 3 imágenes.
