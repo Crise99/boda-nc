@@ -2,42 +2,6 @@
 
 ¡Bienvenidos a la página oficial de la boda de Cristian y Nuria!
 
-## Información del Evento
-
-- **Fecha:** 25 de junio de 2025
-- **Hora:** 17:00
-- **Lugar de la Ceremonia:** Iglesia de la Asunción, Molina de Segura, Murcia
-- **Lugar de la Recepción:** Finca Los Sauces, Cartagena, Murcia
-
-## Programa
-
-1. **Ceremonia Religiosa**
-
-   - Hora: 17:00
-   - Lugar: Iglesia de la Asunción, Molina de Segura
-
-2. **Recepción y Banquete**
-
-   - Hora: 19:00
-   - Lugar: Finca Los Sauces, Cartagena
-
-3. **Fiesta y Baile**
-   - Hora: 22:00
-   - Lugar: Finca Los Sauces, Cartagena
-
-## Cómo Llegar
-
-### Iglesia de la Asunción
-
-- **Dirección:** Pl. Iglesia, s/n, 30500 Molina de Segura, Murcia
-- [Ver en Google Maps](https://g.co/kgs/oGj9p3V)
-
-### Finca Los Sauces
-
-- **Dirección:** Ctra. De la Palma, km 4, 5, 30395 Cartagena, Murcia
-- [Ver en Google Maps](https://g.co/kgs/H33srLC)
--
-
 ## ⚙️ Frontmatter de las Experiencias
 
 ```yaml
