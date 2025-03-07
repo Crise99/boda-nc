@@ -1,12 +1,11 @@
 ---
-import { actions } from "astro:actions";
-// components
+export const prerender = false;
 import Button from "@components/Button/Button.astro";
 ---
 
 <form
 	id="contact-form"
-	action={actions.send}
+	action="api/send"
 	method="post"
 	name="contact form"
 	class="flex h-full flex-col justify-between gap-4"
@@ -43,19 +42,128 @@ import Button from "@components/Button/Button.astro";
 		<label for="contact-asistentes" class="font-heading-1 text-lg uppercase"
 			>Número de asistentes
 		</label>
-		<input type="number" class="form__input" name="asistentes" id="contact-asistentes" required />
+		<input
+			type="number"
+			class="form__input"
+			name="asistentes"
+			id="contact-asistentes"
+			max="10"
+			required
+		/>
 	</div>
 	<div>
-		<label for="contact-message" class="font-heading-1 text-lg uppercase">Mensaje </label>
-		<textarea
-			name="message"
-			class="form__input"
-			id="contact-message"
-			rows="6"
-			placeholder="Comparte tus mejores deseos con los novios"
-			required></textarea>
+		<label class="font-heading-1 text-lg uppercase">¿Algún comensal es vegano?</label>
+		<div class="mt-2 flex gap-4">
+			<label class="inline-flex items-center">
+				<input
+					type="radio"
+					name="hasVegans"
+					value="no"
+					class="form-radio text-primary-600"
+					checked
+				/>
+				<span class="ml-2">No</span>
+			</label>
+			<label class="inline-flex items-center">
+				<input type="radio" name="hasVegans" value="yes" class="form-radio text-primary-600" />
+				<span class="ml-2">Sí</span>
+			</label>
+		</div>
 	</div>
-	<div class="flex">
-		<Button variant="primary" type="submit" class="w-full px-10 md:w-fit">Enviar</Button>
+	<div id="vegansField" class="hidden">
+		<label for="contact-vegans" class="font-heading-1 text-lg uppercase"
+			>Número de comensales veganos</label
+		>
+		<input
+			type="number"
+			name="vegans"
+			class="form__input"
+			id="contact-vegans"
+			min="1"
+			max="10"
+			placeholder="Indica el número de comensales veganos"
+		/>
+	</div>
+	<div>
+		<label class="font-heading-1 text-lg uppercase">¿Tienes alguna alergia alimentaria?</label>
+		<div class="mt-2 flex gap-4">
+			<label class="inline-flex items-center">
+				<input
+					type="radio"
+					name="hasAllergies"
+					value="no"
+					class="form-radio text-primary-600"
+					checked
+				/>
+				<span class="ml-2">No</span>
+			</label>
+			<label class="inline-flex items-center">
+				<input type="radio" name="hasAllergies" value="yes" class="form-radio text-primary-600" />
+				<span class="ml-2">Sí</span>
+			</label>
+		</div>
+	</div>
+	<div id="allergiesField" class="hidden">
+		<label for="contact-allergies" class="font-heading-1 text-lg uppercase"
+			>Especifica tus alergias</label
+		>
+		<textarea
+			name="allergies"
+			class="form__input"
+			id="contact-allergies"
+			rows="3"
+			placeholder="Por favor, indica tus alergias alimentarias"></textarea>
+	</div>
+	<div>
+		<div>
+			<label for="contact-message" class="font-heading-1 text-lg uppercase">Mensaje </label>
+			<textarea
+				name="message"
+				class="form__input"
+				id="contact-message"
+				rows="6"
+				placeholder="Comparte tus mejores deseos con los novios"
+				required></textarea>
+		</div>
+		<div class="flex">
+			<Button variant="primary" type="submit" class="w-full px-10 md:w-fit">Enviar</Button>
+		</div>
 	</div>
 </form>
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		// Handle allergies fields
+		const allergyRadios = document.querySelectorAll('input[name="hasAllergies"]');
+		const allergiesField = document.getElementById("allergiesField");
+		const allergiesTextarea = document.getElementById("contact-allergies") as HTMLTextAreaElement;
+
+		allergyRadios.forEach((radio) => {
+			radio.addEventListener("change", (e) => {
+				if (e.target instanceof HTMLInputElement) {
+					allergiesField?.classList.toggle("hidden", e.target.value === "no");
+					if (allergiesTextarea) {
+						allergiesTextarea.required = e.target.value === "yes";
+						allergiesTextarea.value = ""; // Clear textarea when switching options
+					}
+				}
+			});
+		});
+
+		// Handle vegans fields
+		const veganRadios = document.querySelectorAll('input[name="hasVegans"]');
+		const vegansField = document.getElementById("vegansField");
+		const vegansInput = document.getElementById("contact-vegans") as HTMLInputElement;
+
+		veganRadios.forEach((radio) => {
+			radio.addEventListener("change", (e) => {
+				if (e.target instanceof HTMLInputElement) {
+					vegansField?.classList.toggle("hidden", e.target.value === "no");
+					if (vegansInput) {
+						vegansInput.required = e.target.value === "yes";
+						vegansInput.value = ""; // Clear input when switching options
+					}
+				}
+			});
+		});
+	});
+</script>

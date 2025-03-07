@@ -3,4 +3,5 @@
 
 interface ImportMetaEnv {
 	RESEND_API_KEY: string;
+	RESEND_USER_EMAIL: string;
 }

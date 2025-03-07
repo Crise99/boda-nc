@@ -8,7 +8,7 @@
 	},
 	"editor.linkedEditing": true,
 	"editor.codeActionsOnSave": {
-		"source.organizeImports": "explicit"
+		"source.organizeImports": "never"
 	},
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.formatOnSave": true,
@@ -24,5 +24,8 @@
 	"[astro]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
-	"prettier.documentSelectors": ["**/*.astro"]
+	"prettier.documentSelectors": ["**/*.astro"],
+	"typescript.preferences.autoImportFileExcludePatterns": [],
+	"javascript.updateImportsOnFileMove.enabled": "never",
+	"typescript.updateImportsOnFileMove.enabled": "never"
 }
