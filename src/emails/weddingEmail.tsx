@@ -1,6 +1,6 @@
 export const prerender = false;
-
 import React from "react";
+
 import {
 	Body,
 	Container,
@@ -19,9 +19,23 @@ interface WeddingEmailProps {
 	telefono: string;
 	asistentes: string;
 	mensaje: string;
+	hasVegans: string;
+	vegans?: string;
+	hasAllergies: string;
+	allergies?: string;
 }
 
-const WeddingEmail = ({ name, email, telefono, asistentes, mensaje }: WeddingEmailProps) => (
+const WeddingEmail = ({
+	name,
+	email,
+	telefono,
+	asistentes,
+	mensaje,
+	hasVegans,
+	vegans,
+	hasAllergies,
+	allergies,
+}: WeddingEmailProps) => (
 	<Html>
 		<Head />
 		<Preview>Nueva confirmación de asistencia - {name}</Preview>
@@ -46,6 +60,28 @@ const WeddingEmail = ({ name, email, telefono, asistentes, mensaje }: WeddingEma
 
 					<Text style={label}>Número de Asistentes</Text>
 					<Text style={value}>{asistentes}</Text>
+
+					{hasVegans === "yes" ? (
+						<>
+							<Text style={label}>Comensales Veganos</Text>
+							<Text style={value}>{vegans} comensal(es)</Text>
+						</>
+					) : (
+						<>
+							<Text style={label}>Comensales Veganos: No</Text>
+						</>
+					)}
+
+					{hasAllergies === "yes" ? (
+						<>
+							<Text style={label}>Alergias Alimentarias</Text>
+							<Text style={value}>{allergies}</Text>
+						</>
+					) : (
+						<>
+							<Text style={label}>Alergias Alimentarias: No</Text>
+						</>
+					)}
 
 					<Text style={label}>Mensaje</Text>
 					<Text style={messageStyle}>{mensaje}</Text>

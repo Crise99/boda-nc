@@ -16,8 +16,10 @@ export const POST: APIRoute = async ({ request, redirect }) => {
 		const telefono = formData.get("telefono")?.toString() || "";
 		const asistentes = formData.get("asistentes")?.toString() || "";
 		const mensaje = formData.get("message")?.toString() || "";
-
-		console.log("Form data:", { name, email, telefono, asistentes, mensaje });
+		const hasVegans = formData.get("hasVegans")?.toString() || "";
+		const vegans = formData.get("vegans")?.toString() || "";
+		const hasAllergies = formData.get("hasAllergies")?.toString() || "";
+		const allergies = formData.get("allergies")?.toString() || "";
 
 		// Create the email
 		const emailContent = WeddingEmail({
@@ -26,6 +28,10 @@ export const POST: APIRoute = async ({ request, redirect }) => {
 			telefono,
 			asistentes,
 			mensaje,
+			hasAllergies,
+			allergies,
+			hasVegans,
+			vegans,
 		});
 		const html = await render(emailContent);
 		const text = await render(emailContent, {
@@ -43,14 +49,12 @@ export const POST: APIRoute = async ({ request, redirect }) => {
 
 		if (error) {
 			console.error("Error processing form:", error);
-			return new Response(JSON.stringify({ error }));
-			// return redirect("/?error=true", 302);
+			return redirect("/?error=true", 302);
 		}
 
 		return redirect("/?success=true", 302);
 	} catch (error) {
 		console.error("Error processing form:", error);
-		return new Response(JSON.stringify({ error }));
-		// return redirect("/?error=true", 302);
+		return redirect("/?error=true", 302);
 	}
 };
