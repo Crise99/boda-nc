@@ -8,7 +8,17 @@
 	},
 	"editor.linkedEditing": true,
 	"editor.codeActionsOnSave": {
-		"source.organizeImports": "never"
+		"source.organizeImports": "explicit"
+	},
+	"[typescriptreact]": {
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": "never"
+		}
+	},
+	"[javascriptreact]": {
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": "never"
+		}
 	},
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.formatOnSave": true,
@@ -24,8 +34,5 @@
 	"[astro]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
-	"prettier.documentSelectors": ["**/*.astro"],
-	"typescript.preferences.autoImportFileExcludePatterns": [],
-	"javascript.updateImportsOnFileMove.enabled": "never",
-	"typescript.updateImportsOnFileMove.enabled": "never"
+	"prettier.documentSelectors": ["**/*.astro"]
 }
