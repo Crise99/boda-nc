@@ -1,12 +1,11 @@
 ---
-import { actions } from "astro:actions";
-// components
+export const prerender = false;
 import Button from "@components/Button/Button.astro";
 ---
 
 <form
 	id="contact-form"
-	action={actions.send}
+	action="api/send"
 	method="post"
 	name="contact form"
 	class="flex h-full flex-col justify-between gap-4"

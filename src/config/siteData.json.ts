@@ -42,7 +42,7 @@ const siteData: SiteDataProps = {
 	contact: {
 		from: "Boda Nuria y Cristian <onboarding@resend.dev>",
 		to: "valenlj7@gmail.com",
-		subject: "Nueva Confirmación",
+		subject: "Nueva confirmación de asistencia",
 	},
 };
 
