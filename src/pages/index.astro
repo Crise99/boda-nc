@@ -4,19 +4,19 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
 // components
 import AboutTheCouple from "@components/AboutTheCouple/AboutTheCouple.astro";
-import Contact from "@components/Contact/Contact.astro";
 import ExperienceThreeCards from "@components/Experience/ExperienceThreeCards.astro";
 import FeatureNumbers from "@components/Feature/FeatureNumbers.astro";
 import Hero from "@components/Hero/Hero.astro";
 
 // data
 import siteData from "@config/siteData.json";
+
+const buttonLink = "/#feature-numbers";
 ---
 
 <BaseLayout title={siteData.title} description={siteData.description} navStartStyle="white">
-	<Hero />
+	<Hero buttonLink={buttonLink} />
 	<FeatureNumbers />
 	<ExperienceThreeCards />
 	<AboutTheCouple />
-	<Contact />
 </BaseLayout>
