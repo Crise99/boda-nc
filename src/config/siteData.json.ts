@@ -41,7 +41,7 @@ const siteData: SiteDataProps = {
 	},
 	contact: {
 		from: "Boda Nuria y Cristian <onboarding@resend.dev>",
-		to: "valenlj7@gmail.com",
+		to: import.meta.env.RESEND_USER_EMAIL,
 		subject: "Nueva confirmación de asistencia",
 	},
 };
