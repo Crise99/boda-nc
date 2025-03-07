@@ -45,16 +45,87 @@ import Button from "@components/Button/Button.astro";
 		<input type="number" class="form__input" name="asistentes" id="contact-asistentes" required />
 	</div>
 	<div>
-		<label for="contact-message" class="font-heading-1 text-lg uppercase">Mensaje </label>
-		<textarea
-			name="message"
-			class="form__input"
-			id="contact-message"
-			rows="6"
-			placeholder="Comparte tus mejores deseos con los novios"
-			required></textarea>
+		<label class="font-heading-1 text-lg uppercase">¿Tienes alguna alergia alimentaria?</label>
+		<div class="mt-2 flex gap-4">
+			<label class="inline-flex items-center">
+				<input
+					type="radio"
+					name="hasAllergies"
+					value="no"
+					class="form-radio text-primary-600"
+					checked
+				/>
+				<span class="ml-2">No</span>
+			</label>
+			<label class="inline-flex items-center">
+				<input type="radio" name="hasAllergies" value="yes" class="form-radio text-primary-600" />
+				<span class="ml-2">Sí</span>
+			</label>
+		</div>
 	</div>
-	<div class="flex">
-		<Button variant="primary" type="submit" class="w-full px-10 md:w-fit">Enviar</Button>
+	<div id="allergiesField" class="hidden">
+		<label for="contact-allergies" class="font-heading-1 text-lg uppercase"
+			>Especifica tus alergias</label
+		>
+		<textarea
+			name="allergies"
+			class="form__input"
+			id="contact-allergies"
+			rows="3"
+			placeholder="Por favor, indica tus alergias alimentarias"></textarea>
+	</div>
+	<div>
+		<div>
+			<label for="contact-message" class="font-heading-1 text-lg uppercase">Mensaje </label>
+			<textarea
+				name="message"
+				class="form__input"
+				id="contact-message"
+				rows="6"
+				placeholder="Comparte tus mejores deseos con los novios"
+				required></textarea>
+		</div>
+		<div class="flex">
+			<Button variant="primary" type="submit" class="w-full px-10 md:w-fit">Enviar</Button>
+		</div>
 	</div>
 </form>
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		const allergyRadios = document.querySelectorAll('input[name="hasAllergies"]');
+		const allergiesTextarea = document.getElementById("contact-allergies") as HTMLTextAreaElement;
+
+		allergyRadios.forEach((radio) => {
+			radio.addEventListener("change", (e) => {
+				if (e.target instanceof HTMLInputElement) {
+					allergiesTextarea.disabled = e.target.value === "no";
+					allergiesTextarea.required = e.target.value === "yes";
+					allergiesTextarea.value = ""; // Clear textarea when switching options
+				}
+			});
+		});
+	});
+</script>
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		const allergyRadios = document.querySelectorAll('input[name="hasAllergies"]');
+		const allergiesField = document.getElementById("allergiesField");
+
+		allergyRadios.forEach((radio) => {
+			radio.addEventListener("change", (e) => {
+				if (e.target instanceof HTMLInputElement) {
+					allergiesField?.classList.toggle("hidden", e.target.value === "no");
+
+					// Make the allergies textarea required only when "yes" is selected
+					const allergiesTextarea = document.getElementById(
+						"contact-allergies",
+					) as HTMLTextAreaElement;
+					if (allergiesTextarea) {
+						allergiesTextarea.required = e.target.value === "yes";
+					}
+					allergiesTextarea.value = ""; // Clear textarea when switching options
+				}
+			});
+		});
+	});
+</script>
