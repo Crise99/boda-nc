@@ -49,12 +49,12 @@ export const POST: APIRoute = async ({ request, redirect }) => {
 
 		if (error) {
 			console.error("Error processing form:", error);
-			return redirect("/?error=true", 302);
+			return redirect("/?error=true#contact-form", 302);
 		}
 
-		return redirect("/?success=true", 302);
+		return redirect("/?success=true#contact-form", 302);
 	} catch (error) {
 		console.error("Error processing form:", error);
-		return redirect("/?error=true", 302);
+		return redirect("/?error=true#contact-form", 302);
 	}
 };

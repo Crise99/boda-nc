@@ -1,5 +1,6 @@
 ---
 export const prerender = false;
+import Admonition from "@components/Admonition/Admonition.astro";
 import Button from "@components/Button/Button.astro";
 ---
 
@@ -10,6 +11,15 @@ import Button from "@components/Button/Button.astro";
 	name="contact form"
 	class="flex h-full flex-col justify-between gap-4"
 >
+	<Admonition id="send_success" variant="tip" title="!Recibido!" class="hidden">
+		<p>Gracias por embarcar con nosotros en este viaje. Nos pondremos en contacto contigo ❤️</p>
+	</Admonition>
+	<Admonition id="send_error" variant="danger" title="!Ops!" class="hidden">
+		<p>
+			Parece que no hemos podido enviar tu mensaje. 💔 Por favor, inténtalo de nuevo. O ponte en
+			contacto con nosotros.
+		</p>
+	</Admonition>
 	<input type="hidden" name="form-name" value="contact" />
 	<div>
 		<label for="contact-name" class="font-heading-1 text-lg uppercase">Nombre completo</label>
@@ -19,6 +29,7 @@ import Button from "@components/Button/Button.astro";
 		<label for="contact-email" class="font-heading-1 text-lg uppercase">E-mail </label>
 		<input
 			type="email"
+			pattern="/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/"
 			class="form__input"
 			name="email"
 			id="contact-email"
@@ -28,9 +39,10 @@ import Button from "@components/Button/Button.astro";
 		/>
 	</div>
 	<div>
-		<label for="contact-tel" class="font-heading-1 text-lg uppercase">Teléfono de contacto </label>
+		<label for="contact-tel" class="font-heading-1 text-lg uppercase">Teléfono de contacto</label>
 		<input
 			type="tel"
+			pattern="[0-9]{9}"
 			class="form__input"
 			name="telefono"
 			id="contact-tel"
@@ -59,13 +71,18 @@ import Button from "@components/Button/Button.astro";
 					type="radio"
 					name="hasVegans"
 					value="no"
-					class="form-radio text-primary-600"
+					class="form-radio text-primary-600 border-primary-600 ring-primary-600"
 					checked
 				/>
 				<span class="ml-2">No</span>
 			</label>
 			<label class="inline-flex items-center">
-				<input type="radio" name="hasVegans" value="yes" class="form-radio text-primary-600" />
+				<input
+					type="radio"
+					name="hasVegans"
+					value="yes"
+					class="form-radio text-primary-600 border-primary-600 ring-primary-600"
+				/>
 				<span class="ml-2">Sí</span>
 			</label>
 		</div>
@@ -92,13 +109,18 @@ import Button from "@components/Button/Button.astro";
 					type="radio"
 					name="hasAllergies"
 					value="no"
-					class="form-radio text-primary-600"
+					class="form-radio text-primary-600 border-primary-600 ring-primary-600"
 					checked
 				/>
 				<span class="ml-2">No</span>
 			</label>
 			<label class="inline-flex items-center">
-				<input type="radio" name="hasAllergies" value="yes" class="form-radio text-primary-600" />
+				<input
+					type="radio"
+					name="hasAllergies"
+					value="yes"
+					class="form-radio text-primary-600 border-primary-600 ring-primary-600"
+				/>
 				<span class="ml-2">Sí</span>
 			</label>
 		</div>
@@ -116,7 +138,9 @@ import Button from "@components/Button/Button.astro";
 	</div>
 	<div>
 		<div>
-			<label for="contact-message" class="font-heading-1 text-lg uppercase">Mensaje </label>
+			<label for="contact-message" class="font-heading-1 text-lg uppercase"
+				>Mensaje para los novios</label
+			>
 			<textarea
 				name="message"
 				class="form__input"
@@ -166,4 +190,121 @@ import Button from "@components/Button/Button.astro";
 			});
 		});
 	});
+
+	// Form validations
+	const form = document.getElementById("contact-form") as HTMLFormElement;
+	const asistentesInput = document.getElementById("contact-asistentes") as HTMLInputElement;
+	const vegansInput = document.getElementById("contact-vegans") as HTMLInputElement;
+	const emailInput = document.getElementById("contact-email") as HTMLInputElement;
+	const telInput = document.getElementById("contact-tel") as HTMLInputElement;
+
+	const validateEmail = () => {
+		if (emailInput.value && !emailInput.checkValidity()) {
+			emailInput.setCustomValidity("Por favor, introduce una dirección de correo válida");
+			return false;
+		}
+		emailInput.setCustomValidity("");
+		return true;
+	};
+
+	const validateTel = () => {
+		if (telInput.value && !telInput.checkValidity()) {
+			telInput.setCustomValidity("Por favor, introduce un número de teléfono válido");
+			return false;
+		}
+		telInput.setCustomValidity("");
+		return true;
+	};
+
+	// Validate asistentes and vegans relationship
+	const validateVegans = () => {
+		if (vegansInput.value && !vegansInput.classList.contains("hidden")) {
+			const vegansCount = parseInt(vegansInput.value);
+			const asistentesCount = parseInt(asistentesInput.value);
+
+			if (vegansCount > asistentesCount) {
+				vegansInput.setCustomValidity(
+					"El número de comensales veganos no puede ser mayor que el total de asistentes",
+				);
+				return false;
+			}
+		}
+		vegansInput.setCustomValidity("");
+		return true;
+	};
+
+	// Form submission handler
+	form.addEventListener("submit", (e) => {
+		e.preventDefault();
+
+		// Reset custom validations
+		form.querySelectorAll("input, textarea").forEach((element) => {
+			if (element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement) {
+				element.setCustomValidity("");
+			}
+		});
+
+		// Perform custom validations
+		let isValid = true;
+
+		// debug validations email and tel
+		console.log("email", validateEmail());
+		console.log("tel", validateTel());
+
+		// Validate email and tel
+		if (!validateEmail() || !validateTel()) {
+			isValid = false;
+		}
+
+		// Validate vegans count
+		if (!validateVegans()) {
+			isValid = false;
+		}
+
+		// Validate required fields based on radio selections
+		const hasVegans = form.querySelector('input[name="hasVegans"]:checked') as HTMLInputElement;
+		const hasAllergies = form.querySelector(
+			'input[name="hasAllergies"]:checked',
+		) as HTMLInputElement;
+
+		if (hasVegans?.value === "yes" && !vegansInput.value) {
+			vegansInput.setCustomValidity("Por favor, indica el número de comensales veganos");
+			isValid = false;
+		}
+
+		const allergiesTextarea = document.getElementById("contact-allergies") as HTMLTextAreaElement;
+		if (hasAllergies?.value === "yes" && !allergiesTextarea.value.trim()) {
+			allergiesTextarea.setCustomValidity("Por favor, especifica las alergias alimentarias");
+			isValid = false;
+		}
+
+		// Check native form validation
+		if (!form.checkValidity() || !isValid) {
+			form.reportValidity();
+			return;
+		}
+
+		// If all validations pass, submit the form
+		form.submit();
+	});
+
+	// Add real-time validation for vegans count
+	asistentesInput.addEventListener("input", validateVegans);
+	vegansInput.addEventListener("input", validateVegans);
+
+	// Show success message if URL param is present
+	function showMessage() {
+		const params = new URLSearchParams(window.location.search);
+		const success = params.get("success") === "true";
+		const error = params.get("error") === "true";
+
+		if (success) {
+			document.getElementById("send_success")?.classList.remove("hidden");
+		} else if (error) {
+			document.getElementById("send_error")?.classList.remove("hidden");
+		}
+	}
+
+	// Run the function on page load
+	document.addEventListener("DOMContentLoaded", showMessage);
 </script>
