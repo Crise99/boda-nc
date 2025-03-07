@@ -39,7 +39,7 @@ export const POST: APIRoute = async ({ request, redirect }) => {
 		});
 
 		// send an email
-		const { data, error } = await resend.emails.send({
+		const { error } = await resend.emails.send({
 			from: siteData.contact.from,
 			to: siteData.contact.to,
 			subject: siteData.contact.subject,
