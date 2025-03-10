@@ -9,10 +9,14 @@ const date = new Date(siteData.wedding.date);
 
 <section
 	id="wedding-countdown"
-	class="mx-auto max-w-md scroll-mt-10 rounded-lg bg-[#fde9e2] px-4 py-8 md:max-w-4xl md:py-12"
+	class="item mx-auto w-full scroll-mt-10 bg-[#fde9e2] px-4 py-6 sm:px-6 sm:py-8 md:max-w-6xl md:rounded-2xl md:px-8 md:py-12 lg:py-16"
 >
-	<div class="mx-auto md:max-w-lg">
-		<ImageWithFrame image={ringsImage} frame={frame} alt="wedding rings" />
-		<Countdown targetDate={date} client:only />
+	<div class="mx-auto grid justify-center gap-8 sm:gap-12 md:grid-cols-2 md:items-center md:gap-16">
+		<div class="max-w-lg">
+			<ImageWithFrame image={ringsImage} frame={frame} alt="wedding rings" width={450} />
+		</div>
+		<div class="text-center md:text-left">
+			<Countdown targetDate={date} client:only />
+		</div>
 	</div>
 </section>
