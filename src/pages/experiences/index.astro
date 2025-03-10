@@ -5,7 +5,6 @@ import { getCollection } from "astro:content";
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 // components
-import Contact from "@components/Contact/Contact.astro";
 import ExperienceGrid from "@components/Experience/ExperienceGrid.astro";
 
 const experiences = await getCollection("experiences", ({ data }) => {
@@ -21,8 +20,4 @@ const experiences = await getCollection("experiences", ({ data }) => {
 		</div>
 		<ExperienceGrid experiences={experiences} />
 	</div>
-
-	<!-- <TestimonialQuote /> -->
-
-	<Contact class="mt-12" />
 </BaseLayout>

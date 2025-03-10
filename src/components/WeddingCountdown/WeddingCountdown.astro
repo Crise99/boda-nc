@@ -1,0 +1,18 @@
+---
+import frame from "@assets/images/frame-1.png";
+import ringsImage from "@assets/images/rings-min.jpg";
+import ImageWithFrame from "@components/ImageWithFrame/ImageWithFrame.astro";
+import siteData from "@config/siteData.json";
+import Countdown from "./Countdown";
+const date = new Date(siteData.wedding.date);
+---
+
+<section
+	id="wedding-countdown"
+	class="mx-auto max-w-md scroll-mt-10 rounded-lg bg-[#fde9e2] px-4 py-8 md:max-w-4xl md:py-12"
+>
+	<div class="mx-auto md:max-w-lg">
+		<ImageWithFrame image={ringsImage} frame={frame} alt="wedding rings" />
+		<Countdown targetDate={date} client:only />
+	</div>
+</section>

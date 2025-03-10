@@ -6,7 +6,7 @@
 		"strictNullChecks": true,
 		"allowJs": true,
 		"forceConsistentCasingInFileNames": true,
-		"jsx": "preserve",
+		"jsx": "react-jsx",
 		"baseUrl": ".",
 		"paths": {
 			"@config/*": ["src/config/*"],
@@ -16,7 +16,9 @@
 			"@assets/*": ["src/assets/*"],
 			"@images/*": ["src/assets/images/*"],
 			"@videos/*": ["src/assets/videos/*"],
+			"@emails/*": ["src/emails/*"],
 			"@/*": ["src/*"]
-		}
+		},
+		"jsxImportSource": "react"
 	}
 }

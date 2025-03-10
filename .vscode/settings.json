@@ -10,6 +10,16 @@
 	"editor.codeActionsOnSave": {
 		"source.organizeImports": "explicit"
 	},
+	"[typescriptreact]": {
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": "never"
+		}
+	},
+	"[javascriptreact]": {
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": "never"
+		}
+	},
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.formatOnSave": true,
 	"files.associations": {
