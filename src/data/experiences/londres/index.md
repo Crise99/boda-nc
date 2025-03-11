@@ -1,12 +1,12 @@
 ---
 
-title: "Una Navidad diferente en Londres"
-description: "¿A quien no le gusta ver las luces de Navidad?"
+title: Una Navidad diferente en Londres
+description: ¿A quien no le gusta ver las luces de Navidad?
 headerImage: ./Skyline.jpg
 heroImage:  ./Navidad.jpg
-clients: ["Nuria", "Cristian"]
-location: "Londres"
-date: 2018-12-50
+clients: [Nuria, Cristian]
+location: Londres, Inglaterra
+date: "Dec 05 2018"
 images:
 	[
 		[./Puente.jpg],
