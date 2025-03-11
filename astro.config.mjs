@@ -47,7 +47,10 @@ export default defineConfig({
 	}), react()],
 
 	vite: {
-		plugins: [tailwindcss()],
+		plugins: [tailwindcss({
+			globalStyle: "./src/styles/global.css",
+			applyBaseStyles: false,
+		})],
 		build: {
 			assetsInlineLimit: 0,
 		},
