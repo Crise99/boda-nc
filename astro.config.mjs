@@ -48,7 +48,8 @@ export default defineConfig({
 
 	vite: {
 		plugins: [tailwindcss({
-			globalStyle: "./src/styles/global.css"
+			globalStyle: "./src/styles/global.css",
+			applyBaseStyles: false,
 		})],
 		build: {
 			assetsInlineLimit: 0,
