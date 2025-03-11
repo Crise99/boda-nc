@@ -1,0 +1,17 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+	:root {
+		--font-sans: "Inter var";
+		--font-heading: "Your-Heading-Font";
+	}
+}
+
+@layer components {
+	.form__input {
+		@apply w-full rounded-md border border-gray-300 px-4 py-3 text-base;
+		@apply focus:border-primary focus:ring-primary/20 focus:ring-2 focus:outline-none;
+	}
+}
