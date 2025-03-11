@@ -6,12 +6,12 @@ heroImage: ./Navidad.jpg
 date: "Dec 5 2018"
 location: Londres, Inglaterra
 clients: [Nuria, Cristian]
-images:
-	[
-		[./Puente.jpg, ./Panda.jpg],
-		[./Darwin.jpg, ./Esqueleto.jpg, ./Ballena.jpg],
-		[./Bola.jpg, ./Deadpool.jpg],
-	]
+images: [
+	[./Puente.jpg, ./Nuria.jpg],
+	[./Nuria2.jpg, ./Panda.jpg],
+	[./Darwin.jpg, ./Esqueleto.jpg, ./Ballena.jpg],
+	[./Bola.jpg, ./Deadpool.jpg],
+]
 order: 4
 ---
 
