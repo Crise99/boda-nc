@@ -8,7 +8,7 @@ location: Londres, Inglaterra
 clients: [Nuria, Cristian]
 images:
 	[
-		[./Puente.jpg],
+		[./Puente.jpg, ./Nuria2.jpg],
 		[./Nuria2.jpg, ./Panda.jpg],
 		[./Darwin.jpg, ./Esqueleto.jpg, ./Ballena.jpg],
 		[./Bola.jpg, ./Deadpool.jpg],
