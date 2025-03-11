@@ -1,0 +1,11 @@
+.boarding-pass {
+	font-family: "Arial", sans-serif;
+	background: linear-gradient(135deg, #fff 0%, #f3f4f6 100%);
+}
+
+@media print {
+	.boarding-pass {
+		break-inside: avoid;
+		page-break-inside: avoid;
+	}
+}

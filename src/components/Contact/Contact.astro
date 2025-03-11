@@ -4,24 +4,17 @@
  */
 
 import ringsImage from "@assets/images/rings-min.jpg";
-import ContactForm from "@components/Forms/ContactFormReact";
+import ContactForm from "@components/Contact/ContactForm";
 import { COOKIES } from "@constants/cookies";
 import { Image } from "astro:assets";
+import FormReceived from "./FormReceived.astro";
 
-let hasFormData = false;
-if (Astro.cookies.has(COOKIES.WEDDING_FORM)) {
-	const formData = Astro.cookies.get(COOKIES.WEDDING_FORM);
-	hasFormData = true;
-}
-
-console.log("HAS FORM DATA", hasFormData);
-
-// components
 interface Props {
 	class?: string;
 }
 
 const { class: className } = Astro.props as Props;
+const hasFormData = Astro.cookies.has(COOKIES.WEDDING_FORM);
 ---
 
 <section
@@ -29,25 +22,29 @@ const { class: className } = Astro.props as Props;
 	class="mx-auto max-w-md scroll-mt-10 px-4 py-8 md:max-w-6xl md:py-12"
 	class:list={[className]}
 >
-	<h2 class="h2 md:px-12 md:pb-8 lg:text-6xl">Confirma tu asistencia</h2>
-	<div class="grid gap-y-10 md:grid-cols-2">
-		<div class="border-primary-300 pt-8 md:border-r md:pr-20 md:pl-12">
-			<p class="description text-lg">
-				Estamos deseando poder celebrar junto a ti este maravilloso día.
-			</p>
-			<div class="mx-auto mt-8 aspect-square overflow-hidden">
-				<Image
-					src={ringsImage}
-					alt="wedding rings"
-					width={450}
-					densities={[1.5, 2]}
-					class="h-full w-full object-cover"
-				/>
-			</div>
-		</div>
-		<div class="md:pr-12 md:pl-20">
-			{hasFormData && <p>Tenemos datos</p>}
-			{!hasFormData && <ContactForm client:only />}
-		</div>
-	</div>
+	{hasFormData && <FormReceived />}
+	{
+		!hasFormData && (
+				<h2 class="h2 md:px-12 md:pb-8 lg:text-6xl">Confirma tu asistencia</h2>
+				<div class="grid gap-y-10 md:grid-cols-2">
+					<div class="border-primary-300 pt-8 md:border-r md:pr-20 md:pl-12">
+						<p class="description text-lg">
+							Estamos deseando poder celebrar junto a ti este maravilloso día.
+						</p>
+						<div class="mx-auto mt-8 aspect-square overflow-hidden">
+							<Image
+								src={ringsImage}
+								alt="wedding rings"
+								width={450}
+								densities={[1.5, 2]}
+								class="h-full w-full object-cover"
+							/>
+						</div>
+					</div>
+					<div class="md:pr-12 md:pl-20">
+						<ContactForm client:only />
+					</div>
+				</div>
+		)
+	}
 </section>

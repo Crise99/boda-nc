@@ -18,8 +18,6 @@ interface FormState {
 	message: string;
 }
 
-// Rewitting ContactForm to use React Hooks
-
 export default function ContactForm() {
 	// Form state
 	const [formData, setFormData] = useState<FormState>({
@@ -122,9 +120,14 @@ export default function ContactForm() {
 				allergies: "",
 				message: "",
 			});
+
 			toast.success(
 				"Gracias por embarcar con nosotros en este viaje. Nos pondremos en contacto contigo ❤️",
 			);
+
+			// TODO : Buscar solución más elegante
+			// Reload page after successful submission
+			window.location.reload();
 		}
 	};
 
