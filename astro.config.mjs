@@ -11,41 +11,45 @@ import icon from "astro-icon";
 import react from "@astrojs/react";
 
 export default defineConfig({
-    site: "https://horizon.cosmicthemes.com",
-    output: "static",
-    adapter: vercel(),
-    integrations: [AutoImport({
-        imports: [
-            "@components/Admonition/Admonition.astro",
-        ],
-		}), mdx(), icon({
-        include: {
-            tabler: [
-                "bulb",
-                "alert-triangle",
-                "flame",
-                "info-circle",
-                "arrow-narrow-left",
-                "arrow-narrow-right",
-                "menu-2",
-                "x",
-                "chevron-down",
-                "category",
-                "calendar-event",
-            ],
-        },
-		}), sitemap(), compress({
-        HTML: true,
-        JavaScript: true,
-        CSS: true,
-        Image: false,
-        SVG: false,
-		}), react()],
+	site: "https://horizon.cosmicthemes.com",
+	output: "static",
+	adapter: vercel({
+		webAnalytics: {
+			enabled: true,
+		}
+	}),
+	integrations: [AutoImport({
+		imports: [
+			"@components/Admonition/Admonition.astro",
+		],
+	}), mdx(), icon({
+		include: {
+			tabler: [
+				"bulb",
+				"alert-triangle",
+				"flame",
+				"info-circle",
+				"arrow-narrow-left",
+				"arrow-narrow-right",
+				"menu-2",
+				"x",
+				"chevron-down",
+				"category",
+				"calendar-event",
+			],
+		},
+	}), sitemap(), compress({
+		HTML: true,
+		JavaScript: true,
+		CSS: true,
+		Image: false,
+		SVG: false,
+	}), react()],
 
-    vite: {
-        plugins: [tailwindcss()],
-        build: {
-            assetsInlineLimit: 0,
-        },
-    }
+	vite: {
+		plugins: [tailwindcss()],
+		build: {
+			assetsInlineLimit: 0,
+		},
+	}
 });
