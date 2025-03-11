@@ -7,13 +7,13 @@ clients: ["Nuria", "Cristian"]
 location: "Londres"
 date: 2018-12-50
 images:
-[
-	["./Puente.jpg"],
-	["./Nuria2.jpg","./Panda.jpg"],
-	["./Darwin.jpg","./Esqueleto.jpg","./Ballena.jpg"],
-	["./Bola.jpg","./Deadpool.jpg","./Navidad.jpg"],
-]
+	[
+		["./Puente.jpg"],
+		["./Nuria2.jpg","./Panda.jpg"],
+		["./Darwin.jpg","./Esqueleto.jpg","./Ballena.jpg"],
+		["./Bola.jpg","./Deadpool.jpg","./Navidad.jpg"],
+	]
 order: 4
 ---
 
-Londres, la capital de Inglaterra y del Reino Unido, es una ciudad del siglo XXI con una historia que se remonta a la época romana. En su centro se alzan el imponente Palacio del Parlamento, la torre del icónico reloj "Big Ben" y la Abadía de Westminster, lugar de las coronaciones monárquicas británicas. Al otro lado del río Támesis, la rueda de observación London Eye ofrece vistas panorámicas del complejo cultural South Bank y de toda la ciudad.
+Londres, la capital de Inglaterra y del Reino Unido, es una ciudad del siglo XXI con una historia que se remonta a la época romana. En su centro se alzan el imponente Palacio del Parlamento, la torre del icónico reloj "Big Ben" y la Abadía de Westminster, lugar de las coronaciones monárquicas británicas. Al otro lado del río Támesis, la rueda de observación London Eye ofrece vistas panorámicas del complejo cultural South Bank y de toda la ciudad
