@@ -23,24 +23,12 @@ if (cookieData?.value) {
 			<div class="mt-8 overflow-hidden rounded-lg bg-white shadow-lg">
 				{/* <!-- Ticket Header --> */}
 				<div class="bg-primary p-6">
-					<h2 class="text-2xl font-bold">Tarjeta de embarque</h2>
+					<h2 class="text-2xl font-bold">TARJETA DE EMBARQUE</h2>
 					<p class="text-sm opacity-75">Nuria & Cristian Airlines</p>
 				</div>
 
 				{/* <!-- Ticket Body --> */}
 				<div class="space-y-6 p-6">
-					{/* <!-- Passenger Info --> */}
-					<div class="flex items-start justify-between">
-						<div>
-							<p class="text-sm text-gray-500">NOMBRE PASAJERO</p>
-							<p class="text-lg font-bold">{formData.name}</p>
-						</div>
-						<div class="text-right">
-							<p class="text-sm text-gray-500">ASIENTO</p>
-							<p class="text-lg font-bold">❤️</p>
-						</div>
-					</div>
-
 					{/* <!-- Flight Info --> */}
 					<div class="flex items-center justify-between border-t border-b border-dashed py-4">
 						<div>
@@ -57,6 +45,18 @@ if (cookieData?.value) {
 						<div class="text-right">
 							<p class="text-sm text-gray-500">A</p>
 							<p class="text-lg font-bold">CASADO</p>
+						</div>
+					</div>
+
+					{/* <!-- Passenger Info --> */}
+					<div class="flex items-start justify-between">
+						<div>
+							<p class="text-sm text-gray-500">NOMBRE PASAJERO</p>
+							<p class="text-lg font-bold">{formData.name}</p>
+						</div>
+						<div class="text-right">
+							<p class="text-sm text-gray-500">ASIENTO</p>
+							<p class="text-lg font-bold">❤️</p>
 						</div>
 					</div>
 
