@@ -5,7 +5,7 @@ import { toast } from "sonner";
 import Cookies from "js-cookie";
 import Loading from "@components/Loading/Loading";
 import { COOKIES } from "@constants/cookies";
-import "@/styles/client.css";
+import "@/styles/global.css";
 
 interface FormState {
 	name: string;
