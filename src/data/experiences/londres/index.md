@@ -2,27 +2,18 @@
 
 title: "Una Navidad diferente en Londres"
 description: "¿A quien no le gusta ver las luces de Navidad?"
-heroImage: "@assets/experiences/londres/Skyline.jpg"
+heroImage: "./Skyline.jpg"
 clients: ["Nuria", "Cristian"]
 location: "Londres"
+date: 2018-12-50
 images:
 [
-["@assets/experiences/londres/Puente.jpg"],
-[
-"@assets/experiences/londres/Nuria2.jpg",
-"@assets/experiences/londres/Panda.jpg",
-],
-[
-"@assets/experiences/londres/Darwin.jpg",
-"@assets/experiences/londres/Esqueleto.jpg",
-"@assets/experiences/londres/Ballena.jpg",
-],
-[
-"@assets/experiences/londres/Bola.jpg",
-"@assets/experiences/londres/Deadpool.jpg",
-"@assets/experiences/londres/Navidad.jpg",
-],
+	["./Puente.jpg"],
+	["./Nuria2.jpg","./Panda.jpg"],
+	["./Darwin.jpg","./Esqueleto.jpg","./Ballena.jpg"],
+	["./Bola.jpg","./Deadpool.jpg","./Navidad.jpg",],
 ]
-date: 2018-12-50
 order: 4
 ---
+
+Londres, la capital de Inglaterra y del Reino Unido, es una ciudad del siglo XXI con una historia que se remonta a la época romana. En su centro se alzan el imponente Palacio del Parlamento, la torre del icónico reloj "Big Ben" y la Abadía de Westminster, lugar de las coronaciones monárquicas británicas. Al otro lado del río Támesis, la rueda de observación London Eye ofrece vistas panorámicas del complejo cultural South Bank y de toda la ciudad.
