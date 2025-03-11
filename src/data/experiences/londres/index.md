@@ -12,7 +12,7 @@ images:
 		[./Puente.jpg],
 		[./Nuria2.jpg, ./Panda.jpg],
 		[./Darwin.jpg, ./Esqueleto.jpg, ./Ballena.jpg],
-		[./Bola.jpg", ./Deadpool.jpg",],
+		[./Bola.jpg, ./Deadpool.jpg,],
 	]
 order: 4
 ---
