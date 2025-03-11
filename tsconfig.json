@@ -10,7 +10,6 @@
 		"baseUrl": ".",
 		"paths": {
 			"@config/*": ["src/config/*"],
-			"@js/*": ["src/js/*"],
 			"@layouts/*": ["src/layouts/*"],
 			"@components/*": ["src/components/*"],
 			"@assets/*": ["src/assets/*"],

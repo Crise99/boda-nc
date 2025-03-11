@@ -41,7 +41,7 @@ export default defineConfig({
 	}), sitemap(), compress({
 		HTML: true,
 		JavaScript: true,
-		// CSS: true,
+		CSS: true,
 		Image: false,
 		SVG: false,
 	}), react()],
