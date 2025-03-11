@@ -17,6 +17,7 @@
 			"@images/*": ["src/assets/images/*"],
 			"@videos/*": ["src/assets/videos/*"],
 			"@emails/*": ["src/emails/*"],
+			"@constants/*": ["src/constants/*"],
 			"@/*": ["src/*"]
 		},
 		"jsxImportSource": "react"

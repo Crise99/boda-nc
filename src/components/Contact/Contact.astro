@@ -3,18 +3,25 @@
  * * Contact section for the website
  */
 
+import ringsImage from "@assets/images/rings-min.jpg";
+import ContactForm from "@components/Forms/ContactFormReact";
+import { COOKIES } from "@constants/cookies";
 import { Image } from "astro:assets";
 
-// components
-import ContactForm from "@components/Forms/ContactForm.astro";
+let hasFormData = false;
+if (Astro.cookies.has(COOKIES.WEDDING_FORM)) {
+	const formData = Astro.cookies.get(COOKIES.WEDDING_FORM);
+	hasFormData = true;
+}
 
+console.log("HAS FORM DATA", hasFormData);
+
+// components
 interface Props {
 	class?: string;
 }
 
 const { class: className } = Astro.props as Props;
-
-import ringsImage from "@assets/images/rings-min.jpg";
 ---
 
 <section
@@ -39,7 +46,8 @@ import ringsImage from "@assets/images/rings-min.jpg";
 			</div>
 		</div>
 		<div class="md:pr-12 md:pl-20">
-			<ContactForm />
+			{hasFormData && <p>Tenemos datos</p>}
+			{!hasFormData && <ContactForm client:only />}
 		</div>
 	</div>
 </section>
