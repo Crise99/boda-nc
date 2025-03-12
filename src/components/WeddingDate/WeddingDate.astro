@@ -1,0 +1,48 @@
+---
+import passport from "@assets/images/passport.png";
+import Title from "@components/Title/Title.astro";
+import siteData from "@config/siteData.json";
+import { Image } from "astro:assets";
+
+const { month, wday, day, time, year } = siteData.wedding.dateDetail;
+---
+
+<section
+	id="wedding-date"
+	class="min-h-md relative mx-auto w-full max-w-7xl scroll-mt-10 px-4 py-12 sm:py-16 md:py-20"
+>
+	<div class="absolute inset-0">
+		<Image
+			src={passport}
+			alt="section-background"
+			aria-hidden="true"
+			class="h-full w-full object-cover opacity-3"
+			loading="eager"
+		/>
+	</div>
+
+	<div class="relative z-10 mx-auto flex max-w-3xl flex-col items-center space-y-8 text-center">
+		<Title title="Embarque" />
+		<p class="mb-4 text-lg sm:text-xl">
+			Prepárate para el despegue hacia un día inolvidable: ¡Nuestra Boda!
+		</p>
+		<p class="mb-4 text-lg italic sm:text-xl">Fecha de salida:</p>
+		<div
+			class="grid grid-cols-3 grid-rows-3 items-center justify-center gap-2 text-center uppercase"
+		>
+			<p class="col-start-2 text-xl sm:text-2xl">{month}</p>
+			<div class="row-start-2 flex flex-col items-center">
+				<div class="bg-primary-500/50 my-2 h-1 w-12 rounded-full"></div>
+				<p class="text-lg sm:text-xl">{wday}</p>
+				<div class="bg-primary-500/50 my-2 h-1 w-12 rounded-full"></div>
+			</div>
+			<p class="font-decorative col-start-2 row-start-2 text-5xl sm:text-6xl">{day}</p>
+			<div class="col-start-3 row-start-2 flex flex-col items-center">
+				<div class="bg-primary-500/50 my-2 h-1 w-12 rounded-full"></div>
+				<p class="text-lg sm:text-xl">{time} h</p>
+				<div class="bg-primary-500/50 my-2 h-1 w-12 rounded-full"></div>
+			</div>
+			<p class="col-start-2 row-start-3 text-xl sm:text-2xl">{year}</p>
+		</div>
+	</div>
+</section>
