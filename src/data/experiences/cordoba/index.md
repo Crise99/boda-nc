@@ -1,14 +1,14 @@
 ---
-title: Una ventana al mar en Mallorca
-description: Kilometros de playas que recorrer.
+title: Cordoba encantadora
+description: Un destino que repetir mil veces.
 headerImage: ./paisaje.jpg
-heroImage: ./maceteros.jpg
+heroImage: ./conchas.jpg
 date: "Oct 01 2021"
 location: Cordoba , España
 clients: [Nuria, Cristian]
 images:
   [
-    [./conchas.jpg, ./nosotros.jpg],
+    [./maceteros.jpg, ./nosotros.jpg],
     [./nuria.jpg, ./torre.jpg, ./cristian.jpg],
     [./nosotros2.jpg, ./faroles.jpg],
 		[./nuria3.jpg, ./arcos.jpg],
