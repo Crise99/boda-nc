@@ -9,7 +9,7 @@ clients: [Nuria, Cristian]
 images:
   [
     [./Nuria.jpg, ./Cristian.jpg],
-    [./nosotros.jpeg, ./torres.jpg, ./cubo.jpg],
+    [./nosotros.jpg, ./torres.jpg, ./cubo.jpg],
     [./Palacio.jpg],
     [./Nuria2.jpg, ./Cristian2.jpg],
   ]
