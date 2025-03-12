@@ -19,6 +19,13 @@ export interface SiteDataProps {
 	wedding: {
 		date: string;
 		account: string;
+		dateDetail: {
+			wday: string;
+			time: string;
+			day: string;
+			month: string;
+			year: string;
+		};
 	};
 }
 
@@ -47,6 +54,13 @@ const siteData: SiteDataProps = {
 	wedding: {
 		date: "2025-06-08T17:00:00Z",
 		account: "ES1111111111111111111111",
+		dateDetail: {
+			wday: "Domingo",
+			time: "17:00",
+			day: "08",
+			month: "Junio",
+			year: "2025",
+		},
 	},
 };
 

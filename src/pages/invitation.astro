@@ -12,13 +12,14 @@ import BankAccount from "@components/BankAccount/BankAccount.astro";
 import Locations from "@components/Locations/Locations.astro";
 import Message from "@components/Message/Message.astro";
 import WeddingCountdown from "@components/WeddingCountdown/WeddingCountdown.astro";
+import WeddingDate from "@components/WeddingDate/WeddingDate.astro";
 import WeddingSchedule from "@components/WeddingSchedule/WeddingSchedule.astro";
 import heroImage from "@images/mapa.jpg";
 
 const title = "Pasaporte a nuestra boda";
 const subtitle = "Despegamos el 08 • 06 • 2025";
 const buttonText = "¿Te vienes?";
-const buttonLink = "#testimonial";
+const buttonLink = "#wedding-date";
 ---
 
 <BaseLayout title={siteData.title} description={siteData.description} navStartStyle="white">
@@ -29,6 +30,7 @@ const buttonLink = "#testimonial";
 		buttonText={buttonText}
 		buttonLink={buttonLink}
 	/>
+	<WeddingDate />
 	<Testimonials />
 	<Locations />
 	<Message />
