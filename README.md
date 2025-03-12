@@ -9,24 +9,20 @@
 # Campos obligatorios
 title: "Título de la experiencia"
 description: "Descripción detallada de la experiencia"
-heroImage: "@assets/experiences/ejemplo/hero.jpg"
+heroImage: "./ejemplo/hero.jpg"
 clients: ["Cliente 1", "Cliente 2"]
 location: "Ubicación de la experiencia"
+date: 2025-06-25
 images:
   [
-    ["@assets/experiences/ejemplo/img1.jpg"],
-    ["@assets/experiences/ejemplo/img2-1.jpg", "@assets/experiences/ejemplo/img2-2.jpg"],
-    [
-      "@assets/experiences/ejemplo/img3-1.jpg",
-      "@assets/experiences/ejemplo/img3-2.jpg",
-      "@assets/experiences/ejemplo/img3-3.jpg",
-    ],
+    ["./ejemplo/img1.jpg"],
+    ["./ejemplo/img2-1.jpg", "./ejemplo/img2-2.jpg"],
+    ["./ejemplo/img3-1.jpg", "./ejemplo/img3-2.jpg", "./ejemplo/img3-3.jpg"],
   ]
-date: 2025-06-25
 order: 1
 
 # Campos opcionales
-headerImage: "@assets/experiences/ejemplo/header.jpg"
+headerImage: "./ejemplo/header.jpg"
 draft: false
 ---
 ```

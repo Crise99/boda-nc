@@ -1,4 +1,6 @@
 ---
+export const prerender = false; // Not needed in 'server' mode
+
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 import Contact from "@components/Contact/Contact.astro";
@@ -6,9 +8,10 @@ import Hero from "@components/Hero/Hero.astro";
 import Testimonials from "@components/Testimonials/Testimonials.astro";
 import siteData from "@config/siteData.json";
 
-import Countdown from "@components/Countdown/Countdown.astro";
+import BankAccount from "@components/BankAccount/BankAccount.astro";
 import Locations from "@components/Locations/Locations.astro";
 import Message from "@components/Message/Message.astro";
+import WeddingCountdown from "@components/WeddingCountdown/WeddingCountdown.astro";
 import WeddingSchedule from "@components/WeddingSchedule/WeddingSchedule.astro";
 import heroImage from "@images/mapa.jpg";
 
@@ -26,10 +29,11 @@ const buttonLink = "#testimonial";
 		buttonText={buttonText}
 		buttonLink={buttonLink}
 	/>
-	<Countdown />
 	<Testimonials />
 	<Locations />
 	<Message />
 	<WeddingSchedule />
+	<WeddingCountdown />
+	<BankAccount />
 	<Contact />
 </BaseLayout>

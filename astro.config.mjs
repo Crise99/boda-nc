@@ -8,46 +8,49 @@ import tailwindcss from "@tailwindcss/vite";
 import AutoImport from "astro-auto-import";
 import icon from "astro-icon";
 
+import react from "@astrojs/react";
+
 export default defineConfig({
 	site: "https://horizon.cosmicthemes.com",
 	output: "static",
-	adapter: vercel(),
-	integrations: [
-		AutoImport({
-			imports: [
-				"@components/Admonition/Admonition.astro",
+	adapter: vercel({
+		webAnalytics: {
+			enabled: true,
+		}
+	}),
+	integrations: [AutoImport({
+		imports: [
+			"@components/Admonition/Admonition.astro",
+		],
+	}), mdx(), icon({
+		include: {
+			tabler: [
+				"bulb",
+				"alert-triangle",
+				"flame",
+				"info-circle",
+				"arrow-narrow-left",
+				"arrow-narrow-right",
+				"menu-2",
+				"x",
+				"chevron-down",
+				"category",
+				"calendar-event",
 			],
-		}),
-		mdx(),
-		icon({
-			include: {
-				tabler: [
-					"bulb",
-					"alert-triangle",
-					"flame",
-					"info-circle",
-					"arrow-narrow-left",
-					"arrow-narrow-right",
-					"menu-2",
-					"x",
-					"chevron-down",
-					"category",
-					"calendar-event",
-				],
-			},
-		}),
-		sitemap(),
-		compress({
-			HTML: true,
-			JavaScript: true,
-			CSS: true,
-			Image: false,
-			SVG: false,
-		}),
-	],
+		},
+	}), sitemap(), compress({
+		HTML: true,
+		JavaScript: true,
+		CSS: true,
+		Image: false,
+		SVG: false,
+	}), react()],
 
 	vite: {
-		plugins: [tailwindcss()],
+		plugins: [tailwindcss({
+			globalStyle: "./src/styles/global.css",
+			applyBaseStyles: false,
+		})],
 		build: {
 			assetsInlineLimit: 0,
 		},

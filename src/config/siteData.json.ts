@@ -16,6 +16,10 @@ export interface SiteDataProps {
 		to: string;
 		subject: string;
 	};
+	wedding: {
+		date: string;
+		account: string;
+	};
 }
 
 // Update this file with your site specific information
@@ -39,6 +43,10 @@ const siteData: SiteDataProps = {
 		from: "Boda Nuria y Cristian <onboarding@resend.dev>",
 		to: import.meta.env.RESEND_USER_EMAIL,
 		subject: "Nueva confirmación de asistencia",
+	},
+	wedding: {
+		date: "2025-06-08T17:00:00Z",
+		account: "ES1111111111111111111111",
 	},
 };
 
