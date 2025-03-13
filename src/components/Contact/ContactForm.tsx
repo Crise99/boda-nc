@@ -6,52 +6,60 @@ import Cookies from "js-cookie";
 import Loading from "@components/Loading/Loading";
 import { COOKIES } from "@constants/cookies";
 import "@/styles/global.css";
-
-interface FormState {
-	name: string;
-	email: string;
-	telefono: string;
-	asistentes: string;
-	hasFoodRestriction: "yes" | "no";
-	restrictions: string;
-	vegans: string;
-	message: string;
-}
+import type { WeddingFormState } from "@config/cookies.json";
 
 export default function ContactForm() {
 	// Form state
-	const [formData, setFormData] = useState<FormState>({
+	const [formData, setFormData] = useState<WeddingFormState>({
 		name: "",
-		email: "",
 		telefono: "",
-		asistentes: "",
+		passengers: "1",
 		vegans: "0",
 		hasFoodRestriction: "no",
 		restrictions: "",
 		message: "",
+		passengerNames: [],
 	});
 	const [loading, setLoading] = useState(false);
-
-	// Validations
-	const validateForm = (): boolean => {
-		// // Validate vegans count
-		// if (formData.hasVegans === "yes") {
-		// 	const vegansCount = parseInt(formData.vegans);
-		// 	const asistentesCount = parseInt(formData.asistentes);
-		// 	if (vegansCount > asistentesCount) {
-		// 		toast.info("El número de comensales veganos no puede ser mayor que el total de asistentes");
-		// 		return false;
-		// 	}
-		// }
-
-		return true;
-	};
 
 	// Handle form inputs
 	const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 		const { name, value } = e.target;
 		setFormData((prev) => ({ ...prev, [name]: value }));
+
+		// Update passenger names array when number of passengers changes
+		if (name === "passengers") {
+			const newNumPassengers = parseInt(value);
+			const currentNumPassengers = parseInt(formData.passengers);
+
+			if (newNumPassengers <= 1) {
+				// If new value is 1 or less, clear passenger names
+				setFormData((prev) => ({ ...prev, passengerNames: [] }));
+			} else {
+				setFormData((prev) => {
+					const updatedPassengerNames = [...prev.passengerNames];
+
+					if (newNumPassengers > currentNumPassengers + 1) {
+						// Add empty fields for new passengers
+						const additionalFields = Array(newNumPassengers - currentNumPassengers - 1).fill("");
+						updatedPassengerNames.push(...additionalFields);
+					} else if (newNumPassengers < currentNumPassengers + 1) {
+						// Remove excess fields while preserving existing data
+						updatedPassengerNames.splice(newNumPassengers - 1);
+					}
+
+					return { ...prev, passengerNames: updatedPassengerNames };
+				});
+			}
+		}
 	};
+
+	const handlePassengerNameChange = (index: number, value: string) => {
+		const updatedPassengerNames = [...formData.passengerNames];
+		updatedPassengerNames[index] = value;
+		setFormData((prev) => ({ ...prev, passengerNames: updatedPassengerNames }));
+	};
+
 	const handleRadioChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
 		setFormData((prev) => ({
@@ -65,10 +73,6 @@ export default function ContactForm() {
 
 	// Handle form submission
 	const handleSubmit = async (e: FormEvent) => {
-		e.preventDefault();
-		if (!validateForm()) {
-			return;
-		}
 		setLoading(true);
 		try {
 			const response = await fetch("/api/send", {
@@ -93,14 +97,15 @@ export default function ContactForm() {
 
 		if (response.ok) {
 			// Save form data to cookies
-			const cookieData = {
+			const cookieData: WeddingFormState = {
 				name: formData.name,
-				email: formData.email,
 				telefono: formData.telefono,
-				asistentes: formData.asistentes,
+				passengers: formData.passengers,
 				vegans: formData.vegans,
 				hasFoodRestriction: formData.hasFoodRestriction,
 				restrictions: formData.restrictions,
+				passengerNames: formData.passengerNames,
+				message: formData.message,
 			};
 
 			// Set cookie with 100 days expiration
@@ -109,13 +114,13 @@ export default function ContactForm() {
 			// Reset form
 			setFormData({
 				name: "",
-				email: "",
 				telefono: "",
-				asistentes: "",
-				vegans: "",
+				passengers: "1",
+				vegans: "0",
 				hasFoodRestriction: "no",
 				restrictions: "",
 				message: "",
+				passengerNames: [],
 			});
 
 			toast.success(
@@ -166,20 +171,46 @@ export default function ContactForm() {
 				</div>
 
 				<div>
-					<label htmlFor="contact-asistentes" className="font-heading-1 text-lg uppercase">
+					<label htmlFor="contact-passengers" className="font-heading-1 text-lg uppercase">
 						Número de pasajeros
 					</label>
 					<input
 						type="number"
 						className="form__input"
-						name="asistentes"
-						id="contact-asistentes"
+						name="passengers"
+						id="contact-passengers"
+						min="1"
 						max="10"
-						value={formData.asistentes}
+						value={formData.passengers}
 						onChange={handleInputChange}
 						required
 					/>
 				</div>
+
+				{formData.passengers && parseInt(formData.passengers) > 1 && (
+					<div className="bg-primary-300/15 p-4">
+						<label className="font-heading-1 text-lg uppercase">Nombres de los pasajeros</label>
+						<input
+							type="text"
+							className="form__input mt-2"
+							placeholder="Te has saltado el nombre 🫣"
+							value={formData.name}
+							required
+							disabled
+						/>
+						{Array.from({ length: parseInt(formData.passengers) - 1 }).map((_, index) => (
+							<input
+								key={index}
+								type="text"
+								className="form__input mt-2"
+								placeholder={`Pasajero ${index + 2}`}
+								value={formData.passengerNames[index] || ""}
+								onChange={(e) => handlePassengerNameChange(index, e.target.value)}
+								required
+							/>
+						))}
+					</div>
+				)}
 
 				<div>
 					<label className="font-heading-1 text-lg uppercase">
@@ -238,7 +269,7 @@ export default function ContactForm() {
 								className="form__input"
 								id="contact-vegans"
 								min="1"
-								max={formData.asistentes}
+								max={formData.passengers}
 								value={formData.vegans}
 								onChange={handleInputChange}
 								required

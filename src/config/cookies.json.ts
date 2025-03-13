@@ -1,10 +1,10 @@
-export interface WeddingFormData {
+export interface WeddingFormState {
 	name: string;
-	email: string;
 	telefono: string;
-	asistentes: string;
-	hasVegans: "yes" | "no";
-	vegans?: string;
-	hasAllergies: "yes" | "no";
-	allergies?: string;
+	passengers: string;
+	hasFoodRestriction: "yes" | "no";
+	restrictions: string;
+	vegans: string;
+	message: string;
+	passengerNames: string[];
 }
