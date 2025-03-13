@@ -3,7 +3,7 @@
  * * Contact section for the website
  */
 
-import office from "@assets/images/box-office.png";
+import rings from "@assets/images/rings-min.jpg";
 import ContactForm from "@components/Contact/ContactForm";
 import { COOKIES } from "@constants/cookies";
 import { Image } from "astro:assets";
@@ -34,7 +34,7 @@ const hasFormData = Astro.cookies.has(COOKIES.WEDDING_FORM);
 						</p>
 						<div class="mx-auto mt-8 aspect-square overflow-hidden">
 							<Image
-								src={office}
+								src={rings}
 								alt="wedding rings"
 								width={450}
 								densities={[1.5, 2]}
