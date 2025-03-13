@@ -1,4 +1,5 @@
 export const prerender = false;
+import type { WeddingFormData } from "@config/cookies.json";
 import siteData from "@config/siteData.json";
 import WeddingEmail from "@emails/weddingEmail";
 import { render } from "@react-email/render";
@@ -9,30 +10,23 @@ const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
 export const POST: APIRoute = async ({ request, redirect }) => {
 	try {
-		// Get form data
+		// Get form data and ensure type safety
 		const formData = await request.formData();
-		const name = formData.get("name")?.toString() || "";
-		const email = formData.get("email")?.toString() || "";
-		const telefono = formData.get("telefono")?.toString() || "";
-		const asistentes = formData.get("asistentes")?.toString() || "";
-		const mensaje = formData.get("message")?.toString() || "";
-		const hasVegans = formData.get("hasVegans")?.toString() || "";
-		const vegans = formData.get("vegans")?.toString() || "";
-		const hasAllergies = formData.get("hasAllergies")?.toString() || "";
-		const allergies = formData.get("allergies")?.toString() || "";
+		const formValues: WeddingFormData = {
+			name: formData.get("name")?.toString() || "",
+			telefono: formData.get("telefono")?.toString() || "",
+			passengers: formData.get("passengers")?.toString() || "1",
+			hasFoodRestriction: (formData.get("hasFoodRestriction")?.toString() === "yes"
+				? "yes"
+				: "no") as "yes" | "no",
+			restrictions: formData.get("restrictions")?.toString() || "",
+			vegans: formData.get("vegans")?.toString() || "0",
+			message: formData.get("message")?.toString() || "",
+			passengerNames: formData.get("passengerNames")?.toString() || "",
+		};
 
-		// Create the email
-		const emailContent = WeddingEmail({
-			name,
-			email,
-			telefono,
-			asistentes,
-			mensaje,
-			hasAllergies,
-			allergies,
-			hasVegans,
-			vegans,
-		});
+		// Create the email with typed content
+		const emailContent = WeddingEmail(formValues);
 		const html = await render(emailContent);
 		const text = await render(emailContent, {
 			plainText: true,

@@ -73,11 +73,18 @@ export default function ContactForm() {
 
 	// Handle form submission
 	const handleSubmit = async (e: FormEvent) => {
+		e.preventDefault();
 		setLoading(true);
 		try {
+			const data = new FormData(e.target as HTMLFormElement);
+
+			// Process passengerNames, replacing array for string.
+			data.delete("passengerNames");
+			data.append("passengerNames", formData.passengerNames.join(", "));
+
 			const response = await fetch("/api/send", {
 				method: "POST",
-				body: new FormData(e.target as HTMLFormElement),
+				body: data,
 			});
 			await handleResponse(response);
 		} catch (error) {
