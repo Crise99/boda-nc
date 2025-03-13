@@ -43,9 +43,10 @@ const siteData: SiteDataProps = {
 
 	// default image for meta tags if the page doesn't have an image already
 	defaultImage: {
-		src: "/images/cosmic-themes-logo.jpg",
-		alt: "Nuria & Cristian logo",
+		src: "/images/countdown-image.png",
+		alt: "Nuria & Cristian",
 	},
+
 	contact: {
 		from: "Boda Nuria y Cristian <onboarding@resend.dev>",
 		to: import.meta.env.RESEND_USER_EMAIL,
