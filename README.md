@@ -3,6 +3,10 @@
     Boda Cristian y Nuria 💒
 </h2>
 
+</div>
+
+<p>¡Bienvenidos a la página oficial de la boda de Cristian y Nuria!</p>
+
 <div align="center">
 
 ![Astro Badge](https://img.shields.io/badge/Astro-BC52EE?logo=astro&logoColor=fff&style=flat)
@@ -12,8 +16,6 @@
 </div>
 
 <img src="portada.png"></img>
-
-¡Bienvenidos a la página oficial de la boda de Cristian y Nuria!
 
 ## ⚙️ Frontmatter de las Experiencias
 
