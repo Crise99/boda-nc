@@ -12,10 +12,9 @@ interface FormState {
 	email: string;
 	telefono: string;
 	asistentes: string;
-	hasVegans: "yes" | "no";
+	hasFoodRestriction: "yes" | "no";
+	restrictions: string;
 	vegans: string;
-	hasAllergies: "yes" | "no";
-	allergies: string;
 	message: string;
 }
 
@@ -26,25 +25,24 @@ export default function ContactForm() {
 		email: "",
 		telefono: "",
 		asistentes: "",
-		hasVegans: "no",
-		vegans: "",
-		hasAllergies: "no",
-		allergies: "",
+		vegans: "0",
+		hasFoodRestriction: "no",
+		restrictions: "",
 		message: "",
 	});
 	const [loading, setLoading] = useState(false);
 
 	// Validations
 	const validateForm = (): boolean => {
-		// Validate vegans count
-		if (formData.hasVegans === "yes") {
-			const vegansCount = parseInt(formData.vegans);
-			const asistentesCount = parseInt(formData.asistentes);
-			if (vegansCount > asistentesCount) {
-				toast.info("El número de comensales veganos no puede ser mayor que el total de asistentes");
-				return false;
-			}
-		}
+		// // Validate vegans count
+		// if (formData.hasVegans === "yes") {
+		// 	const vegansCount = parseInt(formData.vegans);
+		// 	const asistentesCount = parseInt(formData.asistentes);
+		// 	if (vegansCount > asistentesCount) {
+		// 		toast.info("El número de comensales veganos no puede ser mayor que el total de asistentes");
+		// 		return false;
+		// 	}
+		// }
 
 		return true;
 	};
@@ -60,8 +58,8 @@ export default function ContactForm() {
 			...prev,
 			[name]: value,
 			// Clear dependent fields when switching options
-			...(name === "hasVegans" && value === "no" && { vegans: "" }),
-			...(name === "hasAllergies" && value === "no" && { allergies: "" }),
+			...(name === "hasFoodRestriction" && value === "no" && { restrictions: "" }),
+			...(name === "hasFoodRestriction" && value === "no" && { vegans: "0" }),
 		}));
 	};
 
@@ -100,10 +98,9 @@ export default function ContactForm() {
 				email: formData.email,
 				telefono: formData.telefono,
 				asistentes: formData.asistentes,
-				hasVegans: formData.hasVegans,
 				vegans: formData.vegans,
-				hasAllergies: formData.hasAllergies,
-				allergies: formData.allergies,
+				hasFoodRestriction: formData.hasFoodRestriction,
+				restrictions: formData.restrictions,
 			};
 
 			// Set cookie with 100 days expiration
@@ -115,10 +112,9 @@ export default function ContactForm() {
 				email: "",
 				telefono: "",
 				asistentes: "",
-				hasVegans: "no",
 				vegans: "",
-				hasAllergies: "no",
-				allergies: "",
+				hasFoodRestriction: "no",
+				restrictions: "",
 				message: "",
 			});
 
@@ -141,7 +137,7 @@ export default function ContactForm() {
 			>
 				<div>
 					<label htmlFor="contact-name" className="font-heading-1 text-lg uppercase">
-						Nombre completo
+						Nombre
 					</label>
 					<input
 						type="text"
@@ -153,25 +149,9 @@ export default function ContactForm() {
 						required
 					/>
 				</div>
-				<div className="flex flex-col gap-1">
-					<label htmlFor="contact-email" className="font-heading-1 text-lg uppercase">
-						E-mail
-					</label>
-					<input
-						type="email"
-						pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-						className="form__input"
-						name="email"
-						id="contact-email"
-						value={formData.email}
-						onChange={handleInputChange}
-						required
-					/>
-				</div>
-
 				<div>
 					<label htmlFor="contact-tel" className="font-heading-1 text-lg uppercase">
-						Teléfono de contacto
+						Teléfono
 					</label>
 					<input
 						type="tel"
@@ -187,7 +167,7 @@ export default function ContactForm() {
 
 				<div>
 					<label htmlFor="contact-asistentes" className="font-heading-1 text-lg uppercase">
-						Número de asistentes
+						Número de pasajeros
 					</label>
 					<input
 						type="number"
@@ -202,63 +182,16 @@ export default function ContactForm() {
 				</div>
 
 				<div>
-					<label className="font-heading-1 text-lg uppercase">¿Algún comensal es vegano?</label>
-					<div className="mt-2 flex gap-4">
-						<label className="inline-flex items-center">
-							<input
-								type="radio"
-								name="hasVegans"
-								value="no"
-								checked={formData.hasVegans === "no"}
-								onChange={handleRadioChange}
-								className="form-radio text-primary-600 border-primary-600 ring-primary-600"
-							/>
-							<span className="ml-2">No</span>
-						</label>
-						<label className="inline-flex items-center">
-							<input
-								type="radio"
-								name="hasVegans"
-								value="yes"
-								checked={formData.hasVegans === "yes"}
-								onChange={handleRadioChange}
-								className="form-radio text-primary-600 border-primary-600 ring-primary-600"
-							/>
-							<span className="ml-2">Sí</span>
-						</label>
-					</div>
-				</div>
-
-				{formData.hasVegans === "yes" && (
-					<div>
-						<label htmlFor="contact-vegans" className="font-heading-1 text-lg uppercase">
-							Número de comensales veganos
-						</label>
-						<input
-							type="number"
-							name="vegans"
-							className="form__input"
-							id="contact-vegans"
-							min="1"
-							max="10"
-							value={formData.vegans}
-							onChange={handleInputChange}
-							required
-						/>
-					</div>
-				)}
-
-				<div>
 					<label className="font-heading-1 text-lg uppercase">
-						¿Tienes alguna alergia alimentaria?
+						¿Alguna restricción alimentaria?
 					</label>
 					<div className="mt-2 flex gap-4">
 						<label className="inline-flex items-center">
 							<input
 								type="radio"
-								name="hasAllergies"
+								name="hasFoodRestriction"
 								value="no"
-								checked={formData.hasAllergies === "no"}
+								checked={formData.hasFoodRestriction === "no"}
 								onChange={handleRadioChange}
 								className="form-radio text-primary-600 border-primary-600 ring-primary-600"
 							/>
@@ -267,9 +200,9 @@ export default function ContactForm() {
 						<label className="inline-flex items-center">
 							<input
 								type="radio"
-								name="hasAllergies"
+								name="hasFoodRestriction"
 								value="yes"
-								checked={formData.hasAllergies === "yes"}
+								checked={formData.hasFoodRestriction === "yes"}
 								onChange={handleRadioChange}
 								className="form-radio text-primary-600 border-primary-600 ring-primary-600"
 							/>
@@ -278,21 +211,39 @@ export default function ContactForm() {
 					</div>
 				</div>
 
-				{formData.hasAllergies === "yes" && (
-					<div>
-						<label htmlFor="contact-allergies" className="font-heading-1 text-lg uppercase">
-							Especifica tus alergias
-						</label>
-						<textarea
-							name="allergies"
-							className="form__input"
-							id="contact-allergies"
-							rows={3}
-							value={formData.allergies}
-							onChange={handleInputChange}
-							placeholder="Por favor, indica tus alergias alimentarias"
-							required
-						/>
+				{formData.hasFoodRestriction === "yes" && (
+					<div className="bg-primary-300/15 p-4">
+						<div>
+							<label htmlFor="contact-restriction" className="font-heading-1 text-lg uppercase">
+								Especifica tus alergias o restricciones
+							</label>
+							<textarea
+								name="restrictions"
+								className="form__input"
+								id="contact-restrictions"
+								rows={3}
+								value={formData.restrictions}
+								onChange={handleInputChange}
+								placeholder="Por favor, indicanos cualquier alergia o restricción de cualquiera de los pasajeros."
+								required
+							/>
+						</div>
+						<div>
+							<label htmlFor="contact-vegans" className="font-heading-1 text-lg uppercase">
+								¿Menús vegetarianos?
+							</label>
+							<input
+								type="number"
+								name="vegans"
+								className="form__input"
+								id="contact-vegans"
+								min="1"
+								max={formData.asistentes}
+								value={formData.vegans}
+								onChange={handleInputChange}
+								required
+							/>
+						</div>
 					</div>
 				)}
 
