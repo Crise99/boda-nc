@@ -1,6 +1,5 @@
 export const prerender = false;
 import React from "react";
-
 import {
 	Body,
 	Container,
@@ -12,30 +11,18 @@ import {
 	Section,
 	Text,
 } from "@react-email/components";
-
-interface WeddingEmailProps {
-	name: string;
-	email: string;
-	telefono: string;
-	asistentes: string;
-	mensaje: string;
-	hasVegans: string;
-	vegans?: string;
-	hasAllergies: string;
-	allergies?: string;
-}
+import type { WeddingFormData } from "@config/cookies.json";
 
 const WeddingEmail = ({
 	name,
-	email,
 	telefono,
-	asistentes,
-	mensaje,
-	hasVegans,
+	passengers,
+	passengerNames,
+	hasFoodRestriction,
+	restrictions,
 	vegans,
-	hasAllergies,
-	allergies,
-}: WeddingEmailProps) => (
+	message,
+}: WeddingFormData) => (
 	<Html>
 		<Head />
 		<Preview>Nueva confirmación de asistencia - {name}</Preview>
@@ -52,39 +39,40 @@ const WeddingEmail = ({
 					<Text style={label}>Nombre</Text>
 					<Text style={value}>{name}</Text>
 
-					<Text style={label}>Email</Text>
-					<Text style={value}>{email}</Text>
-
 					<Text style={label}>Teléfono</Text>
 					<Text style={value}>{telefono}</Text>
 
-					<Text style={label}>Número de Asistentes</Text>
-					<Text style={value}>{asistentes}</Text>
+					<Text style={label}>Número de Comensales</Text>
+					<Text style={value}>{passengers}</Text>
 
-					{hasVegans === "yes" ? (
+					{passengerNames && passengerNames.length > 0 && (
 						<>
-							<Text style={label}>Comensales Veganos</Text>
-							<Text style={value}>{vegans} comensal(es)</Text>
-						</>
-					) : (
-						<>
-							<Text style={label}>Comensales Veganos: No</Text>
+							<Text style={label}>Acompañantes</Text>
+							<Text style={value}>{passengerNames}</Text>
 						</>
 					)}
 
-					{hasAllergies === "yes" ? (
+					{hasFoodRestriction === "yes" ? (
 						<>
-							<Text style={label}>Alergias Alimentarias</Text>
-							<Text style={value}>{allergies}</Text>
+							<Text style={label}>Restricciones Alimentarias</Text>
+							<Text style={value}>{restrictions}</Text>
+							{parseInt(vegans) > 0 && (
+								<>
+									<Text style={label}>Menús Vegetarianos</Text>
+									<Text style={value}>{vegans} menú(s)</Text>
+								</>
+							)}
 						</>
 					) : (
-						<>
-							<Text style={label}>Alergias Alimentarias: No</Text>
-						</>
+						<Text style={value}>Sin restricciones alimentarias</Text>
 					)}
 
-					<Text style={label}>Mensaje</Text>
-					<Text style={messageStyle}>{mensaje}</Text>
+					{message && (
+						<>
+							<Text style={label}>Mensaje</Text>
+							<Text style={messageStyle}>{message}</Text>
+						</>
+					)}
 				</Section>
 
 				<Text style={footer}>08 • 06 • 2025</Text>

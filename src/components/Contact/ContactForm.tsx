@@ -6,76 +6,85 @@ import Cookies from "js-cookie";
 import Loading from "@components/Loading/Loading";
 import { COOKIES } from "@constants/cookies";
 import "@/styles/global.css";
-
-interface FormState {
-	name: string;
-	email: string;
-	telefono: string;
-	asistentes: string;
-	hasVegans: "yes" | "no";
-	vegans: string;
-	hasAllergies: "yes" | "no";
-	allergies: string;
-	message: string;
-}
+import type { WeddingFormState } from "@config/cookies.json";
 
 export default function ContactForm() {
 	// Form state
-	const [formData, setFormData] = useState<FormState>({
+	const [formData, setFormData] = useState<WeddingFormState>({
 		name: "",
-		email: "",
 		telefono: "",
-		asistentes: "",
-		hasVegans: "no",
-		vegans: "",
-		hasAllergies: "no",
-		allergies: "",
+		passengers: "1",
+		vegans: "0",
+		hasFoodRestriction: "no",
+		restrictions: "",
 		message: "",
+		passengerNames: [],
 	});
 	const [loading, setLoading] = useState(false);
-
-	// Validations
-	const validateForm = (): boolean => {
-		// Validate vegans count
-		if (formData.hasVegans === "yes") {
-			const vegansCount = parseInt(formData.vegans);
-			const asistentesCount = parseInt(formData.asistentes);
-			if (vegansCount > asistentesCount) {
-				toast.info("El número de comensales veganos no puede ser mayor que el total de asistentes");
-				return false;
-			}
-		}
-
-		return true;
-	};
 
 	// Handle form inputs
 	const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 		const { name, value } = e.target;
 		setFormData((prev) => ({ ...prev, [name]: value }));
+
+		// Update passenger names array when number of passengers changes
+		if (name === "passengers") {
+			const newNumPassengers = parseInt(value);
+			const currentNumPassengers = parseInt(formData.passengers);
+
+			if (newNumPassengers <= 1) {
+				// If new value is 1 or less, clear passenger names
+				setFormData((prev) => ({ ...prev, passengerNames: [] }));
+			} else {
+				setFormData((prev) => {
+					const updatedPassengerNames = [...prev.passengerNames];
+
+					if (newNumPassengers > currentNumPassengers + 1) {
+						// Add empty fields for new passengers
+						const additionalFields = Array(newNumPassengers - currentNumPassengers - 1).fill("");
+						updatedPassengerNames.push(...additionalFields);
+					} else if (newNumPassengers < currentNumPassengers + 1) {
+						// Remove excess fields while preserving existing data
+						updatedPassengerNames.splice(newNumPassengers - 1);
+					}
+
+					return { ...prev, passengerNames: updatedPassengerNames };
+				});
+			}
+		}
 	};
+
+	const handlePassengerNameChange = (index: number, value: string) => {
+		const updatedPassengerNames = [...formData.passengerNames];
+		updatedPassengerNames[index] = value;
+		setFormData((prev) => ({ ...prev, passengerNames: updatedPassengerNames }));
+	};
+
 	const handleRadioChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
 		setFormData((prev) => ({
 			...prev,
 			[name]: value,
 			// Clear dependent fields when switching options
-			...(name === "hasVegans" && value === "no" && { vegans: "" }),
-			...(name === "hasAllergies" && value === "no" && { allergies: "" }),
+			...(name === "hasFoodRestriction" && value === "no" && { restrictions: "" }),
+			...(name === "hasFoodRestriction" && value === "no" && { vegans: "0" }),
 		}));
 	};
 
 	// Handle form submission
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
-		if (!validateForm()) {
-			return;
-		}
 		setLoading(true);
 		try {
+			const data = new FormData(e.target as HTMLFormElement);
+
+			// Process passengerNames, replacing array for string.
+			data.delete("passengerNames");
+			data.append("passengerNames", formData.passengerNames.join(", "));
+
 			const response = await fetch("/api/send", {
 				method: "POST",
-				body: new FormData(e.target as HTMLFormElement),
+				body: data,
 			});
 			await handleResponse(response);
 		} catch (error) {
@@ -95,15 +104,15 @@ export default function ContactForm() {
 
 		if (response.ok) {
 			// Save form data to cookies
-			const cookieData = {
+			const cookieData: WeddingFormState = {
 				name: formData.name,
-				email: formData.email,
 				telefono: formData.telefono,
-				asistentes: formData.asistentes,
-				hasVegans: formData.hasVegans,
+				passengers: formData.passengers,
 				vegans: formData.vegans,
-				hasAllergies: formData.hasAllergies,
-				allergies: formData.allergies,
+				hasFoodRestriction: formData.hasFoodRestriction,
+				restrictions: formData.restrictions,
+				passengerNames: formData.passengerNames,
+				message: formData.message,
 			};
 
 			// Set cookie with 100 days expiration
@@ -112,14 +121,13 @@ export default function ContactForm() {
 			// Reset form
 			setFormData({
 				name: "",
-				email: "",
 				telefono: "",
-				asistentes: "",
-				hasVegans: "no",
-				vegans: "",
-				hasAllergies: "no",
-				allergies: "",
+				passengers: "1",
+				vegans: "0",
+				hasFoodRestriction: "no",
+				restrictions: "",
 				message: "",
+				passengerNames: [],
 			});
 
 			toast.success(
@@ -141,7 +149,7 @@ export default function ContactForm() {
 			>
 				<div>
 					<label htmlFor="contact-name" className="font-heading-1 text-lg uppercase">
-						Nombre completo
+						Nombre
 					</label>
 					<input
 						type="text"
@@ -153,25 +161,9 @@ export default function ContactForm() {
 						required
 					/>
 				</div>
-				<div className="flex flex-col gap-1">
-					<label htmlFor="contact-email" className="font-heading-1 text-lg uppercase">
-						E-mail
-					</label>
-					<input
-						type="email"
-						pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-						className="form__input"
-						name="email"
-						id="contact-email"
-						value={formData.email}
-						onChange={handleInputChange}
-						required
-					/>
-				</div>
-
 				<div>
 					<label htmlFor="contact-tel" className="font-heading-1 text-lg uppercase">
-						Teléfono de contacto
+						Teléfono
 					</label>
 					<input
 						type="tel"
@@ -186,79 +178,58 @@ export default function ContactForm() {
 				</div>
 
 				<div>
-					<label htmlFor="contact-asistentes" className="font-heading-1 text-lg uppercase">
-						Número de asistentes
+					<label htmlFor="contact-passengers" className="font-heading-1 text-lg uppercase">
+						Número de pasajeros
 					</label>
 					<input
 						type="number"
 						className="form__input"
-						name="asistentes"
-						id="contact-asistentes"
+						name="passengers"
+						id="contact-passengers"
+						min="1"
 						max="10"
-						value={formData.asistentes}
+						value={formData.passengers}
 						onChange={handleInputChange}
 						required
 					/>
 				</div>
 
-				<div>
-					<label className="font-heading-1 text-lg uppercase">¿Algún comensal es vegano?</label>
-					<div className="mt-2 flex gap-4">
-						<label className="inline-flex items-center">
-							<input
-								type="radio"
-								name="hasVegans"
-								value="no"
-								checked={formData.hasVegans === "no"}
-								onChange={handleRadioChange}
-								className="form-radio text-primary-600 border-primary-600 ring-primary-600"
-							/>
-							<span className="ml-2">No</span>
-						</label>
-						<label className="inline-flex items-center">
-							<input
-								type="radio"
-								name="hasVegans"
-								value="yes"
-								checked={formData.hasVegans === "yes"}
-								onChange={handleRadioChange}
-								className="form-radio text-primary-600 border-primary-600 ring-primary-600"
-							/>
-							<span className="ml-2">Sí</span>
-						</label>
-					</div>
-				</div>
-
-				{formData.hasVegans === "yes" && (
-					<div>
-						<label htmlFor="contact-vegans" className="font-heading-1 text-lg uppercase">
-							Número de comensales veganos
-						</label>
+				{formData.passengers && parseInt(formData.passengers) > 1 && (
+					<div className="bg-primary-300/15 p-4">
+						<label className="font-heading-1 text-lg uppercase">Nombres de los pasajeros</label>
 						<input
-							type="number"
-							name="vegans"
-							className="form__input"
-							id="contact-vegans"
-							min="1"
-							max="10"
-							value={formData.vegans}
-							onChange={handleInputChange}
+							type="text"
+							className="form__input mt-2"
+							placeholder="Te has saltado el nombre 🫣"
+							value={formData.name}
 							required
+							disabled
 						/>
+						{Array.from({ length: parseInt(formData.passengers) - 1 }).map((_, index) => (
+							<input
+								key={index}
+								type="text"
+								className="form__input mt-2"
+								placeholder={`Pasajero ${index + 2}`}
+								value={formData.passengerNames[index] || ""}
+								onChange={(e) => handlePassengerNameChange(index, e.target.value)}
+								required
+							/>
+						))}
 					</div>
 				)}
 
 				<div>
 					<label className="font-heading-1 text-lg uppercase">
-						¿Tienes alguna alergia alimentaria?
+						¿Alguna restricción alimentaria?
 					</label>
 					<div className="mt-2 flex gap-4">
 						<label className="inline-flex items-center">
 							<input
 								type="radio"
-								name="hasAllergies"
+								name="hasFoodRestriction"
 								value="no"
-								checked={formData.hasAllergies === "no"}
+								checked={formData.hasFoodRestriction === "no"}
 								onChange={handleRadioChange}
 								className="form-radio text-primary-600 border-primary-600 ring-primary-600"
 							/>
@@ -267,9 +238,9 @@ export default function ContactForm() {
 						<label className="inline-flex items-center">
 							<input
 								type="radio"
-								name="hasAllergies"
+								name="hasFoodRestriction"
 								value="yes"
-								checked={formData.hasAllergies === "yes"}
+								checked={formData.hasFoodRestriction === "yes"}
 								onChange={handleRadioChange}
 								className="form-radio text-primary-600 border-primary-600 ring-primary-600"
 							/>
@@ -278,21 +249,39 @@ export default function ContactForm() {
 					</div>
 				</div>
 
-				{formData.hasAllergies === "yes" && (
-					<div>
-						<label htmlFor="contact-allergies" className="font-heading-1 text-lg uppercase">
-							Especifica tus alergias
-						</label>
-						<textarea
-							name="allergies"
-							className="form__input"
-							id="contact-allergies"
-							rows={3}
-							value={formData.allergies}
-							onChange={handleInputChange}
-							placeholder="Por favor, indica tus alergias alimentarias"
-							required
-						/>
+				{formData.hasFoodRestriction === "yes" && (
+					<div className="bg-primary-300/15 p-4">
+						<div>
+							<label htmlFor="contact-restriction" className="font-heading-1 text-lg uppercase">
+								Especifica tus alergias o restricciones
+							</label>
+							<textarea
+								name="restrictions"
+								className="form__input"
+								id="contact-restrictions"
+								rows={3}
+								value={formData.restrictions}
+								onChange={handleInputChange}
+								placeholder="Por favor, indicanos cualquier alergia o restricción de cualquiera de los pasajeros."
+								required
+							/>
+						</div>
+						<div>
+							<label htmlFor="contact-vegans" className="font-heading-1 text-lg uppercase">
+								¿Menús vegetarianos?
+							</label>
+							<input
+								type="number"
+								name="vegans"
+								className="form__input"
+								id="contact-vegans"
+								min="1"
+								max={formData.passengers}
+								value={formData.vegans}
+								onChange={handleInputChange}
+								required
+							/>
+						</div>
 					</div>
 				)}
 
