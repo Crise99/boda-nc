@@ -42,16 +42,13 @@ const WeddingEmail = ({
 					<Text style={label}>Teléfono</Text>
 					<Text style={value}>{telefono}</Text>
 
-					<Text style={label}>Número de Pasajeros</Text>
+					<Text style={label}>Número de Comensales</Text>
 					<Text style={value}>{passengers}</Text>
 
 					{passengerNames && passengerNames.length > 0 && (
 						<>
-							<Text style={label}>Lista de Pasajeros</Text>
-							<Text style={value}>
-								• {name} (Principal)
-								{passengerNames}
-							</Text>
+							<Text style={label}>Acompañantes</Text>
+							<Text style={value}>{passengerNames}</Text>
 						</>
 					)}
 
