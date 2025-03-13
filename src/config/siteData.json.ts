@@ -53,7 +53,7 @@ const siteData: SiteDataProps = {
 	},
 	wedding: {
 		date: "2025-06-08T17:00:00Z",
-		account: "ES1111111111111111111111",
+		account: import.meta.env.BANK_ACCOUNT,
 		dateDetail: {
 			wday: "Domingo",
 			time: "17:00",
