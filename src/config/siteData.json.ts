@@ -1,3 +1,19 @@
+import iglesia from "@images/Icono-Boho-1.png";
+import copas from "@images/Icono-Boho-4.png";
+import comida from "@images/Icono-Boho-5.png";
+import fiesta from "@images/Icono-Boho-7.png";
+
+interface ScheduleItem {
+	icon: ImageMetadata;
+	time: string;
+	event: string;
+}
+
+interface FeatureCardData {
+	largeText: string;
+	description: string;
+}
+
 export interface SiteDataProps {
 	name: String;
 	title: string;
@@ -26,6 +42,8 @@ export interface SiteDataProps {
 			month: string;
 			year: string;
 		};
+		schedule: ScheduleItem[];
+		featureData: FeatureCardData[];
 	};
 }
 
@@ -62,6 +80,26 @@ const siteData: SiteDataProps = {
 			month: "Junio",
 			year: "2025",
 		},
+		schedule: [
+			{ icon: iglesia, time: "17:00", event: "Ceremonia" },
+			{ icon: copas, time: "19:30", event: "Cóctel de Bienvenida" },
+			{ icon: comida, time: "21:00", event: "Cena" },
+			{ icon: fiesta, time: "23:00", event: "Fiesta" },
+		],
+		featureData: [
+			{
+				largeText: "13",
+				description: `Años Juntos`,
+			},
+			{
+				largeText: "∞",
+				description: `Momentos`,
+			},
+			{
+				largeText: "22",
+				description: `Destinos`,
+			},
+		],
 	},
 };
 

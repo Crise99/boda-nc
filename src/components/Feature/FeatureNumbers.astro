@@ -6,32 +6,9 @@
 
 // components
 import FeatureCardNumbers from "@components/FeatureCard/FeatureCardNumbers.astro";
+import siteData from "@config/siteData.json";
 
-interface FeatureCardData {
-	largeText: string;
-	description: string;
-}
-
-// data
-// NOTE: You still need to manually update the heading that come before the cards
-const featureData: FeatureCardData[] = [
-	{
-		largeText: "13",
-		description: `Años Juntos`,
-	},
-	{
-		largeText: "20M",
-		description: `Fotos`,
-	},
-	{
-		largeText: "310M",
-		description: `Momentos`,
-	},
-	{
-		largeText: "22",
-		description: `Destinos`,
-	},
-];
+const { featureData } = siteData.wedding;
 ---
 
 <section id="feature-numbers" class="bg-base-100 scroll-mt-10 py-8 md:py-12">
@@ -42,7 +19,7 @@ const featureData: FeatureCardData[] = [
 
 		<div
 			id="feature-numbers-cards"
-			class="mt-6 grid gap-10 gap-y-16 sm:grid-cols-2 md:mt-12 lg:grid-cols-4"
+			class="mt-6 grid gap-10 gap-y-16 sm:grid-cols-1 md:mt-12 lg:grid-cols-3"
 		>
 			{
 				featureData.map((feature, idx) => (
