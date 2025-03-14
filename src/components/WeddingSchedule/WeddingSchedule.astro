@@ -3,18 +3,10 @@ import { Image } from "astro:assets";
 
 // images
 import Title from "@components/Title/Title.astro";
-import iglesia from "@images/Icono-Boho-1.png";
-import copas from "@images/Icono-Boho-4.png";
-import comida from "@images/Icono-Boho-5.png";
-import fiesta from "@images/Icono-Boho-7.png";
+import siteData from "@config/siteData.json";
 import maletas from "@images/Icono-viajes-boda-7.png";
 
-const schedule = [
-	{ icon: iglesia, time: "17:00", event: "Ceremonia" },
-	{ icon: copas, time: "19:30", event: "Cóctel de Bienvenida" },
-	{ icon: comida, time: "21:00", event: "Cena" },
-	{ icon: fiesta, time: "23:00", event: "Fiesta" },
-];
+const { schedule } = siteData.wedding;
 ---
 
 <section
