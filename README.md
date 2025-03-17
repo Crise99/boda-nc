@@ -1,6 +1,21 @@
-# Boda de Cristian y Nuria
+<div align="center">
+<h2>
+    Boda Cristian y Nuria 💒
+</h2>
 
-¡Bienvenidos a la página oficial de la boda de Cristian y Nuria!
+</div>
+
+<p>¡Bienvenidos a la página oficial de la boda de Cristian y Nuria!</p>
+
+<div align="center">
+
+![Astro Badge](https://img.shields.io/badge/Astro-BC52EE?logo=astro&logoColor=fff&style=flat)
+![GitHub issues](https://img.shields.io/github/issues/Crise99/boda-nc)
+![GitHub PRs](https://img.shields.io/github/issues-pr/Crise99/boda-nc)
+
+</div>
+
+<img src="portada.png"></img>
 
 ## ⚙️ Frontmatter de las Experiencias
 
