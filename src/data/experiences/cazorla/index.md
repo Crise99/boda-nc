@@ -14,7 +14,7 @@ images:
 		[./nosotros2.jpg, ./nosotros3.jpg, ./nuria3.jpg],
 		[./nuria4.jpg, ./paisaje.jpg],
   ]
-order: 7
+order: 8
 ---
 
 Cazorla es una localidad y municipio español situado en la parte septentrional de la comarca de Sierra de Cazorla, en la provincia de Jaén.
