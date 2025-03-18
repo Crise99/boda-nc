@@ -50,7 +50,7 @@ export interface SiteDataProps {
 // Update this file with your site specific information
 const siteData: SiteDataProps = {
 	name: "Nuria & Cristian",
-	title: "Boda Nuria & Crisitan - Acompañanos en la aventura de nuestras vidas",
+	title: "Boda Nuria & Cristian - Acompañanos en la aventura de nuestras vidas",
 	description:
 		"En esta web podrás encontrar toda la informacion necesaria para el dia de nuestra boda.",
 	useViewTransitions: true,
