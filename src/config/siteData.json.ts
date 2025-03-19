@@ -83,8 +83,8 @@ const siteData: SiteDataProps = {
 		schedule: [
 			{ icon: iglesia, time: "17:00", event: "Ceremonia" },
 			{ icon: copas, time: "19:30", event: "Cóctel de Bienvenida" },
-			{ icon: comida, time: "21:00", event: "Cena" },
-			{ icon: fiesta, time: "23:00", event: "Fiesta" },
+			{ icon: comida, time: "22:00", event: "Cena" },
+			{ icon: fiesta, time: "24:00", event: "Fiesta" },
 		],
 		featureData: [
 			{
