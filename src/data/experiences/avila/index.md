@@ -11,7 +11,7 @@ images:
     [./calle.jpg, ./nosotros.jpg],
     [./sube.jpg, ./nosotros3.jpg],
     [./catedral.jpg],
-		[./muro.jpg, ./pico.jpg],
+		[./pico.jpg],
 		[./nosotros2.jpg],
   ]
 order: 7

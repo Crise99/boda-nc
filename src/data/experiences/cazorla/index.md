@@ -8,11 +8,11 @@ location: Cazorla, España
 clients: [Nuria, Cristian]
 images:
   [
-    [./cristian.jpg, ./nuria.jpg],
-    [./cristian2.jpg, ./nosotros.jpg, ./nuria2.jpg],
-    [./iglesia.jpg, ./cristian3.jpg],
-		[./nosotros2.jpg, ./nosotros3.jpg, ./nuria3.jpg],
-		[./nuria4.jpg, ./paisaje.jpg],
+    [ ./nuria2.jpg, ./nuria.jpg],
+    [./cristian2.jpg, ./nosotros.jpg,],
+    [./cristian3.jpg, ./nuria3.jpg],
+		[./nosotros2.jpg, ./nosotros3.jpg],
+		[./paisaje.jpg],
   ]
 order: 8
 ---
