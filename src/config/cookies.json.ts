@@ -7,6 +7,7 @@ export interface WeddingFormState {
 	vegans: string;
 	message: string;
 	passengerNames: string[];
+	stayAtVenue: boolean;
 }
 
 export interface WeddingFormData {
@@ -18,4 +19,5 @@ export interface WeddingFormData {
 	vegans: string;
 	message: string;
 	passengerNames: string;
+	stayAtVenue: boolean;
 }
