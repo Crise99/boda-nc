@@ -50,7 +50,7 @@ export interface SiteDataProps {
 // Update this file with your site specific information
 const siteData: SiteDataProps = {
 	name: "Nuria & Cristian",
-	title: "Boda Nuria & Crisitan - Acompañanos en la aventura de nuestras vidas",
+	title: "Boda Nuria & Cristian - Acompañanos en la aventura de nuestras vidas",
 	description:
 		"En esta web podrás encontrar toda la informacion necesaria para el dia de nuestra boda.",
 	useViewTransitions: true,
@@ -61,7 +61,7 @@ const siteData: SiteDataProps = {
 
 	// default image for meta tags if the page doesn't have an image already
 	defaultImage: {
-		src: "/images/countdown-image.png",
+		src: "/images/invitacion2.jpeg",
 		alt: "Nuria & Cristian",
 	},
 
@@ -83,8 +83,8 @@ const siteData: SiteDataProps = {
 		schedule: [
 			{ icon: iglesia, time: "17:00", event: "Ceremonia" },
 			{ icon: copas, time: "19:30", event: "Cóctel de Bienvenida" },
-			{ icon: comida, time: "21:00", event: "Cena" },
-			{ icon: fiesta, time: "23:00", event: "Fiesta" },
+			{ icon: comida, time: "22:00", event: "Cena" },
+			{ icon: fiesta, time: "24:00", event: "Fiesta" },
 		],
 		featureData: [
 			{

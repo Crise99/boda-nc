@@ -1,17 +1,18 @@
 ---
 title: Retomando los viajes
 description: Una escapada con amigos, risas garantizadas.
-headerImage: ./acueducto.jpg
-heroImage: ./pico.jpg
+headerImage: ./muro2.jpg
+heroImage: ./acueducto.jpg
 date: "Aug 04 2020"
 location: Ávila & Segovia , España
 clients: [Nuria, Cristian]
 images:
   [
     [./calle.jpg, ./nosotros.jpg],
-    [./sube.jpg, ./muro2.jpg, ./nosotros3.jpg],
-    [./catedral.jpg, ./acueducto.jpg],
-		[./muro.jpg, ./nosotros2.jpg, ./pico.jpg],
+    [./sube.jpg, ./nosotros3.jpg],
+    [./catedral.jpg],
+		[./pico.jpg],
+		[./nosotros2.jpg],
   ]
 order: 7
 ---
