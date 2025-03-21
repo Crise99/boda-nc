@@ -11,9 +11,9 @@ images:
     [./nuria5.jpg, ./nosotros.jpg],
     [./nuria.jpg, ./torre.jpg, ./cristian.jpg],
     [./nosotros2.jpg, ./faroles.jpg],
-		[./conchas.jpg, ./arcos.jpg],
-		[./nuria3.jpg, ./calle.jpg, ./cristian3.jpg],
-		[./nuria4.jpg, ./nuria2.jpg]
+		[./nuria4.jpg, ./arcos.jpg],
+		[./nuria2.jpg, ./calle.jpg, ./cristian4.jpg],
+		[./conchas.jpg],
   ]
 order: 7
 ---
