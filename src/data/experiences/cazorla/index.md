@@ -8,7 +8,7 @@ location: Cazorla, España
 clients: [Nuria, Cristian]
 images:
   [
-    [ ./nuria2.jpg, ./nuria.jpg],
+    [./lluvia.jpg, ./nuria.jpg],
     [./cristian2.jpg, ./nosotros.jpg,],
     [./cristian3.jpg, ./nuria3.jpg],
 		[./nosotros2.jpg, ./nosotros3.jpg],
