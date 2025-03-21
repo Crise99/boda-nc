@@ -1,18 +1,19 @@
 ---
 title: Cordoba encantadora
 description: Un destino que repetir mil veces.
-headerImage: ./paisaje.jpg
-heroImage: ./conchas.jpg
+headerImage: ./arcos.jpg
+heroImage: ./calle.jpg
 date: "Oct 01 2021"
 location: Cordoba , España
 clients: [Nuria, Cristian]
 images:
   [
-    [./maceteros.jpg, ./nosotros.jpg],
+    [./nuria5.jpg, ./nosotros.jpg],
     [./nuria.jpg, ./torre.jpg, ./cristian.jpg],
     [./nosotros2.jpg, ./faroles.jpg],
-		[./nuria3.jpg, ./arcos.jpg],
+		[./conchas.jpg, ./arcos.jpg],
 		[./nuria3.jpg, ./calle.jpg, ./cristian3.jpg],
+		[./nuria4.jpg, ./nuria2.jpg]
   ]
 order: 7
 ---
