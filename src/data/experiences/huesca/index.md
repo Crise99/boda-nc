@@ -1,14 +1,14 @@
 ---
 title: Pueblecitos y senderismo
 description: Un recorrido para desconectar.
-headerImage: ./montaña.jpg
+headerImage: ./cascada.jpg
 heroImage: ./agua.jpg
 date: "Jul 18 2024"
 location: Huesca , España
 clients: [Nuria, Cristian]
 images:
   [
-    [./camino.jpg, ./paseo.jpg],
+    [./camino.jpg, ./ruta.jpg],
     [./agua.jpg, ./cascada.jpg, ./montaña.jpg],
     [./juntos.jpg],
   ]
