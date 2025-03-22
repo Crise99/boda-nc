@@ -91,6 +91,10 @@ export default function ContactForm() {
 			data.delete("passengerNames");
 			data.append("passengerNames", formData.passengerNames.join(", "));
 
+			// Procesar el checkbox stayAtVenue
+			data.delete("stayAtVenue");
+			data.append("stayAtVenue", formData.stayAtVenue ? "true" : "false");
+
 			const response = await fetch("/api/send", {
 				method: "POST",
 				body: data,

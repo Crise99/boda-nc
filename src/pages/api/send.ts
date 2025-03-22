@@ -23,6 +23,7 @@ export const POST: APIRoute = async ({ request, redirect }) => {
 			vegans: formData.get("vegans")?.toString() || "0",
 			message: formData.get("message")?.toString() || "",
 			passengerNames: formData.get("passengerNames")?.toString() || "",
+			stayAtVenue: formData.get("stayAtVenue")?.toString() === "true" ? true : false,
 		};
 
 		// Create the email with typed content
