@@ -320,7 +320,7 @@ export default function ContactForm() {
 
 				{formData.stayAtVenue && (
 					<div className="bg-primary-300/15 p-4">
-						<p className="text-base-600 text-center text-lg font-normal md:text-xl">
+						<p className="text-base-600 text-md text-center font-normal">
 							¿Te quedas? ¡Genial! Lo apuntamos y nos ponemos en contacto contigo para pasarte la
 							información. ¡Estate al loro! 😉
 						</p>
