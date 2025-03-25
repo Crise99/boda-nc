@@ -11,7 +11,8 @@ images:
     [./NuriaGDSK.jpg, ./Cristiangalleta.jpg],
     [./Anillo.jpeg, ./Pedida.jpg, ./Pedida2.jpg],
     [./Gdansk.jpg],
-    [./tiovivo.jpg, ./Castillo.jpg],
+    [./tiovivo.jpg, ./chocolate.jpg],
+		[./Castillo.jpg]
   ]
 order: 1
 ---
