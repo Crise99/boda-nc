@@ -22,6 +22,7 @@ const WeddingEmail = ({
 	restrictions,
 	vegans,
 	message,
+	stayAtVenue,
 }: WeddingFormData) => (
 	<Html>
 		<Head />
@@ -65,6 +66,16 @@ const WeddingEmail = ({
 						</>
 					) : (
 						<Text style={value}>Sin restricciones alimentarias</Text>
+					)}
+
+					{stayAtVenue && (
+						<>
+							<Text style={label}>Alojamiento</Text>
+							<Text style={value}>
+								🛏️ El invitado ha indicado que desea alojarse en la finca la noche de la
+								celebración.
+							</Text>
+						</>
 					)}
 
 					{message && (

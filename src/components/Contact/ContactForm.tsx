@@ -19,6 +19,7 @@ export default function ContactForm() {
 		restrictions: "",
 		message: "",
 		passengerNames: [],
+		stayAtVenue: false,
 	});
 	const [loading, setLoading] = useState(false);
 
@@ -71,6 +72,14 @@ export default function ContactForm() {
 		}));
 	};
 
+	const handleCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => {
+		const { name, type, value, checked } = e.target;
+		setFormData((prev) => ({
+			...prev,
+			[name]: type === "checkbox" ? checked : value, // Handle checkbox
+		}));
+	};
+
 	// Handle form submission
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
@@ -81,6 +90,10 @@ export default function ContactForm() {
 			// Process passengerNames, replacing array for string.
 			data.delete("passengerNames");
 			data.append("passengerNames", formData.passengerNames.join(", "));
+
+			// Procesar el checkbox stayAtVenue
+			data.delete("stayAtVenue");
+			data.append("stayAtVenue", formData.stayAtVenue ? "true" : "false");
 
 			const response = await fetch("/api/send", {
 				method: "POST",
@@ -113,6 +126,7 @@ export default function ContactForm() {
 				restrictions: formData.restrictions,
 				passengerNames: formData.passengerNames,
 				message: formData.message,
+				stayAtVenue: formData.stayAtVenue,
 			};
 
 			// Set cookie with 100 days expiration
@@ -128,6 +142,7 @@ export default function ContactForm() {
 				restrictions: "",
 				message: "",
 				passengerNames: [],
+				stayAtVenue: false,
 			});
 
 			toast.success(
@@ -282,6 +297,33 @@ export default function ContactForm() {
 								required
 							/>
 						</div>
+					</div>
+				)}
+
+				<div>
+					<label className="font-heading-1 text-lg uppercase">
+						¿Deseas alojarte en la finca esa noche?
+					</label>
+					<div className="mt-2">
+						<label className="inline-flex items-center">
+							<input
+								type="checkbox"
+								name="stayAtVenue"
+								checked={formData.stayAtVenue}
+								onChange={handleCheckboxChange}
+								className="form-checkbox text-primary-600 border-primary-600 ring-primary-600"
+							/>
+							<span className="ml-2">Sí, quiero alojarme</span>
+						</label>
+					</div>
+				</div>
+
+				{formData.stayAtVenue && (
+					<div className="bg-primary-300/15 p-4">
+						<p className="text-base-600 text-md text-center font-normal">
+							¿Te quedas? ¡Genial! Lo apuntamos y nos ponemos en contacto contigo para pasarte la
+							información. ¡Estate al loro! 😉
+						</p>
 					</div>
 				)}
 
