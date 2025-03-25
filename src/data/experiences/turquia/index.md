@@ -1,17 +1,19 @@
 ---
 title: Turquía Inolvidable
 description: Unas semanas fantásticas en un país increíble.
-headerImage: ./IMG-20.jpg
-heroImage: ./sientate.jpg
+headerImage: ./lampara.jpg
+heroImage: ./IMG-20.jpg
 date: "Sep 6 2023"
 location: Estambul, Turquía
 clients: [Nuria, Cristian]
 images:
   [
     [./Turquia.jpg, ./Ruinas.jpg],
-    [./IMG-20.jpg, ./Piedra.jpg],
+    [./sientate.jpg, ./Piedra.jpg],
     [./Paraguas.jpg],
     [./Barco.jpg, ./Juntos.jpg],
+		[./nosotros.jpg, ./nosotros2.jpg],
+		[./biblio.jpg]
   ]
 order: 2
 ---
