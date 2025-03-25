@@ -1,15 +1,16 @@
 ---
 title: Una Navidad diferente en Londres
 description: ¿A quien no le gusta ver las luces de Navidad?
-headerImage: ./SkylineAQ.jpg
-heroImage: ./Navidad.jpg
+headerImage: ./Skyline.jpg
+heroImage: ./arbol.jpg
 date: "Dec 5 2018"
 location: Londres, Inglaterra
 clients: [Nuria, Cristian]
 images: [
 	[./Puente.jpg],
-	[./Nuria.jpg, ./Navidad.jpg],
+	[./Nuria.jpg, ./arbol.jpg],
 	[./Nuria2.jpg, ./Panda.jpg],
+	[./Navidad.jpg],
 	[./Ballena.jpg],
 	[./Darwin.jpg, ./Esqueleto.jpg],
 	[./Bola.jpg, ./Deadpool.jpg],
