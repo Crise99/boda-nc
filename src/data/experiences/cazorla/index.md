@@ -1,5 +1,5 @@
 ---
-title: Cazorla un lugar. 
+title: Cazorla un lugar para desconectar
 description: Un viaje para encontrarnos.
 headerImage: ./paisaje.jpg
 heroImage: ./iglesia.jpg
