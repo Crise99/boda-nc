@@ -22,7 +22,7 @@ export async function getSortedExperiences(
 		date: (a, b) => {
 			const dateA = new Date(a.data.date);
 			const dateB = new Date(b.data.date);
-			if (dateA === dateB) return 0;
+			if (dateA.getTime() === dateB.getTime()) return 0;
 			return orderBy === "asc" ? (dateA > dateB ? 1 : -1) : dateA < dateB ? 1 : -1;
 		},
 	};
