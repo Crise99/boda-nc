@@ -8,7 +8,7 @@ export async function getSortedExperiences(
 		return data.draft !== true;
 	});
 
-	const sortFuncitons: Record<string, (a: any, b: any) => number> = {
+	const sortFunctions: Record<string, (a: any, b: any) => number> = {
 		order: (a, b) => {
 			if (a.data.order === b.data.order) return 0;
 			return orderBy === "asc"
@@ -27,5 +27,5 @@ export async function getSortedExperiences(
 		},
 	};
 
-	return experiences.sort(sortFuncitons[sortBy]);
+	return experiences.sort(sortFunctions[sortBy]);
 }
