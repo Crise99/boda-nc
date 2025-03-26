@@ -10,6 +10,7 @@ export async function getSortedExperiences(
 
 	const sortFuncitons: Record<string, (a: any, b: any) => number> = {
 		order: (a, b) => {
+			if (a.data.order === b.data.order) return 0;
 			return orderBy === "asc"
 				? a.data.order > b.data.order
 					? 1
@@ -21,6 +22,7 @@ export async function getSortedExperiences(
 		date: (a, b) => {
 			const dateA = new Date(a.data.date);
 			const dateB = new Date(b.data.date);
+			if (dateA === dateB) return 0;
 			return orderBy === "asc" ? (dateA > dateB ? 1 : -1) : dateA < dateB ? 1 : -1;
 		},
 	};
