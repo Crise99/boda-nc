@@ -34,6 +34,16 @@ export interface SiteDataProps {
 		to: string;
 		subject: string;
 	};
+	experiences: {
+		indexPage: {
+			sortBy: "order" | "date";
+			orderBy: "asc" | "desc";
+		};
+		experiencePage: {
+			sortBy: "order" | "date";
+			orderBy: "asc" | "desc";
+		};
+	};
 	wedding: {
 		date: string;
 		account: string;
@@ -75,6 +85,18 @@ const siteData: SiteDataProps = {
 		to: import.meta.env.RESEND_USER_EMAIL,
 		subject: "Nueva confirmación de asistencia",
 	},
+
+	experiences: {
+		indexPage: {
+			sortBy: "order",
+			orderBy: "asc",
+		},
+		experiencePage: {
+			sortBy: "order",
+			orderBy: "asc",
+		},
+	},
+
 	wedding: {
 		date: "2025-06-08T17:00:00Z",
 		account: import.meta.env.BANK_ACCOUNT,
