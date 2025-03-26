@@ -2,6 +2,7 @@ import iglesia from "@images/Icono-Boho-1.png";
 import copas from "@images/Icono-Boho-4.png";
 import comida from "@images/Icono-Boho-5.png";
 import fiesta from "@images/Icono-Boho-7.png";
+import previewImage from "@images/invitacion2.jpeg";
 
 interface ScheduleItem {
 	icon: ImageMetadata;
@@ -23,6 +24,7 @@ export interface SiteDataProps {
 		name: string;
 		email: string;
 	};
+	previewImage: ImageMetadata;
 	defaultImage: {
 		src: string;
 		alt: string;
@@ -58,6 +60,9 @@ const siteData: SiteDataProps = {
 		name: "Crise99 & vLorente",
 		email: "",
 	},
+
+	// image used for preview cards in social media and meta tags
+	previewImage: previewImage,
 
 	// default image for meta tags if the page doesn't have an image already
 	defaultImage: {
