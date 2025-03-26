@@ -1,16 +1,14 @@
 ---
-import { getCollection } from "astro:content";
-
 // layout
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 // components
+import { getSortedExperiences } from "@/utils/content-utils";
 import ExperienceGrid from "@components/Experience/ExperienceGrid.astro";
+import siteData from "@config/siteData.json";
 
-const experiences = await getCollection("experiences", ({ data }) => {
-	// filter out draft pages
-	return data.draft !== true;
-});
+const { sortBy, orderBy } = siteData.experiences.experiencePage;
+const experiences = await getSortedExperiences(sortBy, orderBy);
 ---
 
 <BaseLayout title="Experiences" description="Experience page for my projects and work.">

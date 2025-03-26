@@ -64,7 +64,7 @@ const otherPages = defineCollection({
 });
 
 export const collections = {
-	experiences: experiences,
+	experiences,
 	testimonials,
 	otherPages,
 };
