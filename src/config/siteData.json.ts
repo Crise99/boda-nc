@@ -108,9 +108,9 @@ const siteData: SiteDataProps = {
 			year: "2025",
 		},
 		schedule: [
-			{ icon: iglesia, time: "17:00", event: "Ceremonia" },
-			{ icon: copas, time: "19:30", event: "Cóctel de Bienvenida" },
-			{ icon: comida, time: "22:00", event: "Cena" },
+			{ icon: iglesia, time: "17:30", event: "Ceremonia" },
+			{ icon: copas, time: "20:00", event: "Cóctel de Bienvenida" },
+			{ icon: comida, time: "21:30", event: "Cena" },
 			{ icon: fiesta, time: "24:00", event: "Fiesta" },
 		],
 		featureData: [
