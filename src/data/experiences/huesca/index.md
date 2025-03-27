@@ -12,7 +12,7 @@ images:
     [./agua.jpg, ./cascada.jpg, ./montaña.jpg],
     [./juntos.jpg],
   ]
-order: 6
+order: 4
 ---
 
 Huesca ​​​ es una ciudad y municipio español, capital de la provincia homónima y de la comarca de la Hoya de Huesca, situada al norte de la comunidad autónoma de Aragón.

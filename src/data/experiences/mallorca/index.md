@@ -13,7 +13,7 @@ images:
     [./calle.jpg, ./cala3.jpg],
 		[./castillo.jpg, ./cala.jpg],
   ]
-order: 7
+order: 5
 ---
 
 Mallorca es una isla española situada en la parte central del archipiélago balear, en el mar Mediterráneo. Su capital, y también la de la comunidad autónoma de las Islas Baleares, es Palma de Mallorca

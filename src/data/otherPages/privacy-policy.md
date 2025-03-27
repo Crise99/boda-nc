@@ -40,10 +40,6 @@ We do not knowingly collect information on children under the age of 16 (“Chil
 
 Our website contains links to other third-party websites not owned or managed by Example LLC. This privacy policy applies to this website only. If you click a link to a third-party website, the privacy policy of that website will apply. We highly recommend that you read the privacy policies of other websites as they may be different from ours.
 
-## Merger, acquisition, or asset sale
-
-If Example LLC is involved in a merger, acquisition, or asset sale, your Personal Information may be transferred.
-
 ## Contact us
 
 If you have any questions or suggestions about our privacy policy or want to know more information about Personal Information we hold, please contact us at support@example.com.

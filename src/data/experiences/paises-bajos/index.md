@@ -13,7 +13,7 @@ images:
     [./Palacio.jpg],
     [./Nuria2.jpg, ./Cristian2.jpg],
   ]
-order: 5
+order: 9
 ---
 
 Los Países Bajos son un país del noroeste europeo conocido por su paisaje plano de canales, campos de tulipanes, molinos y ciclovías. Ámsterdam, la capital, alberga el museo Rijksmuseum, el Museo van Gogh y la casa donde la joven judía Anna Frank se escondió y escribió su diario durante la Segunda Guerra Mundial. Las mansiones junto a los canales y un tesoro de obras de artistas, como Rembrandt y Vermeer, permanecen desde la "Edad de Oro" de la ciudad en el siglo XVII.
