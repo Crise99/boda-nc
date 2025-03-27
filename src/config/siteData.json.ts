@@ -2,6 +2,7 @@ import iglesia from "@images/Icono-Boho-1.png";
 import copas from "@images/Icono-Boho-4.png";
 import comida from "@images/Icono-Boho-5.png";
 import fiesta from "@images/Icono-Boho-7.png";
+import previewImage from "@images/invitacion2.jpeg";
 
 interface ScheduleItem {
 	icon: ImageMetadata;
@@ -23,6 +24,7 @@ export interface SiteDataProps {
 		name: string;
 		email: string;
 	};
+	previewImage: ImageMetadata;
 	defaultImage: {
 		src: string;
 		alt: string;
@@ -31,6 +33,16 @@ export interface SiteDataProps {
 		from: string;
 		to: string;
 		subject: string;
+	};
+	experiences: {
+		indexPage: {
+			sortBy: "order" | "date";
+			orderBy: "asc" | "desc";
+		};
+		experiencePage: {
+			sortBy: "order" | "date";
+			orderBy: "asc" | "desc";
+		};
 	};
 	wedding: {
 		date: string;
@@ -59,6 +71,9 @@ const siteData: SiteDataProps = {
 		email: "",
 	},
 
+	// image used for preview cards in social media and meta tags
+	previewImage: previewImage,
+
 	// default image for meta tags if the page doesn't have an image already
 	defaultImage: {
 		src: "/images/invitacion2.jpeg",
@@ -70,6 +85,18 @@ const siteData: SiteDataProps = {
 		to: import.meta.env.RESEND_USER_EMAIL,
 		subject: "Nueva confirmación de asistencia",
 	},
+
+	experiences: {
+		indexPage: {
+			sortBy: "order",
+			orderBy: "asc",
+		},
+		experiencePage: {
+			sortBy: "order",
+			orderBy: "asc",
+		},
+	},
+
 	wedding: {
 		date: "2025-06-08T17:00:00Z",
 		account: import.meta.env.BANK_ACCOUNT,
