@@ -290,7 +290,7 @@ export default function ContactForm() {
 								name="vegans"
 								className="form__input"
 								id="contact-vegans"
-								min="1"
+								min="0"
 								max={formData.passengers}
 								value={formData.vegans}
 								onChange={handleInputChange}
