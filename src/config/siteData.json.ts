@@ -98,11 +98,11 @@ const siteData: SiteDataProps = {
 	},
 
 	wedding: {
-		date: "2025-06-08T17:00:00Z",
+		date: "2025-06-08T17:30:00Z",
 		account: import.meta.env.BANK_ACCOUNT,
 		dateDetail: {
 			wday: "Domingo",
-			time: "17:00",
+			time: "17:30",
 			day: "08",
 			month: "Junio",
 			year: "2025",
@@ -111,7 +111,7 @@ const siteData: SiteDataProps = {
 			{ icon: iglesia, time: "17:30", event: "Ceremonia" },
 			{ icon: copas, time: "20:00", event: "Cóctel de Bienvenida" },
 			{ icon: comida, time: "21:30", event: "Cena" },
-			{ icon: fiesta, time: "24:00", event: "Fiesta" },
+			{ icon: fiesta, time: "00:00", event: "Fiesta" },
 		],
 		featureData: [
 			{
