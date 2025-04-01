@@ -1,5 +1,5 @@
 ---
-import Button from "@components/Button/Button.astro";
+import Gallery from "@components/Gallery/Gallery.tsx";
 import BaseLayout from "@layouts/BaseLayout.astro";
 ---
 
@@ -7,7 +7,8 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 	title="Galería de Fotos"
 	description="Próximamente contendrá la galería de fotos de la boda."
 >
-	<section class="site-container pt-36 text-center md:pt-44">
+	<Gallery />
+	<!-- <section class="site-container pt-36 text-center md:pt-44">
 		<div class="mx-auto max-w-xl px-4 text-center">
 			<h1 class="h1">Galería</h1>
 			<p class="description mt-4">
@@ -17,5 +18,5 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 				<Button variant="primary" href="/">Volver</Button>
 			</div>
 		</div>
-	</section>
+	</section> -->
 </BaseLayout>

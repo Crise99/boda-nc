@@ -11,6 +11,7 @@
 		"format": "prettier -w \"**/*\" --ignore-unknown --cache"
 	},
 	"dependencies": {
+		"@appnest/masonry-layout": "^2.2.3",
 		"@astrojs/mdx": "^4.0.8",
 		"@astrojs/react": "^4.2.1",
 		"@astrojs/rss": "^4.0.11",
@@ -32,7 +33,9 @@
 		"astro-auto-import": "^0.4.4",
 		"astro-icon": "^1.1.4",
 		"astro-seo": "^0.8.4",
+		"image-meta": "^0.2.1",
 		"js-cookie": "^3.0.5",
+		"photoswipe": "^5.4.4",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0",
 		"resend": "^4.1.2",

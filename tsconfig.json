@@ -7,6 +7,7 @@
 		"allowJs": true,
 		"forceConsistentCasingInFileNames": true,
 		"jsx": "react-jsx",
+		"jsxImportSource": "react",
 		"baseUrl": ".",
 		"paths": {
 			"@config/*": ["src/config/*"],
@@ -18,7 +19,6 @@
 			"@emails/*": ["src/emails/*"],
 			"@constants/*": ["src/constants/*"],
 			"@/*": ["src/*"]
-		},
-		"jsxImportSource": "react"
+		}
 	}
 }
