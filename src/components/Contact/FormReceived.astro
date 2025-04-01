@@ -25,7 +25,7 @@ const {
 	vegans,
 	message,
 	stayAtVenue,
-} = formData ?? {};
+} = formData || {};
 
 // Only join if passengerNames exists and is an array
 const joinPassengerNames = Array.isArray(passengerNames) ? passengerNames.join(", ") : "";
