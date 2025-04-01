@@ -19,15 +19,16 @@ const {
 	name,
 	telefono,
 	passengers,
-	passengerNames,
+	passengerNames = [],
 	hasFoodRestriction,
 	restrictions,
 	vegans,
 	message,
 	stayAtVenue,
-} = formData!;
+} = formData ?? {};
 
-const joinPassengerNames = passengerNames.join(", ");
+// Only join if passengerNames exists and is an array
+const joinPassengerNames = Array.isArray(passengerNames) ? passengerNames.join(", ") : "";
 ---
 
 {
