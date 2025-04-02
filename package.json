@@ -8,7 +8,8 @@
 		"build": "astro check && astro build",
 		"preview": "astro preview",
 		"astro": "astro",
-		"format": "prettier -w \"**/*\" --ignore-unknown --cache"
+		"format": "prettier -w \"**/*\" --ignore-unknown --cache",
+		"script:create-meta": "pnpx tsx scripts/create-meta-from-gallery.ts"
 	},
 	"dependencies": {
 		"@appnest/masonry-layout": "^2.2.3",
@@ -33,6 +34,7 @@
 		"astro-auto-import": "^0.4.4",
 		"astro-icon": "^1.1.4",
 		"astro-seo": "^0.8.4",
+		"glob": "^11.0.1",
 		"image-meta": "^0.2.1",
 		"js-cookie": "^3.0.5",
 		"photoswipe": "^5.4.4",
@@ -45,7 +47,8 @@
 	"devDependencies": {
 		"@playform/compress": "^0.1.7",
 		"prettier-plugin-astro": "^0.14.1",
-		"prettier-plugin-tailwindcss": "^0.6.11"
+		"prettier-plugin-tailwindcss": "^0.6.11",
+		"ts-node": "^10.9.2"
 	},
 	"overrides": {
 		"sharp": "^0.33.0"
