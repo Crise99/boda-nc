@@ -1,11 +1,15 @@
-// Define the Masonry type
-export type Masonry<T> = T & { gap: string; maxcolwidth: string };
+import React from "react";
 
-// Extend React's IntrinsicElements to include the custom "masonry-layout" element
-// declare global {
-// 	namespace JSX {
-// 		interface IntrinsicElements {
-// 			["masonry-layout"]: Masonry<HTMLAttributes<HTMLElement>>;
-// 		}
-// 	}
-// }
+// Define the Masonry type
+export type Masonry<T> = T & {
+	gap: string;
+	maxcolwidth: string;
+};
+
+declare global {
+	namespace JSX {
+		interface IntrinsicElements {
+			["masonry-layout"]: Masonry<React.HTMLAttributes<HTMLElement>>;
+		}
+	}
+}
