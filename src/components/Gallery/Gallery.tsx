@@ -1,4 +1,5 @@
 import "photoswipe/style.css";
+import "@appnest/masonry-layout";
 import "@components/Gallery/styles/Gallery.css";
 import { useGallery } from "@components/Gallery/hooks/useGallery";
 
@@ -15,7 +16,7 @@ export default function Gallery() {
 			</h2>
 			<p className="text-center text-2xl">Todas las fotos de nuestra boda</p>
 
-			<masonry-layout gap="24" maxcolwidth="600" class="mx-4 py-20 lg:mx-auto" id="gallery">
+			{/* <masonry-layout gap="24" maxcolwidth="600" class="mx-4 py-20 lg:mx-auto" id="gallery">
 				{photos.map(({ height, width }, index) => (
 					<a
 						className="group relative rounded-xl transition-all hover:scale-105 hover:contrast-[110%]"
@@ -40,7 +41,7 @@ export default function Gallery() {
 						/>
 					</a>
 				))}
-			</masonry-layout>
+			</masonry-layout> */}
 
 			<div className="mx-auto text-center">
 				{!isExpanded && (

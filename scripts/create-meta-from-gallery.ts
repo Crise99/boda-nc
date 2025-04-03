@@ -2,7 +2,6 @@ import { readFile, writeFile } from "fs/promises";
 import { glob } from "glob";
 import { imageMeta } from "image-meta";
 import { join } from "path";
-import { promisify } from "util";
 
 // Types
 interface ImageMetadata {
@@ -10,11 +9,8 @@ interface ImageMetadata {
 	width: number;
 }
 
-// Promisify glob for async/await usage
-const globAsync: (pattern: string, options: object) => Promise<string[]> = promisify(glob);
-
 // Paths
-const galleryPath = "public/gallery/*";
+const galleryPath = "public/gallery/*.webp";
 const metaPath = "src/data/meta-gallery.json";
 
 // Initialize metadata array
