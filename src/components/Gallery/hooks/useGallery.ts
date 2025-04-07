@@ -41,6 +41,14 @@ export const useGallery = () => {
 				clone.classList.add("animate-fade-up");
 				clone.classList.add("animate-delay-300");
 				clone.classList.add("opacity-0");
+				clone
+					.querySelector("img:first-child")
+					?.setAttribute("src", `/gallery/thumbnails/img-${imgIndex}.webp`);
+				clone
+					.querySelector("img:last-child")
+					?.setAttribute("src", `/gallery/thumbnails/img-${imgIndex}.webp`);
+
+				return clone?.outerHTML;
 			})
 			.join("");
 		document.querySelector("#gallery")?.insertAdjacentHTML("beforeend", html);

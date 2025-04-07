@@ -57,6 +57,7 @@ export interface SiteDataProps {
 		schedule: ScheduleItem[];
 		featureData: FeatureCardData[];
 	};
+	publicGallery: boolean;
 }
 
 // Update this file with your site specific information
@@ -128,6 +129,7 @@ const siteData: SiteDataProps = {
 			},
 		],
 	},
+	publicGallery: import.meta.env.PUBLIC_GALLERY || false,
 };
 
 export default siteData;
