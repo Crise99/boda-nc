@@ -2,7 +2,8 @@ import photosInfo from "@/data/meta-gallery.json";
 import { useEffect, useRef, useState } from "react";
 
 export const useGallery = () => {
-	const offset = 10;
+	const totalPhotos = photosInfo.length;
+	const offset = totalPhotos < 10 ? totalPhotos : 10;
 	const first = useRef<HTMLAnchorElement>(null);
 	const [isExpanded, setIsExpanded] = useState(false);
 	const photos = photosInfo.slice(0, offset);
@@ -58,6 +59,7 @@ export const useGallery = () => {
 
 	return {
 		photos,
+		totalPhotos,
 		first,
 		isExpanded,
 		LoadMore,

@@ -9,7 +9,7 @@ import "@/styles/global.css";
 import { type Masonry } from "./types/gallery";
 
 export default function Gallery() {
-	const { first, isExpanded, photos, LoadMore } = useGallery();
+	const { first, isExpanded, photos, totalPhotos, LoadMore } = useGallery();
 
 	return (
 		<section className="max-w-8xl mx-auto px-5 py-20 md:px-20 md:pt-30">
@@ -47,7 +47,7 @@ export default function Gallery() {
 			</masonry-layout>
 
 			<div className="mx-auto text-center">
-				{!isExpanded && (
+				{!isExpanded && totalPhotos > 10 && (
 					<Button onClick={LoadMore} id="load-more" url="#">
 						Descúbrelas todas
 					</Button>
