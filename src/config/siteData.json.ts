@@ -57,6 +57,7 @@ export interface SiteDataProps {
 		schedule: ScheduleItem[];
 		featureData: FeatureCardData[];
 	};
+	publicGallery: boolean;
 }
 
 // Update this file with your site specific information
@@ -98,7 +99,7 @@ const siteData: SiteDataProps = {
 	},
 
 	wedding: {
-		date: "2025-06-08T17:30:00Z",
+		date: "2025-06-08T17:30:00+02:00", // Madrid time with offset
 		account: import.meta.env.BANK_ACCOUNT,
 		dateDetail: {
 			wday: "Domingo",
@@ -128,6 +129,7 @@ const siteData: SiteDataProps = {
 			},
 		],
 	},
+	publicGallery: import.meta.env.PUBLIC_GALLERY || false,
 };
 
 export default siteData;
