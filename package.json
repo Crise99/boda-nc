@@ -13,7 +13,8 @@
 		"script:create-thumb": "pnpx tsx scripts/create-thumbnails-gallery.ts",
 		"script:conver-images": "pnpx tsx scripts/convert-gallery-images.ts",
 		"script:conver-images-remove": "pnpx tsx scripts/convert-gallery-images.ts rm",
-		"script:rename-images": "pnpx tsx scripts/rename-gallery-images.ts"
+		"script:rename-images": "pnpx tsx scripts/rename-gallery-images.ts",
+		"script:prepare-deploy-gallery": "pnpx tsx scripts/prepare-deploy-gallery.ts"
 	},
 	"dependencies": {
 		"@appnest/masonry-layout": "^2.2.3",

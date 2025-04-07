@@ -11,7 +11,7 @@ export default function Gallery() {
 	const { first, isExpanded, photos, LoadMore } = useGallery();
 
 	return (
-		<section className="max-w-8xl mx-auto px-20 py-20">
+		<section className="max-w-8xl mx-auto px-5 py-20 md:px-20 md:py-20">
 			<h2 className="mx-auto mb-8 text-center text-3xl font-semibold tracking-wide lg:text-6xl">
 				Galería
 			</h2>
@@ -21,7 +21,7 @@ export default function Gallery() {
 				{photos.map(({ height, width }, index) => (
 					<a
 						key={`gallery-image-${index + 1}`}
-						className="group relative rounded-xl transition-all hover:scale-105 hover:contrast-[110%]"
+						className="group relative rounded-xl pb-4 transition-all hover:scale-105 hover:contrast-[110%]"
 						href={`/gallery/img-${index + 1}.webp`}
 						target="_blank"
 						data-cropped="true"

@@ -5,7 +5,7 @@ import sharp from "sharp";
 const files = await glob("public/gallery/*.webp", {});
 
 for await (const file of files) {
-	console.info(`Converting ${file}`);
+	console.info(`Converting ${file} to thumbnail...`);
 	const newFilePath = join(dirname(file), "thumbnails", basename(file));
 
 	const convert = sharp(file).webp({
@@ -14,5 +14,5 @@ for await (const file of files) {
 	});
 
 	await convert.toFile(newFilePath);
-	console.info(`Converted to ${newFilePath}`);
+	console.info(`Thumbnail created into ${newFilePath}`);
 }
