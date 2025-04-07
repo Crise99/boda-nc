@@ -25,12 +25,12 @@ export const useGallery = () => {
 	const LoadMore = async (e) => {
 		e.preventDefault();
 
-		const res = await fetch("/api/gallery.json?offset=9");
+		const res = await fetch(`/api/gallery.json?offset=${offset}`);
 		const images = await res.json();
 
 		const html = images
 			.map((img: any, index: number) => {
-				const imgIndex = index + offset;
+				const imgIndex = index + offset + 1;
 				if (!first.current) return;
 
 				const clone = first.current.cloneNode(true) as HTMLElement;

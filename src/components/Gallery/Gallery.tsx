@@ -4,6 +4,7 @@ import "photoswipe/style.css";
 import "@components/Gallery/styles/Gallery.css";
 import Button from "@components/Gallery/Button";
 import { useGallery } from "@components/Gallery/hooks/useGallery";
+import "@/styles/global.css";
 
 import { type Masonry } from "./types/gallery";
 
@@ -11,7 +12,7 @@ export default function Gallery() {
 	const { first, isExpanded, photos, LoadMore } = useGallery();
 
 	return (
-		<section className="max-w-8xl mx-auto px-5 py-20 md:px-20 md:py-20">
+		<section className="max-w-8xl mx-auto px-5 py-20 md:px-20 md:pt-30">
 			<h2 className="mx-auto mb-8 text-center text-3xl font-semibold tracking-wide lg:text-6xl">
 				Galería
 			</h2>
