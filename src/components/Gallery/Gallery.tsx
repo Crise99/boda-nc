@@ -2,10 +2,8 @@ import "photoswipe/style.css";
 import "@components/Gallery/styles/Gallery.css";
 import Button from "@components/Gallery/Button";
 import Title from "@components/Gallery/Title";
+import Footer from "@components/Gallery/Footer";
 import { useGallery } from "@components/Gallery/hooks/useGallery";
-// import "@/styles/global.css";
-
-import { type Masonry } from "./types/gallery";
 
 export default function Gallery() {
 	const { first, isExpanded, photos, totalPhotos, LoadMore } = useGallery();
@@ -13,6 +11,7 @@ export default function Gallery() {
 	return (
 		<section className="max-w-8xl mx-auto px-5 py-20 md:px-20 md:pt-30">
 			<Title title="Galería" subtitle="Todas las fotos de nuestra boda" />
+			{/* @ts-ignore */}
 			<masonry-layout gap="24" maxColWidth="600" className="mx-4 py-20 lg:mx-auto" id="gallery">
 				{photos.map(({ height, width }, index) => (
 					<a
@@ -39,6 +38,7 @@ export default function Gallery() {
 						/>
 					</a>
 				))}
+				{/* @ts-ignore */}
 			</masonry-layout>
 
 			<div className="mx-auto text-center">
@@ -46,6 +46,9 @@ export default function Gallery() {
 					<Button onClick={LoadMore} id="load-more" url="#">
 						Descúbrelas todas
 					</Button>
+				)}
+				{isExpanded && (
+					<Footer text="Continuemos juntos el camino para capturar más momentos felices 💘"></Footer>
 				)}
 			</div>
 		</section>
