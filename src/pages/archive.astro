@@ -30,5 +30,5 @@ const { publicGallery } = siteData;
 			</section>
 		)
 	}
-	{publicGallery && <Gallery client:only />}
+	{publicGallery && <Gallery client:load />}
 </BaseLayout>
