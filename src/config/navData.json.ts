@@ -23,7 +23,7 @@ const navConfig: navItem[] = [
 	},
 	{
 		text: "Galería",
-		link: "/gallery",
+		link: "/archive",
 	},
 	{
 		text: "Invitación",
