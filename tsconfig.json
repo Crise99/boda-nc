@@ -7,8 +7,10 @@
 		"allowJs": true,
 		"forceConsistentCasingInFileNames": true,
 		"jsx": "react-jsx",
+		"jsxImportSource": "react",
 		"baseUrl": ".",
 		"paths": {
+			"@scripts/*": ["scripts/*"],
 			"@config/*": ["src/config/*"],
 			"@layouts/*": ["src/layouts/*"],
 			"@components/*": ["src/components/*"],
@@ -18,7 +20,6 @@
 			"@emails/*": ["src/emails/*"],
 			"@constants/*": ["src/constants/*"],
 			"@/*": ["src/*"]
-		},
-		"jsxImportSource": "react"
+		}
 	}
 }
