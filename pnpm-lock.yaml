@@ -9,100 +9,100 @@ importers:
   .:
     dependencies:
       '@appnest/masonry-layout':
-        specifier: ^2.2.3
+        specifier: 2.2.3
         version: 2.2.3
       '@astrojs/mdx':
-        specifier: ^4.0.8
+        specifier: 4.0.8
         version: 4.0.8(astro@5.3.0(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.7)(sass@1.83.0)(terser@5.37.0)(typescript@5.8.3)(yaml@2.6.1))
       '@astrojs/react':
-        specifier: ^4.2.1
+        specifier: 4.2.1
         version: 4.2.1(@types/node@22.10.5)(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1)
       '@astrojs/rss':
-        specifier: ^4.0.11
+        specifier: 4.0.11
         version: 4.0.11
       '@astrojs/sitemap':
-        specifier: ^3.2.1
+        specifier: 3.2.1
         version: 3.2.1
       '@astrojs/vercel':
-        specifier: ^8.1.1
+        specifier: 8.1.1
         version: 8.1.1(astro@5.3.0(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.7)(sass@1.83.0)(terser@5.37.0)(typescript@5.8.3)(yaml@2.6.1))(react@19.0.0)(rollup@4.34.7)
       '@fontsource-variable/playfair-display':
-        specifier: ^5.1.0
+        specifier: 5.1.0
         version: 5.1.0
       '@fontsource-variable/raleway':
-        specifier: ^5.1.0
+        specifier: 5.1.0
         version: 5.1.0
       '@fontsource-variable/work-sans':
-        specifier: ^5.1.0
+        specifier: 5.1.0
         version: 5.1.0
       '@fontsource/cinzel-decorative':
-        specifier: ^5.1.0
+        specifier: 5.1.0
         version: 5.1.0
       '@iconify-json/tabler':
-        specifier: ^1.2.16
+        specifier: 1.2.16
         version: 1.2.16
       '@react-email/components':
         specifier: 0.0.33
         version: 0.0.33(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@react-email/render':
-        specifier: ^1.0.5
+        specifier: 1.0.5
         version: 1.0.5(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@tailwindcss/forms':
-        specifier: ^0.5.9
+        specifier: 0.5.9
         version: 0.5.9(tailwindcss@4.0.6)
       '@tailwindcss/vite':
-        specifier: ^4.0.6
-        version: 4.0.6(vite@6.1.0(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1))
+        specifier: 4.0.6
+        version: 4.0.6(vite@6.2.1(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1))
       '@types/js-cookie':
-        specifier: ^3.0.6
+        specifier: 3.0.6
         version: 3.0.6
       '@types/react':
-        specifier: ^19.0.10
+        specifier: 19.0.10
         version: 19.0.10
       '@types/react-dom':
-        specifier: ^19.0.4
+        specifier: 19.0.4
         version: 19.0.4(@types/react@19.0.10)
       astro:
-        specifier: ^5.3.0
+        specifier: 5.3.0
         version: 5.3.0(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.7)(sass@1.83.0)(terser@5.37.0)(typescript@5.8.3)(yaml@2.6.1)
       astro-auto-import:
-        specifier: ^0.4.4
+        specifier: 0.4.4
         version: 0.4.4(astro@5.3.0(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.7)(sass@1.83.0)(terser@5.37.0)(typescript@5.8.3)(yaml@2.6.1))
       astro-icon:
-        specifier: ^1.1.4
+        specifier: 1.1.4
         version: 1.1.4
       astro-seo:
-        specifier: ^0.8.4
+        specifier: 0.8.4
         version: 0.8.4(prettier-plugin-astro@0.14.1)(prettier@3.4.2)(typescript@5.8.3)
       glob:
-        specifier: ^11.0.1
+        specifier: 11.0.1
         version: 11.0.1
       image-meta:
-        specifier: ^0.2.1
+        specifier: 0.2.1
         version: 0.2.1
       js-cookie:
-        specifier: ^3.0.5
+        specifier: 3.0.5
         version: 3.0.5
       photoswipe:
-        specifier: ^5.4.4
+        specifier: 5.4.4
         version: 5.4.4
       react:
-        specifier: ^19.0.0
+        specifier: 19.0.0
         version: 19.0.0
       react-dom:
-        specifier: ^19.0.0
+        specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
       resend:
-        specifier: ^4.1.2
+        specifier: 4.1.2
         version: 4.1.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       sonner:
-        specifier: ^2.0.1
+        specifier: 2.0.1
         version: 2.0.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       tailwindcss:
-        specifier: ^4.0.6
+        specifier: 4.0.6
         version: 4.0.6
       typescript:
-        specifier: ^5.8.3
+        specifier: 5.8.3
         version: 5.8.3
     devDependencies:
       '@playform/compress':
@@ -253,11 +253,6 @@ packages:
     resolution: {integrity: sha512-Mz/4+y8udxBKdmzt/UjPACs4G3j5SshJJEFFKxlCGPydG4JAHXxjWjAwjd09tf6oINvl1VfMJo+nB7H2YKQ0dA==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/parser@7.26.3':
-    resolution: {integrity: sha512-WJ/CvmY8Mea8iDXo6a7RK2wbmJITT5fN3BEkRuFlxVyNx8jOKIIhmC4fSkTcPcf8JyavbBwIe6OpiCOBXt/IcA==}
-    engines: {node: '>=6.0.0'}
-    hasBin: true
-
   '@babel/parser@7.26.9':
     resolution: {integrity: sha512-81NWa1njQblgZbQHxWHpxxCzNsa3ZwvFqpUg7P+NNUU6f3UU2jBEg4OlF/J6rl8+PQGh1q6/zWScd001YwcA5A==}
     engines: {node: '>=6.0.0'}
@@ -281,10 +276,6 @@ packages:
 
   '@babel/traverse@7.26.9':
     resolution: {integrity: sha512-ZYW7L+pL8ahU5fXmNbPF+iZFHCv5scFak7MZ9bwaRPLUhHh7QQEMjZUg0HevihoqCM5iSYHN61EyCoZvqC+bxg==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/types@7.26.3':
-    resolution: {integrity: sha512-vN5p+1kl59GVKMvTHt55NzzmYVxprfJD+ql7U9NFIfKCBkYE55LYtS+WtPlaYOyzydrKI8Nezd+aZextrd+FMA==}
     engines: {node: '>=6.9.0'}
 
   '@babel/types@7.26.9':
@@ -1317,9 +1308,6 @@ packages:
   '@types/node@18.19.68':
     resolution: {integrity: sha512-QGtpFH1vB99ZmTa63K4/FU8twThj4fuVSBkGddTp7uIL/cuoLWIUSL2RcOaigBhfR+hg5pgGkBnkoOxrTVBMKw==}
 
-  '@types/node@22.10.2':
-    resolution: {integrity: sha512-Xxr6BBRCAOQixvonOye19wnzyDiUtTeqldOOmj3CkeblonbccA12PFwlufvRdrpjXxqnmUaeiU5EOA+7s5diUQ==}
-
   '@types/node@22.10.5':
     resolution: {integrity: sha512-F8Q+SeGimwOo86fiovQh8qiXfFEh2/ocYv7tU5pJ3EXMSSxk1Joj5wefpFK2fHTf/N6HKGSxIDBT9f3gCxXPkQ==}
 
@@ -1377,6 +1365,7 @@ packages:
 
   '@vercel/edge@1.2.1':
     resolution: {integrity: sha512-1++yncEyIAi68D3UEOlytYb1IUcIulMWdoSzX2h9LuSeeyR7JtaIgR8DcTQ6+DmYOQn+5MCh6LY+UmK6QBByNA==}
+    deprecated: This package is deprecated. You should to use `@vercel/functions` instead.
 
   '@vercel/nft@0.29.2':
     resolution: {integrity: sha512-A/Si4mrTkQqJ6EXJKv5EYCDQ3NL6nJXxG8VGXePsaiQigsomHYQC9xSpX8qGk7AEZk4b1ssbYIqJ0ISQQ7bfcA==}
@@ -1939,10 +1928,6 @@ packages:
 
   fast-deep-equal@3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
-
-  fast-glob@3.3.2:
-    resolution: {integrity: sha512-oX2ruAFQwf/Orj8m737Y5adxDQO0LAB7/S5MnxCdTNDd4p6BsyIVsv9JQsATbTSq8KHRpLwIHbVlUNatxd+1Ow==}
-    engines: {node: '>=8.6.0'}
 
   fast-glob@3.3.3:
     resolution: {integrity: sha512-7MptL8U0cqcFdzIzwOTHoilX9x5BrNqye7Z/LuC7kCMRio1EMSyqRK3BEAUD7sXRq4iT4AzTVuZdhgQ2TCvYLg==}
@@ -2887,10 +2872,6 @@ packages:
   pkg-types@1.2.1:
     resolution: {integrity: sha512-sQoqa8alT3nHjGuTjuKgOnvjo4cljkufdtLMnO2LBP/wRwuDlo1tkaEdMxCRhyGRPacv/ztlZgDPm2b7FAmEvw==}
 
-  postcss@8.5.2:
-    resolution: {integrity: sha512-MjOadfU3Ys9KYoX0AdkBlFEF1Vx37uCCeN4ZHnmwm9FfpbsGWMZeBLMmmpY+6Ocqod7mkdZ0DT31OlbsFrLlkA==}
-    engines: {node: ^10 || ^12 || >=14}
-
   postcss@8.5.3:
     resolution: {integrity: sha512-dle9A3yYxlBSrt8Fu+IpjGT8SY8hN0mlaA6GY8t0P5PjIOZemULz/E2Bnm/2dcUOena75OTNkHI76uZBNUUq3A==}
     engines: {node: ^10 || ^12 || >=14}
@@ -3291,9 +3272,6 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
-  tinyexec@0.3.1:
-    resolution: {integrity: sha512-WiCJLEECkO18gwqIp6+hJg0//p23HXp4S+gGtAKu3mI2F2/sXC4FvHvXvB0zJVVaTPhx1/tOwdbRsa1sOBIKqQ==}
-
   tinyexec@0.3.2:
     resolution: {integrity: sha512-KQQR9yN7R5+OSwaK0XQoj22pwHoTlgYqmUscPYoknOoWCWfj/5/ABTMRi69FrKU5ffPVh5QcFikpWJI/P1ocHA==}
 
@@ -3487,46 +3465,6 @@ packages:
 
   vfile@6.0.3:
     resolution: {integrity: sha512-KzIbH/9tXat2u30jf+smMwFCsno4wHVdNmzFyL+T/L3UGqqk6JKfVqOFOZEpZSHADH1k40ab6NUIXZq422ov3Q==}
-
-  vite@6.1.0:
-    resolution: {integrity: sha512-RjjMipCKVoR4hVfPY6GQTgveinjNuyLw+qruksLDvA5ktI1150VmcMBKmQaEWJhg/j6Uaf6dNCNA0AfdzUb/hQ==}
-    engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
-    hasBin: true
-    peerDependencies:
-      '@types/node': ^18.0.0 || ^20.0.0 || >=22.0.0
-      jiti: '>=1.21.0'
-      less: '*'
-      lightningcss: ^1.21.0
-      sass: '*'
-      sass-embedded: '*'
-      stylus: '*'
-      sugarss: '*'
-      terser: ^5.16.0
-      tsx: ^4.8.1
-      yaml: ^2.4.2
-    peerDependenciesMeta:
-      '@types/node':
-        optional: true
-      jiti:
-        optional: true
-      less:
-        optional: true
-      lightningcss:
-        optional: true
-      sass:
-        optional: true
-      sass-embedded:
-        optional: true
-      stylus:
-        optional: true
-      sugarss:
-        optional: true
-      terser:
-        optional: true
-      tsx:
-        optional: true
-      yaml:
-        optional: true
 
   vite@6.2.1:
     resolution: {integrity: sha512-n2GnqDb6XPhlt9B8olZPrgMD/es/Nd1RdChF6CBD/fHW6pUyUTt2sQW2fPRX5GiD9XEa6+8A6A4f2vT6pSsE7Q==}
@@ -3815,7 +3753,7 @@ snapshots:
   '@antfu/install-pkg@0.4.1':
     dependencies:
       package-manager-detector: 0.2.7
-      tinyexec: 0.3.1
+      tinyexec: 0.3.2
 
   '@antfu/utils@0.7.10': {}
 
@@ -3825,7 +3763,7 @@ snapshots:
     dependencies:
       '@astrojs/language-server': 2.15.4(prettier-plugin-astro@0.14.1)(prettier@3.4.2)(typescript@5.8.3)
       chokidar: 3.6.0
-      fast-glob: 3.3.2
+      fast-glob: 3.3.3
       kleur: 4.1.5
       typescript: 5.8.3
       yargs: 17.7.2
@@ -3848,7 +3786,7 @@ snapshots:
       '@volar/language-core': 2.4.11
       '@volar/language-server': 2.4.11
       '@volar/language-service': 2.4.11
-      fast-glob: 3.3.2
+      fast-glob: 3.3.3
       muggle-string: 0.4.1
       volar-service-css: 0.0.62(@volar/language-service@2.4.11)
       volar-service-emmet: 0.0.62(@volar/language-service@2.4.11)
@@ -4058,10 +3996,6 @@ snapshots:
       '@babel/template': 7.26.9
       '@babel/types': 7.26.9
 
-  '@babel/parser@7.26.3':
-    dependencies:
-      '@babel/types': 7.26.3
-
   '@babel/parser@7.26.9':
     dependencies:
       '@babel/types': 7.26.9
@@ -4093,11 +4027,6 @@ snapshots:
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
-
-  '@babel/types@7.26.3':
-    dependencies:
-      '@babel/helper-string-parser': 7.25.9
-      '@babel/helper-validator-identifier': 7.25.9
 
   '@babel/types@7.26.9':
     dependencies:
@@ -4905,13 +4834,13 @@ snapshots:
       '@tailwindcss/oxide-win32-arm64-msvc': 4.0.6
       '@tailwindcss/oxide-win32-x64-msvc': 4.0.6
 
-  '@tailwindcss/vite@4.0.6(vite@6.1.0(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1))':
+  '@tailwindcss/vite@4.0.6(vite@6.2.1(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1))':
     dependencies:
       '@tailwindcss/node': 4.0.6
       '@tailwindcss/oxide': 4.0.6
       lightningcss: 1.29.1
       tailwindcss: 4.0.6
-      vite: 6.1.0(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1)
+      vite: 6.2.1(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1)
 
   '@trysound/sax@0.2.0': {}
 
@@ -4929,24 +4858,24 @@ snapshots:
 
   '@types/babel__core@7.20.5':
     dependencies:
-      '@babel/parser': 7.26.3
-      '@babel/types': 7.26.3
+      '@babel/parser': 7.26.9
+      '@babel/types': 7.26.9
       '@types/babel__generator': 7.6.8
       '@types/babel__template': 7.4.4
       '@types/babel__traverse': 7.20.6
 
   '@types/babel__generator@7.6.8':
     dependencies:
-      '@babel/types': 7.26.3
+      '@babel/types': 7.26.9
 
   '@types/babel__template@7.4.4':
     dependencies:
-      '@babel/parser': 7.26.3
-      '@babel/types': 7.26.3
+      '@babel/parser': 7.26.9
+      '@babel/types': 7.26.9
 
   '@types/babel__traverse@7.20.6':
     dependencies:
-      '@babel/types': 7.26.3
+      '@babel/types': 7.26.9
 
   '@types/cookie@0.6.0': {}
 
@@ -4992,10 +4921,6 @@ snapshots:
     dependencies:
       undici-types: 5.26.5
 
-  '@types/node@22.10.2':
-    dependencies:
-      undici-types: 6.20.0
-
   '@types/node@22.10.5':
     dependencies:
       undici-types: 6.20.0
@@ -5010,11 +4935,11 @@ snapshots:
 
   '@types/sax@1.2.7':
     dependencies:
-      '@types/node': 17.0.45
+      '@types/node': 22.10.5
 
   '@types/tar@6.1.13':
     dependencies:
-      '@types/node': 22.10.2
+      '@types/node': 22.10.5
       minipass: 4.2.8
 
   '@types/unist@2.0.11': {}
@@ -5023,7 +4948,7 @@ snapshots:
 
   '@types/yauzl@2.10.3':
     dependencies:
-      '@types/node': 22.10.2
+      '@types/node': 22.10.5
     optional: true
 
   '@ungap/structured-clone@1.2.1': {}
@@ -5266,8 +5191,8 @@ snapshots:
       unist-util-visit: 5.0.0
       unstorage: 1.14.4
       vfile: 6.0.3
-      vite: 6.1.0(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.28.2)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1)
-      vitefu: 1.0.5(vite@6.1.0(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1))
+      vite: 6.2.1(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.28.2)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1)
+      vitefu: 1.0.5(vite@6.2.1(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1))
       which-pm: 3.0.1
       xxhash-wasm: 1.1.0
       yargs-parser: 21.1.1
@@ -5363,8 +5288,8 @@ snapshots:
       unist-util-visit: 5.0.0
       unstorage: 1.14.4
       vfile: 6.0.3
-      vite: 6.1.0(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1)
-      vitefu: 1.0.5(vite@6.1.0(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1))
+      vite: 6.2.1(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1)
+      vitefu: 1.0.5(vite@6.2.1(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1))
       which-pm: 3.0.1
       xxhash-wasm: 1.1.0
       yargs-parser: 21.1.1
@@ -5871,14 +5796,6 @@ snapshots:
   fast-deep-equal@2.0.1: {}
 
   fast-deep-equal@3.1.3: {}
-
-  fast-glob@3.3.2:
-    dependencies:
-      '@nodelib/fs.stat': 2.0.5
-      '@nodelib/fs.walk': 1.2.8
-      glob-parent: 5.1.2
-      merge2: 1.4.1
-      micromatch: 4.0.8
 
   fast-glob@3.3.3:
     dependencies:
@@ -6417,8 +6334,8 @@ snapshots:
 
   magicast@0.3.5:
     dependencies:
-      '@babel/parser': 7.26.3
-      '@babel/types': 7.26.3
+      '@babel/parser': 7.26.9
+      '@babel/types': 7.26.9
       source-map-js: 1.2.1
 
   make-error@1.3.6: {}
@@ -7115,12 +7032,6 @@ snapshots:
       mlly: 1.7.3
       pathe: 1.1.2
 
-  postcss@8.5.2:
-    dependencies:
-      nanoid: 3.3.8
-      picocolors: 1.1.1
-      source-map-js: 1.2.1
-
   postcss@8.5.3:
     dependencies:
       nanoid: 3.3.8
@@ -7593,8 +7504,6 @@ snapshots:
       commander: 2.20.3
       source-map-support: 0.5.21
 
-  tinyexec@0.3.1: {}
-
   tinyexec@0.3.2: {}
 
   tinyglobby@0.2.12:
@@ -7753,30 +7662,16 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
 
-  vite@6.1.0(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.28.2)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1):
+  vite@6.2.1(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.28.2)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1):
     dependencies:
-      esbuild: 0.24.2
-      postcss: 8.5.2
+      esbuild: 0.25.0
+      postcss: 8.5.3
       rollup: 4.34.7
     optionalDependencies:
       '@types/node': 22.10.5
       fsevents: 2.3.3
       jiti: 2.4.2
       lightningcss: 1.28.2
-      sass: 1.83.0
-      terser: 5.37.0
-      yaml: 2.6.1
-
-  vite@6.1.0(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1):
-    dependencies:
-      esbuild: 0.24.2
-      postcss: 8.5.2
-      rollup: 4.34.7
-    optionalDependencies:
-      '@types/node': 22.10.5
-      fsevents: 2.3.3
-      jiti: 2.4.2
-      lightningcss: 1.29.1
       sass: 1.83.0
       terser: 5.37.0
       yaml: 2.6.1
@@ -7795,9 +7690,9 @@ snapshots:
       terser: 5.37.0
       yaml: 2.6.1
 
-  vitefu@1.0.5(vite@6.1.0(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1)):
+  vitefu@1.0.5(vite@6.2.1(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1)):
     optionalDependencies:
-      vite: 6.1.0(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1)
+      vite: 6.2.1(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1)
 
   volar-service-css@0.0.62(@volar/language-service@2.4.11):
     dependencies:
