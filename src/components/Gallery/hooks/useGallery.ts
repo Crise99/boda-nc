@@ -1,13 +1,18 @@
 import photosInfo from "@/data/meta-gallery.json";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef } from "react";
 
-export const useGallery = ({ category }: { category: string }) => {
+export const useGallery = ({ category, isExpanded }: { category: string; isExpanded: boolean }) => {
 	const categoryIndex = Number(category) - 1;
 	const totalPhotos = photosInfo[categoryIndex].length;
-	const offset = totalPhotos < 10 ? totalPhotos : 10;
 	const first = useRef<HTMLAnchorElement>(null);
-	const [isExpanded, setIsExpanded] = useState(false);
-	const photos = photosInfo[categoryIndex].slice(0, offset);
+
+	// Usar useMemo para recalcular las fotos cuando cambian category o isExpanded
+	const photos = useMemo(() => {
+		if (isExpanded) {
+			return photosInfo[categoryIndex];
+		}
+		return photosInfo[categoryIndex].slice(0, Math.min(10, totalPhotos));
+	}, [categoryIndex, isExpanded, totalPhotos]);
 
 	useEffect(() => {
 		const init = async () => {
@@ -27,6 +32,7 @@ export const useGallery = ({ category }: { category: string }) => {
 	const LoadMore = async (e) => {
 		e.preventDefault();
 
+		const offset = Math.min(10, totalPhotos);
 		const res = await fetch(`/api/gallery.json?category=${category}&offset=${offset}`);
 		const images = await res.json();
 
@@ -55,14 +61,12 @@ export const useGallery = ({ category }: { category: string }) => {
 			.join("");
 		document.querySelector("#gallery")?.insertAdjacentHTML("beforeend", html);
 		document.querySelector("masonry-layout")?.scheduleLayout();
-		setIsExpanded(true);
 	};
 
 	return {
 		photos,
 		totalPhotos,
 		first,
-		isExpanded,
 		LoadMore,
 	};
 };

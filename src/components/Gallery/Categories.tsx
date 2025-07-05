@@ -7,6 +7,13 @@ import Title from "@/components/Gallery/Title";
 
 export default function Categories() {
 	const [cat, setCategory] = useState<string>("1");
+	const [isExpanded, setIsExpanded] = useState(false);
+
+	const handleCategoryChange = (category: string) => {
+		setCategory(category);
+		setIsExpanded(false);
+	};
+
 	return (
 		<>
 			<div className="flex flex-col items-center">
@@ -16,8 +23,8 @@ export default function Categories() {
 					{categories.map(({ category, name }) => (
 						<button
 							key={category}
-							className={`flex-1 rounded-t-2xl text-xl font-bold text-white transition-colors ${styles.tab} ${cat == category ? "z/10 bg-primary-200" : "bg-primary-400 hover:bg-primary-500"} `}
-							onClick={() => setCategory(category)}
+							className={`flex-1 rounded-t-2xl text-xl font-bold transition-colors ${styles.tab} ${cat == category ? "z/10" : "bg-primary-200 hover:bg-primary-300"} `}
+							onClick={() => handleCategoryChange(category)}
 						>
 							{name}
 						</button>
@@ -28,7 +35,7 @@ export default function Categories() {
 					<select
 						className="bg-primary-100 trasnsition-colors mx-8 w-full rounded-xl p-4 text-lg font-bold shadow-md"
 						value={cat}
-						onChange={(e) => setCategory(e.target.value)}
+						onChange={(e) => handleCategoryChange(e.target.value)}
 					>
 						{categories.map(({ category, name }) => (
 							<option key={category} value={category}>
@@ -38,7 +45,7 @@ export default function Categories() {
 					</select>
 				</div>
 			</div>
-			<Gallery category={cat} />
+			<Gallery category={cat} isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
 		</>
 	);
 }

@@ -4,11 +4,19 @@ import Button from "@components/Gallery/Button";
 import Footer from "@components/Gallery/Footer";
 import { useGallery } from "@components/Gallery/hooks/useGallery";
 
-export default function Gallery({ category }: { category: string }) {
-	const { first, isExpanded, photos, totalPhotos, LoadMore } = useGallery({ category });
+export default function Gallery({
+	category,
+	isExpanded,
+	setIsExpanded,
+}: {
+	category: string;
+	isExpanded: boolean;
+	setIsExpanded: (value: boolean) => void;
+}) {
+	const { first, photos, totalPhotos, LoadMore } = useGallery({ category, isExpanded });
 
 	return (
-		<section className="max-w-8xl mx-auto px-5 py-20 md:px-20 md:pt-30">
+		<section className="max-w-8xl mx-auto px-5 py-20 md:px-20 md:pt-20">
 			{/* @ts-ignore */}
 			<masonry-layout gap="24" maxColWidth="600" className="mx-4 py-20 lg:mx-auto" id="gallery">
 				{photos.map(({ height, width }, index) => (
@@ -41,7 +49,14 @@ export default function Gallery({ category }: { category: string }) {
 
 			<div className="mx-auto text-center">
 				{!isExpanded && totalPhotos > 10 && (
-					<Button onClick={LoadMore} id="load-more" url="#">
+					<Button
+						onClick={(e) => {
+							LoadMore(e);
+							setIsExpanded(true);
+						}}
+						id="load-more"
+						url="#"
+					>
 						Descúbrelas todas
 					</Button>
 				)}
