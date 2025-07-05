@@ -2,11 +2,12 @@ import photosInfo from "@/data/meta-gallery.json";
 import { useEffect, useRef, useState } from "react";
 
 export const useGallery = ({ category }: { category: string }) => {
-	const totalPhotos = photosInfo.length;
+	const categoryIndex = Number(category) - 1;
+	const totalPhotos = photosInfo[categoryIndex].length;
 	const offset = totalPhotos < 10 ? totalPhotos : 10;
 	const first = useRef<HTMLAnchorElement>(null);
 	const [isExpanded, setIsExpanded] = useState(false);
-	const photos = photosInfo.slice(0, offset);
+	const photos = photosInfo[categoryIndex].slice(0, offset);
 
 	useEffect(() => {
 		const init = async () => {

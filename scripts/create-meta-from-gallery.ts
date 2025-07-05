@@ -10,7 +10,7 @@ interface ImageMetadata {
 }
 
 // Paths
-const galleryPath = "public/gallery/*.webp";
+const galleryPath = "public/gallery/*/*.webp";
 const metaPath = "src/data/meta-gallery.json";
 
 // Initialize metadata array
