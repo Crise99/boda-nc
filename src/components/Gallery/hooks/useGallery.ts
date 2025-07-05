@@ -1,7 +1,7 @@
 import photosInfo from "@/data/meta-gallery.json";
 import { useEffect, useRef, useState } from "react";
 
-export const useGallery = () => {
+export const useGallery = ({ category }: { category: string }) => {
 	const totalPhotos = photosInfo.length;
 	const offset = totalPhotos < 10 ? totalPhotos : 10;
 	const first = useRef<HTMLAnchorElement>(null);
@@ -26,7 +26,7 @@ export const useGallery = () => {
 	const LoadMore = async (e) => {
 		e.preventDefault();
 
-		const res = await fetch(`/api/gallery.json?offset=${offset}`);
+		const res = await fetch(`/api/gallery.json?category=${category}&offset=${offset}`);
 		const images = await res.json();
 
 		const html = images
@@ -38,16 +38,16 @@ export const useGallery = () => {
 				if (!clone) return;
 				clone.setAttribute("data-pswp-width", img.width);
 				clone.setAttribute("data-pswp-height", img.height);
-				clone.setAttribute("href", `/gallery/img-${imgIndex}.webp`);
+				clone.setAttribute("href", `/gallery/${category}/img-${imgIndex}.webp`);
 				clone.classList.add("animate-fade-up");
 				clone.classList.add("animate-delay-300");
 				clone.classList.add("opacity-0");
 				clone
 					.querySelector("img:first-child")
-					?.setAttribute("src", `/gallery/thumbnails/img-${imgIndex}.webp`);
+					?.setAttribute("src", `/gallery/${category}/thumbnails/img-${imgIndex}.webp`);
 				clone
 					.querySelector("img:last-child")
-					?.setAttribute("src", `/gallery/thumbnails/img-${imgIndex}.webp`);
+					?.setAttribute("src", `/gallery/${category}/thumbnails/img-${imgIndex}.webp`);
 
 				return clone?.outerHTML;
 			})
