@@ -41,6 +41,9 @@ importers:
       '@iconify-json/tabler':
         specifier: 1.2.16
         version: 1.2.16
+      '@justinribeiro/lite-youtube':
+        specifier: ^1.8.2
+        version: 1.8.2
       '@react-email/components':
         specifier: 0.0.33
         version: 0.0.33(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -886,6 +889,9 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
+
+  '@justinribeiro/lite-youtube@1.8.2':
+    resolution: {integrity: sha512-wayU5sYA/e5J/1j7zFk8Hoi72Hk67Axy7Za2OFRzsytd9gvtv7ZeWhmdi2lOGbnXwMZHkeMsqxRGFxH60lo5bg==}
 
   '@mapbox/node-pre-gyp@2.0.0':
     resolution: {integrity: sha512-llMXd39jtP0HpQLVI37Bf1m2ADlEb35GYSh1SDSLsBhR+5iCxiNGlT31yqbNtVHygHAtMy6dWFERpU2JgufhPg==}
@@ -4573,6 +4579,8 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
+
+  '@justinribeiro/lite-youtube@1.8.2': {}
 
   '@mapbox/node-pre-gyp@2.0.0':
     dependencies:

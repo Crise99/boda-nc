@@ -4,6 +4,7 @@ import categories from "@/data/categories-info.json";
 import styles from "@/components/Gallery/styles/Categories.module.css";
 import Gallery from "@/components/Gallery/Gallery";
 import Title from "@/components/Gallery/Title";
+import Videos from "@/components/Gallery/Videos";
 
 export default function Categories() {
 	const [cat, setCategory] = useState<string>("1");
@@ -45,7 +46,11 @@ export default function Categories() {
 					</select>
 				</div>
 			</div>
-			<Gallery category={cat} isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
+			{cat !== "999" ? (
+				<Gallery category={cat} isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
+			) : (
+				<Videos></Videos>
+			)}
 		</>
 	);
 }

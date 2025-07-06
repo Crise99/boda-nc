@@ -16,15 +16,6 @@ export default function Gallery({
 	setIsExpanded: (value: boolean) => void;
 }) {
 	const { first, photos, totalPhotos, LoadMore } = useGallery({ category, isExpanded });
-	const [showButtonToTop, setShowButtonToTop] = useState(false);
-
-	useEffect(() => {
-		const handleScroll = () => {
-			setShowButtonToTop(window.scrollY > window.innerHeight);
-		};
-		window.addEventListener("scroll", handleScroll);
-		return () => window.removeEventListener("scroll", handleScroll);
-	}, []);
 
 	return (
 		<section className="max-w-8xl mx-auto px-5 py-20 md:px-20 md:pt-20">
@@ -57,7 +48,6 @@ export default function Gallery({
 				))}
 				{/* @ts-ignore */}
 			</masonry-layout>
-
 			<div className="mx-auto text-center">
 				{!isExpanded && totalPhotos > 10 && (
 					<Button
@@ -75,7 +65,7 @@ export default function Gallery({
 					<Footer text="Continuemos juntos el camino para capturar más momentos felices 💘"></Footer>
 				)}
 			</div>
-			{showButtonToTop && <ButtonToTop scrollTo="#categories" />}
+			<ButtonToTop scrollTo="#categories" />
 		</section>
 	);
 }

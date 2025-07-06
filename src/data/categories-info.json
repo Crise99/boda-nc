@@ -6,5 +6,9 @@
 	{
 		"category": "2",
 		"name": "Fotomatón"
+	},
+	{
+		"category": "999",
+		"name": "Vídeos"
 	}
 ]
