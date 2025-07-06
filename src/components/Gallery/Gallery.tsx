@@ -2,7 +2,9 @@ import "photoswipe/style.css";
 import "@components/Gallery/styles/Gallery.css";
 import Button from "@components/Gallery/Button";
 import Footer from "@components/Gallery/Footer";
+import { useState, useEffect } from "react";
 import { useGallery } from "@components/Gallery/hooks/useGallery";
+import ButtonToTop from "./ButtonToTop";
 
 export default function Gallery({
 	category,
@@ -14,6 +16,15 @@ export default function Gallery({
 	setIsExpanded: (value: boolean) => void;
 }) {
 	const { first, photos, totalPhotos, LoadMore } = useGallery({ category, isExpanded });
+	const [showButtonToTop, setShowButtonToTop] = useState(false);
+
+	useEffect(() => {
+		const handleScroll = () => {
+			setShowButtonToTop(window.scrollY > window.innerHeight);
+		};
+		window.addEventListener("scroll", handleScroll);
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
 
 	return (
 		<section className="max-w-8xl mx-auto px-5 py-20 md:px-20 md:pt-20">
@@ -64,6 +75,7 @@ export default function Gallery({
 					<Footer text="Continuemos juntos el camino para capturar más momentos felices 💘"></Footer>
 				)}
 			</div>
+			{showButtonToTop && <ButtonToTop scrollTo="#categories" />}
 		</section>
 	);
 }

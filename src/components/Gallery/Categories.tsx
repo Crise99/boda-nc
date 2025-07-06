@@ -16,7 +16,7 @@ export default function Categories() {
 
 	return (
 		<>
-			<div className="flex flex-col items-center">
+			<div id="categories" className="flex flex-col items-center">
 				<Title className="mt-24" title="Galería" subtitle="Todas las fotos de nuestra boda" />
 				{/* Desktop buttons */}
 				<div className="mt-24 hidden h-24 w-full md:flex">
