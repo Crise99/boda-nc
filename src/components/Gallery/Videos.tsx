@@ -8,7 +8,7 @@ export default function Videos() {
 			<div className="grid gap-6 md:grid-cols-2 2xl:grid-cols-3">
 				{videos.map((video) => (
 					<div key={video.id} className="flex flex-col items-center">
-						<article className="aspect-video w-full overflow-hidden rounded-xl bg-black shadow-lg">
+						<article className="aspect-video w-full overflow-hidden rounded-xl bg-black transition-transform hover:scale-103 hover:shadow-2xl">
 							{/* @ts-ignore */}
 							<lite-youtube videotitle={video.title} videoid={video.videoid}></lite-youtube>
 						</article>
