@@ -1,103 +1,70 @@
 import { rename } from "fs/promises";
 import { glob } from "glob";
-import { basename, dirname, join } from "path";
+import { basename, dirname, join, resolve } from "path";
 
-interface GalleryAnalysis {
-	existingNumbers: Set<number>;
-	unnamedFiles: string[];
-	nextNumber: number;
-}
+async function processSubfolderImages(subfolder: string) {
+	const files = await glob(join(subfolder, "*.webp"), {});
+	if (files.length === 0) return;
 
-async function processGalleryImages(analysis?: GalleryAnalysis): Promise<void> {
-	try {
-		// Initial analysis if not provided
-		if (!analysis) {
-			const files = await glob("public/gallery/*.webp", {});
-			console.log(`Found ${files.length} files in gallery`);
+	// Recoge los números existentes y los archivos a renombrar
+	const numberedFiles: { path: string; num: number }[] = [];
+	const unnamedFiles: string[] = [];
 
-			analysis = {
-				existingNumbers: new Set<number>(),
-				unnamedFiles: [],
-				nextNumber: 1,
-			};
-
-			// First pass: collect existing numbers
-			for (const file of files) {
-				const match = basename(file).match(/img-(\d+)\.webp$/);
-				if (match) {
-					const num = parseInt(match[1], 10);
-					analysis.existingNumbers.add(num);
-				} else {
-					analysis.unnamedFiles.push(file);
-					console.log(`File needs renaming: ${basename(file)}`);
-				}
-			}
-
-			// Calculate next available number
-			while (analysis.existingNumbers.has(analysis.nextNumber)) {
-				analysis.nextNumber++;
-			}
+	for (const file of files) {
+		const match = basename(file).match(/^img-(\d+)\.webp$/);
+		if (match) {
+			numberedFiles.push({ path: file, num: parseInt(match[1], 10) });
+		} else {
+			unnamedFiles.push(file);
 		}
-
-		// Base case: no more files to rename
-		if (!analysis?.unnamedFiles.length) {
-			console.log("\nAll files have been renamed successfully!");
-			return;
-		}
-
-		// Get the next file to rename
-		const fileToRename = analysis.unnamedFiles[0];
-		const newName = `img-${analysis.nextNumber}.webp`;
-		const newPath = join(dirname(fileToRename), newName);
-
-		// Rename the file
-		await rename(fileToRename, newPath);
-		console.log(`Renamed ${basename(fileToRename)} to ${newName}`);
-
-		// Update analysis for next iteration
-		analysis.existingNumbers.add(analysis.nextNumber);
-		analysis.unnamedFiles.shift();
-		analysis.nextNumber++;
-
-		// Recursive call with updated analysis
-		await processGalleryImages(analysis);
-	} catch (error) {
-		console.error("Error processing gallery:", error);
-		process.exit(1);
 	}
-}
 
-async function reorderSequentially() {
-	// After all unnamed files are processed, reorder all files sequentially
-	const allFiles = await glob("public/gallery/*.webp", {});
-	const numberedFiles = allFiles
+	// Renombra los archivos sin nombre a img-X.webp
+	let nextNumber = 1;
+	const usedNumbers = new Set(numberedFiles.map((f) => f.num));
+	while (usedNumbers.has(nextNumber)) nextNumber++;
+
+	for (const file of unnamedFiles) {
+		const newName = `img-${nextNumber}.webp`;
+		const newPath = join(dirname(file), newName);
+		await rename(file, newPath);
+		console.log(`[${basename(subfolder)}] Renamed ${basename(file)} to ${newName}`);
+		usedNumbers.add(nextNumber);
+		nextNumber++;
+	}
+
+	// Vuelve a obtener todos los archivos y renuméralos secuencialmente
+	const allFiles = await glob(join(subfolder, "*.webp"), {});
+	const allNumbered = allFiles
 		.map((file) => {
-			const match = basename(file).match(/img-(\d+)\.webp$/);
+			const match = basename(file).match(/^img-(\d+)\.webp$/);
 			return match ? { path: file, num: parseInt(match[1], 10) } : null;
 		})
-		.filter((file): file is { path: string; num: number } => file !== null)
+		.filter((f): f is { path: string; num: number } => f !== null)
 		.sort((a, b) => a.num - b.num);
 
-	// Renumber files sequentially
-	for (let i = 0; i < numberedFiles.length; i++) {
-		const file = numberedFiles[i];
+	for (let i = 0; i < allNumbered.length; i++) {
+		const file = allNumbered[i];
 		const newNumber = i + 1;
 		if (file.num !== newNumber) {
 			const newName = `img-${newNumber}.webp`;
 			const newPath = join(dirname(file.path), newName);
 			await rename(file.path, newPath);
-			console.log(`Reordered ${basename(file.path)} to ${newName}`);
+			console.log(`[${basename(subfolder)}] Reordered ${basename(file.path)} to ${newName}`);
 		}
 	}
-	console.log("\nAll files have been reordered sequentially!");
 }
 
 async function main() {
-	// Start the recursive process
-	await processGalleryImages();
-	// After renaming, reorder all files sequentially
-	await reorderSequentially();
+	const subfolders = await glob("public/gallery/*/", {});
+	if (subfolders.length === 0) {
+		console.log("No subfolders found in public/gallery/");
+		return;
+	}
+	for (const subfolder of subfolders) {
+		await processSubfolderImages(resolve(subfolder));
+	}
+	console.log("\nAll images in all subfolders have been renamed and reordered!");
 }
 
-// Execute main function
 main();

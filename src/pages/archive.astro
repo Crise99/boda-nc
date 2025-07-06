@@ -3,7 +3,7 @@ export const prerender = false; // Not needed in 'server' mode
 
 import siteData from "@/config/siteData.json";
 import Button from "@components/Button/Button.astro";
-import Gallery from "@components/Gallery/Gallery.tsx";
+import Categories from "@components/Gallery/Categories";
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 const { publicGallery } = siteData;
@@ -30,5 +30,5 @@ const { publicGallery } = siteData;
 			</section>
 		)
 	}
-	{publicGallery && <Gallery client:load />}
+	{publicGallery && <Categories client:only />}
 </BaseLayout>

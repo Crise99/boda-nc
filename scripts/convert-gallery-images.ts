@@ -6,7 +6,7 @@ import sharp from "sharp";
 async function convertToWebp() {
 	console.info("📐 Convert images to WEBP");
 
-	const files = await glob("public/gallery/*.{jpg,jpeg,png}", {});
+	const files = await glob("public/gallery/*/*.{jpg,jpeg,png}", {});
 
 	const replaceExtWithDot = (newExtWithDot: string, { inFilePath }: { inFilePath: string }) =>
 		join(dirname(inFilePath), basename(inFilePath, extname(inFilePath))) + newExtWithDot;
