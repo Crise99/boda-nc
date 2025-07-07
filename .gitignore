@@ -25,3 +25,8 @@ pnpm-debug.log*
 .idea/
 
 testgallery/
+
+# npm, yarn, pnpm lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml	
