@@ -103,3 +103,8 @@
 ::-webkit-scrollbar-thumb:hover {
 	background: rgba(0, 0, 0, 0.836);
 }
+
+/* Personaliza el botón de play */
+lite-youtube::part(playButton) {
+	@apply bg-primary-500 hover:bg-primary-600 rounded-full p-2 text-white;
+}
